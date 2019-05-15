@@ -29,6 +29,8 @@ public class MainController {
             System.out.println(vehicles.get(i));
         }
 
+        model.addAttribute("vehicles", vehicles);
+
         return "carsList";
 
     }
