@@ -8,12 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SQLDatabaseConnection {
-   private static String connectionUrl =
-            "jdbc:sqlserver://DESKTOP-U925N8J:1433;databaseName=OptiTech;integratedSecurity=true";
+   static String connectionUrl =
+            "jdbc:sqlserver://UROSLENOVO\\SQL:51307;"
+            + "database=OptiTech;"
+            + "user=sa;"
+            + "password=T3st1ranj3123.;";
     // Connect to your database.
     // Replace server name, username, and password with your credentials
     public static ArrayList<String> getInsertedVehicles() {
-
 
         ResultSet resultSet;
         ArrayList<String> avti = new ArrayList<>();
@@ -23,7 +25,6 @@ public class SQLDatabaseConnection {
             // Create and execute a SELECT SQL statement.
             String selectSql = "SELECT vehicleId ,vin, vehicleTitle, vehicleName, regNumber, carModelId, fuelTypeId, engineSize, enginePower, enginePowerHP FROM OptiTech.biz.Vehicles  WHERE vehicleTitle != 'Null' AND vehicleName != 'Null' AND vin != 'Null' AND regNumber != 'Null' AND vehicleTitle != 'Car' AND enginePowerHP != 0;";
             resultSet = statement.executeQuery(selectSql);
-
 
             // Print results from select statement
             while (resultSet.next()) {
