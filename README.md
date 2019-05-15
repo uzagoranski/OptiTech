@@ -1,1 +1,1 @@
-# Praktikum_OptiTech
+# OptiTech
