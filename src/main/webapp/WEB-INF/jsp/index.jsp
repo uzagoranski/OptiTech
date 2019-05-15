@@ -61,7 +61,7 @@
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                             <li>
-                                <a href="index.html">Dashboard 1</a>
+                                <a href="index">Dashboard 1</a>
                             </li>
                             <li>
                                 <a href="index2.html">Dashboard 2</a>
@@ -169,7 +169,7 @@
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                             <li>
-                                <a href="index.html">Dashboard 1</a>
+                                <a href="index">Dashboard 1</a>
                             </li>
                             <li>
                                 <a href="index2.html">Dashboard 2</a>
@@ -183,8 +183,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="chart.html">
-                            <i class="fas fa-chart-bar"></i>Charts</a>
+                        <a href="carsList">
+                            <i class="fa fa-car"></i>Cars</a>
                     </li>
                     <li>
                         <a href="table.html">
