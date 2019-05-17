@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SQLDatabaseConnection {
-   private static String connectionUrl =
+    static String connectionUrl =
             "jdbc:sqlserver://DESKTOP-U925N8J:1433;databaseName=OptiTech;integratedSecurity=true";
     // Connect to your database.
     // Replace server name, username, and password with your credentials
