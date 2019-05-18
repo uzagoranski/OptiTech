@@ -47,20 +47,26 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-9">
-                            <h2 class="title-1 m-b-25">Earnings By Items</h2>
+                            <h2 class="title-1 m-b-25">Cars</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
                                         <th>Brand</th>
                                         <th>Model</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                       <c:forEach items="${vehicles}" var="v">
                                             <tr>
-                                                <td> ${v} </td>
+                                                <td> ${v.getCarModel()} </td>
+                                                <td>${v.getCarMaker()}</td>
+                                                <td>
+                                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                                        <i class="zmdi"></i>Podrobnosti
+                                                    </button>
+                                                </td>
                                             </tr>
                                       </c:forEach>
                                     </tbody>
