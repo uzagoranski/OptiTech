@@ -4,11 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.SQLCarsDatabase;
 import si.feri.pkm.optitech.Database.SQLDatabaseConnection;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 @Controller
@@ -39,4 +41,11 @@ public class MainController {
         return "carsList";
 
     }
+
+    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
+    public String carDetails(Model model, @RequestParam(value="id") int id) throws ParseException {
+
+        return "carDetails";
+    }
+
 }

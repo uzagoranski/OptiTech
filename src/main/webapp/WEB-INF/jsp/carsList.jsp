@@ -13,6 +13,9 @@
     <!-- Title Page-->
     <title>Cars</title>
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -54,19 +57,13 @@
                                     <tr>
                                         <th>Brand</th>
                                         <th>Model</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                       <c:forEach items="${vehicles}" var="v">
-                                            <tr>
-                                                <td> ${v.getCarModel()} </td>
+                                            <tr class='clickable-row' data-href='http://localhost:8080/carDetails?id=${v.getVehicleId()}'>
                                                 <td>${v.getCarMaker()}</td>
-                                                <td>
-                                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                                        <i class="zmdi"></i>Podrobnosti
-                                                    </button>
-                                                </td>
+                                                <td> ${v.getCarModel()} </td>
                                             </tr>
                                       </c:forEach>
                                     </tbody>
@@ -110,6 +107,7 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="js/myJS.js"></script>
 
 </body>
 
