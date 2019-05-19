@@ -10,14 +10,14 @@ Java,
 MSSQL Server,
 SQL Server Management Studio (SSMS),
 Maven,
-Springboot,
+Spring Boot,
 ```
 IntelliJ IDEA 2019.1.2,
 Java 1.8,
 MSSQL Server 2016+,
 SQL Server Management Studio (SSMS) 18.0,
 Maven 4.0.0,
-Springboot 2.1.4
+Spring Boot 2.1.4
 ```
 
 ### Ekosistem podatkov in upravljalcev
