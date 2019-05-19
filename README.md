@@ -1,4 +1,7 @@
-# OptiTech
+<p align="center">
+  <img  src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
+</p>
+          Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
 
 ### Predpogoji
 
