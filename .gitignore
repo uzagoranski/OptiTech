@@ -16,6 +16,7 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+src/main/java/si/feri/pkm/optitech/Database/SQLDatabaseConnection.java
 
 ### NetBeans ###
 /nbproject/private/
@@ -27,4 +28,4 @@ HELP.md
 
 ### VS Code ###
 .vscode/
-src/main/java/si/feri/pkm/optitech/Database/SQLDatabaseConnection.java
+

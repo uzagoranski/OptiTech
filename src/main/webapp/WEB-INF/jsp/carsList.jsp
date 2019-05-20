@@ -70,8 +70,6 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class = "row">
                         <div class="col-lg-6">
                             <c:choose>
                                 <c:when test="${vehicle != null}">
