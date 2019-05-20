@@ -127,7 +127,7 @@ Select FuelType
 7)
 Create CarImage za .png slike vozil
 */
- CREATE TABLE [tlm].[CarImage] (
+ CREATE TABLE Optitech.[tlm].[CarImage] (
     CarImageID int NOT NULL IDENTITY PRIMARY KEY,
     VehicleID int NOT NULL,
     ImageLink varchar(255)
@@ -137,7 +137,7 @@ Create CarImage za .png slike vozil
 8)
 Insert linkov v CarImage
 */
-INSERT INTO [tlm].[CarImage] (VehicleID, ImageLink) VALUES
+INSERT INTO Optitech.[tlm].[CarImage] (VehicleID, ImageLink) VALUES
 (217, 'https://i.imgur.com/uA1z5yj.png'),
 (224, 'https://i.imgur.com/ojMbZFQ.png'),
 (1384, 'https://i.imgur.com/fZeAdw6.png'),

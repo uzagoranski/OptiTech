@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.SQLCarsDatabase;
+import si.feri.pkm.optitech.Database.SQLFuelType;
+import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.text.ParseException;
@@ -38,6 +40,20 @@ public class MainController {
              vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         }
 
+        //tu not imaš VSE IDje in Imena če je bencinar / dizel / hibrid...
+        ArrayList<FuelType> fuelTypes= SQLFuelType.getAllFuelTypes();
+
+        //Tu je pravo Gorivo, ki ga uporablja avto
+        String fuel ="";
+        if(vehicle != null) {
+
+            for (FuelType f : fuelTypes) {
+                if (f.getId() == vehicle.getFuelTypeId()) {
+                    fuel = f.getNaziv();
+                }
+            }
+        }
+        model.addAttribute("fuel", fuel);
         model.addAttribute("vehicle", vehicle);
 
         return "carsList";
@@ -46,6 +62,7 @@ public class MainController {
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
     public String carDetails(Model model, @RequestParam(value="id") int id) throws ParseException {
+
 
         return "carDetails";
     }
