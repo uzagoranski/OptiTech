@@ -70,10 +70,18 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mx-auto" style="padding-top: 60px; padding-left: 60px" id="carView">
                             <c:choose>
                                 <c:when test="${vehicle != null}">
-                                    <p>${vehicle.getVehicleTitle()}</p>
+                                    <img src="${slika}">
+                                    <p>Name: ${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</p>
+                                    <p>Registry number: ${vehicle.getRegNumber()}</p>
+                                    <p>Vin: ${vehicle.getVin()}</p>
+                                    <p>Year: ${vehicle.getCarModelYear()}</p>
+                                    <p>Fuel: ${fuel}</p>
+                                    <p>Engine size: ${vehicle.getEngineSize()}</p>
+                                    <p>Horsepower: ${vehicle.getEnginePower()} HP</p>
+                                    <p></p>
                                 </c:when>
                                 <c:otherwise>
                                     ${vehicle = SQLCarsDatabase.getSelectedVehicle(217)}
