@@ -1,3 +1,12 @@
+/*
+tlm.DriveData -> pridobiš preko propertyja vehicleId id za tabelo biz.Vehicles
+biz.Vehicles -> pridobiš preko propertyja carModelId id za tabelo reg.CarModels
+reg.CarModels -> pridobiš preko propertyja carMakerId id za tabelo reg.CarMakers
+
+prikažeš ZNAMKO (reg.CarMakers), MODEL (reg.CarModels), POVPREČJA RPM, VSS, PORABE (tlm.DriveData), torej je biz.Vehicles samo prehodna tabela.
+*/
+
+
 /*  SLABO
 1) View za modelId in makerId, ta View se v bazi nahaja pod: OptiTech -> Views -> dbo.nekaj
 */
@@ -109,7 +118,17 @@ UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf' where vehicleId = 1358
 UPDATE optitech.biz.Vehicles SET vehicleTitle='Passat' where vehicleId = 1387
 
 /*
- 6)
- Select FuelType
- */
+6)
+Select FuelType
+*/
  Select * from OptiTech.reg.FuelTypes;
+
+/*
+7)
+Create CarImage za .png slike vozil
+*/
+ CREATE TABLE [tlm].[CarImage] (
+    CarImageID int NOT NULL IDENTITY PRIMARY KEY,
+    VehicleID int NOT NULL,
+    ImageLink varchar(255)
+);

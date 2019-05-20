@@ -9,7 +9,10 @@ import java.util.ArrayList;
 
 public class SQLDatabaseConnection {
     static String connectionUrl =
-            "jdbc:sqlserver://DESKTOP-24FQM30:55791;databaseName=OptiTech;integratedSecurity=true";
+            "jdbc:sqlserver://UROSLENOVO\\SQL:51307;"
+                    + "database=OptiTech;"
+                    + "user=sa;"
+                    + "password=T3st1ranj3123.;";
     // Connect to your database.
     // Replace server name, username, and password with your credentials
     public static ArrayList<String> getInsertedVehicles() {
