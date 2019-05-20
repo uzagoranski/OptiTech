@@ -10,7 +10,7 @@ Java,
 MSSQL Server,
 SQL Server Management Studio (SSMS),
 Maven,
-Spring Boot,
+Spring Boot
 ```
 IntelliJ IDEA 2019.1.2,
 Java 1.8,
@@ -37,8 +37,11 @@ Platformo sestavlajo:
 
 ## Navodila za implementacijo
 
-1.	Prenesite in namestite: IntelliJ IDEA, MSSQL Server, Java
-2.	
+1.	Prenesite in namestite: IntelliJ IDEA 2019.1.2, Java 1.8 MSSQL Server (vsaj 2016), SQL Server Management Studio (SMMS) 18.0
+2.  V environment variables v računalniku nastavite pot do bin direktorija JDK-ja (Tutorial: https://www.javatpoint.com/how-to-set-path-in-java)
+3.	Odprite razvojno okolje IntelliJ IDEA, kliknite opcijo "Check out from Version Control, v dropdown menuju izberite opcijo Git
+4.  V polje URL prekopirajte povezavo https://github.com/uzagoranski/Praktikum_OptiTech.git, izberite lokacijo kloniranja in pritisnite na gumb Clone
+5.  
 
 ## Izdelano s pomočjo
 
