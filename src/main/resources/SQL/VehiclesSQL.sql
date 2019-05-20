@@ -132,3 +132,27 @@ Create CarImage za .png slike vozil
     VehicleID int NOT NULL,
     ImageLink varchar(255)
 );
+
+/*
+8)
+Insert linkov v CarImage
+*/
+INSERT INTO [tlm].[CarImage] (VehicleID, ImageLink) VALUES
+(217, 'https://i.imgur.com/uA1z5yj.png'),
+(224, 'https://i.imgur.com/ojMbZFQ.png'),
+(1384, 'https://i.imgur.com/fZeAdw6.png'),
+(1386, 'https://i.imgur.com/X8UyLYa.png'),
+(1369, 'https://i.imgur.com/ZJCxvSy.png'),
+(1364, 'https://i.imgur.com/Ofn4rdC.png'),
+(1380, 'https://i.imgur.com/hjfAP6D.png'),
+(225, 'https://i.imgur.com/zfOPCgH.png'),
+(1309, 'https://i.imgur.com/xrgKTPh.png'),
+(218, 'https://i.imgur.com/G8h167J.png'),
+(1368, 'https://i.imgur.com/vFYW2U0.png'),
+(1360, 'https://i.imgur.com/TTxOPFp.png'),
+(1363, 'https://i.imgur.com/srrzmnJ.png'),
+(1361, 'https://i.imgur.com/GDYRqy1.png'),
+(245, 'https://i.imgur.com/zfOPCgH.png'),
+(1346, 'https://i.imgur.com/zfOPCgH.png'),
+(1358, 'https://i.imgur.com/ZAzuis3.png'),
+(1387, 'https://i.imgur.com/DsD8AwZ.png');
