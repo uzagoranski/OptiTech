@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import si.feri.pkm.optitech.Database.SQLCarImage;
 import si.feri.pkm.optitech.Database.SQLCarsDatabase;
 import si.feri.pkm.optitech.Database.SQLFuelType;
 import si.feri.pkm.optitech.Entity.FuelType;
@@ -20,8 +21,6 @@ public class MainController {
     public String index(Model model) {
 
 
-        System.out.println();
-
         return "index";
     }
 
@@ -35,6 +34,8 @@ public class MainController {
         model.addAttribute("vehicles", vehicles);
 
         Vehicle vehicle = null;
+        String linkSlika ="";
+        String fuel ="";
 
         if(id != null){
              vehicle = SQLCarsDatabase.getSelectedVehicle(id);
@@ -44,15 +45,19 @@ public class MainController {
         ArrayList<FuelType> fuelTypes= SQLFuelType.getAllFuelTypes();
 
         //Tu je pravo Gorivo, ki ga uporablja avto
-        String fuel ="";
-        if(vehicle != null) {
 
+        if(vehicle != null) {
+            linkSlika = SQLCarImage.getCarImage(id);
             for (FuelType f : fuelTypes) {
                 if (f.getId() == vehicle.getFuelTypeId()) {
                     fuel = f.getNaziv();
                 }
             }
         }
+
+
+        System.out.println(linkSlika);
+        model.addAttribute("slika",linkSlika);
         model.addAttribute("fuel", fuel);
         model.addAttribute("vehicle", vehicle);
 

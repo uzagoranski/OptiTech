@@ -23,7 +23,6 @@ public class SQLFuelType {
             // Print results from select statement
             while (resultSet.next()) {
                 FuelType f = new FuelType(resultSet.getInt(1), resultSet.getString(2));
-                System.out.println(resultSet.getInt(1) +" "+ resultSet.getString(2));
             fuelTypes.add(f);
             }
         } catch (SQLException e) {
