@@ -92,8 +92,9 @@ WHERE engineSize != 0
 
 /*
 4)
+Podatki kako je bil avto vožen.
 */
-
+SELECT AVG(DrvDist) as povprecna_Prevozena_Razdalja, AVG(DrvTime) as povprecen_Cas_Voznje, AVG(RpmAvg) as povprecen_RPM_Povprecna, AVG(RpmMax) as povprecen_RPM_Max, avg(VssMax) as povprecna_hitrost_max FROM OptiTech.tlm.DriveData WHERE vehicleId=217 AND DrvTime != 0 AND DrvDist > 400;
 
 /*
 5) Update, za imena avtov
