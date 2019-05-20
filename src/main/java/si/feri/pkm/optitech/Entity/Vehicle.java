@@ -1,5 +1,7 @@
 package si.feri.pkm.optitech.Entity;
 
+import si.feri.pkm.optitech.Database.SQLCarsDatabase;
+
 import java.sql.Date;
 
 public class Vehicle {
@@ -21,6 +23,10 @@ public class Vehicle {
     Date dateRegStarted;
     Date dateRegEnd;
 
+    public Vehicle(){
+
+    }
+
     public Vehicle(long carModelId, long carMakerId, String carModel, int vehicleSubtypeId, String countryId, String carMaker, int vehicleId, String vin, String vehicleTitle, String regNumber, int carModelYear, int fuelTypeId, int drivenWheelsId, int engineSize, int enginePower, Date dateRegStarted, Date dateRegEnd) {
         this.carModelId = carModelId;
         this.carMakerId = carMakerId;
@@ -41,7 +47,10 @@ public class Vehicle {
         this.dateRegEnd = dateRegEnd;
     }
 
-
+//    public Vehicle getSelectedVehicle(int id){
+//
+//        return ;
+//    }
 
     public long getCarModelId() {
         return carModelId;

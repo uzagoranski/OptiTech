@@ -107,3 +107,9 @@ UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' where vehicleId = 245
 UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' where vehicleId = 1346
 UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf' where vehicleId = 1358
 UPDATE optitech.biz.Vehicles SET vehicleTitle='Passat' where vehicleId = 1387
+
+/*
+ 6)
+ Select FuelType
+ */
+ Select * from OptiTech.reg.FuelTypes;
