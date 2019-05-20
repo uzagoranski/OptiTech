@@ -1,7 +1,6 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -11,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Cars</title>
+    <title>Vehicles</title>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -50,7 +49,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h2 class="title-1 m-b-25">Vehicles</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
@@ -70,30 +68,23 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6 mx-auto" style="padding-top: 60px; padding-left: 60px" id="carView">
-                            <c:choose>
-                                <c:when test="${vehicle != null}">
-                                    <img src="${slika}">
-                                    <p>Name: ${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</p>
-                                    <p>Registry number: ${vehicle.getRegNumber()}</p>
-                                    <p>Vin: ${vehicle.getVin()}</p>
-                                    <p>Year: ${vehicle.getCarModelYear()}</p>
-                                    <p>Fuel: ${fuel}</p>
-                                    <p>Engine size: ${vehicle.getEngineSize()}</p>
-                                    <p>Horsepower: ${vehicle.getEnginePower()} HP</p>
-                                    <p></p>
-                                </c:when>
-                                <c:otherwise>
-                                    ${vehicle = SQLCarsDatabase.getSelectedVehicle(217)}
-                                    <p>${vehicle.getVehicleTitle()}</p>
-                                </c:otherwise>
-                            </c:choose>
+                        <div class="col-lg-6 mx-auto" id="carView">
+                            <h2 align="center" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h2>
+                            <img class="avto" src="${slika}">
+                            <div align="center">
+                                <span><i>Registry number: </i> <b> ${vehicle.getRegNumber()}</b></span><br/>
+                                <span><i>Vin: </i> <b> ${vehicle.getVin()}</b></span><br/>
+                                <span><i>Year: </i> <b> ${vehicle.getCarModelYear()}</b></span><br/>
+                                <span><i>Fuel: </i> <b> ${fuel}</b></span><br/>
+                                <span><i>Engine size: </i> <b> ${vehicle.getEngineSize()}</b></span><br/>
+                                <span><i>Horsepower: </i> <b> ${vehicle.getEnginePower()} HP</b></span><br/>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © 2019 APU Design. All rights reserved.</p>
+                                <p>Copyright © 2019 APU. All rights reserved.</p>
                             </div>
                         </div>
                     </div>

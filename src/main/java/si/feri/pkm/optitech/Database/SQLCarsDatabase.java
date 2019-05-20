@@ -40,8 +40,6 @@ public class SQLCarsDatabase {
                                             resultSet.getDate(16),
                                             resultSet.getDate(17));
                 avti.add(v);
-//                System.out.println(resultSet.getLong(1));
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,6 +84,4 @@ public class SQLCarsDatabase {
         }
         return vehicle;
     }
-
-
 }

@@ -3,8 +3,8 @@
     <div class="header-mobile__bar">
         <div class="container-fluid">
             <div class="header-mobile-inner">
-                <a class="logo" href="index.html">
-                    <img src="images/icon/logo.png" alt="CoolAdmin" />
+                <a class="logo" href="/">
+                    <img src="images/icon/logo.png" alt="OptiTech" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -28,7 +28,7 @@
                 </li>
                 <li>
                     <a href="carsList">
-                        <i class="fas fa-chart-bar"></i>Cars</a>
+                        <i class="fas fa-chart-bar"></i>Vehicles</a>
                 </li>
                 <li>
                     <a href="table.html">
@@ -63,7 +63,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="#">
-            <img src="images/icon/logo.png" alt="Cool Admin" />
+            <img src="images/icon/logo.png" alt="OptiTech" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
@@ -80,7 +80,7 @@
                 </li>
                 <li class="has-sub">
                     <a href="carsList">
-                        <i class="fa fa-car"></i>Cars</a>
+                        <i class="fa fa-car"></i>Vehicles</a>
                 </li>
                 <li>
                     <a href="table.html">
@@ -118,53 +118,9 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                    <form class="form-header" action="" method="POST">
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for data..." />
-                        <button class="au-btn--submit" type="submit">
-                            <i class="zmdi zmdi-search"></i>
-                        </button>
-                    </form>
+                    <div></div>
                     <div class="header-button">
                         <div class="noti-wrap">
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-email"></i>
-                                <span class="quantity">1</span>
-                                <div class="email-dropdown js-dropdown">
-                                    <div class="email__title">
-                                        <p>You have 3 New Emails</p>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, 3 min ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, Yesterday</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, April 12,,2018</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__footer">
-                                        <a href="#">See all emails</a>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="noti__item js-item-menu">
                                 <i class="zmdi zmdi-notifications"></i>
                                 <span class="quantity">3</span>

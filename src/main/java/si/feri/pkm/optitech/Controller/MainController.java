@@ -21,8 +21,6 @@ public class MainController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model) {
-
-
         return "index";
     }
 
@@ -40,9 +38,11 @@ public class MainController {
         String fuel ="";
         String drive = "";
 
-        if(id != null){
-             vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+        if(id == null){
+            id = 217;
         }
+
+        vehicle = SQLCarsDatabase.getSelectedVehicle(id);
 
         //tu not imaš VSE IDje in Imena če je bencinar / dizel / hibrid...
         ArrayList<FuelType> fuelTypes= SQLFuelType.getAllFuelTypes();
@@ -64,23 +64,16 @@ public class MainController {
                 }
             }
         }
-
-
-        System.out.println(linkSlika);
         model.addAttribute("slika",linkSlika);
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
         model.addAttribute("vehicle", vehicle);
 
         return "carsList";
-
     }
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
     public String carDetails(Model model, @RequestParam(value="id") int id) throws ParseException {
-
-
         return "carDetails";
     }
-
 }

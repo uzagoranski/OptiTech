@@ -20,6 +20,8 @@ Maven 4.0.0,
 Spring Boot 2.1.4
 ```
 
+## O projektu
+
 ### Ekosistem podatkov in upravljalcev
 
 OptiTech je "connected vehicle" platforma za obdelavo in upravljanje različnih podatkov iz različnih vozil v povezavi z različnimi internimi in eksternimi sistemi ter uporabniki. 
