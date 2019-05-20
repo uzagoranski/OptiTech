@@ -50,19 +50,19 @@ public class SQLCarsDatabase {
     }
 
     public static Vehicle getSelectedVehicle(int carID) {
-        Vehicle vehicle = new Vehicle();
+        Vehicle vehicle = null;
         ResultSet resultSet;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
             // Create and execute a SELECT SQL statement.
-//            String selectSql = "SELECT Vehicles.carModelId, carMakerId,carModel,vehicleSubtypeId,countryID,carMaker,vehicleId,vin,vehicleTitle,regNumber,carModelYear,fuelTypeId,drivenWheelsId,engineSize,enginePower,dateRegStart,dateRegEnd from (select prvi.carModelId, carMakerId, carModel, vehicleSubtypeId, countryID, carMaker  from (select carModel, vehicleSubtypeId, carMakerId, carModelId from optitech.reg.carModels where carModelId IN (select carModelId from OptiTech.biz.Vehicles Where vehicleId IN  (select distinct vehicleId from optitech.tlm.DriveData))) as prvi left join (select carModelId,countryId,carMaker from optitech.reg.carModels LEFT JOIN optitech.reg.CarMakers on optitech.reg.CarMakers.carMakerId = optitech.reg.CarModels.carMakerId) as drugi on prvi.carModelId = drugi.carModelId) AS tabela LEFT join  OptiTech.biz.Vehicles  ON tabela.carModelId = optitech.biz.vehicles.carModelId WHERE vehicleId ="+carID+";";
-            PreparedStatement ps = connection.prepareStatement("SELECT Vehicles.carModelId, carMakerId,carModel,vehicleSubtypeId,countryID,carMaker,vehicleId,vin,vehicleTitle,regNumber,carModelYear,fuelTypeId,drivenWheelsId,engineSize,enginePower,dateRegStart,dateRegEnd from (select prvi.carModelId, carMakerId, carModel, vehicleSubtypeId, countryID, carMaker  from (select carModel, vehicleSubtypeId, carMakerId, carModelId from optitech.reg.carModels where carModelId IN (select carModelId from OptiTech.biz.Vehicles Where vehicleId IN  (select distinct vehicleId from optitech.tlm.DriveData))) as prvi left join (select carModelId,countryId,carMaker from optitech.reg.carModels LEFT JOIN optitech.reg.CarMakers on optitech.reg.CarMakers.carMakerId = optitech.reg.CarModels.carMakerId) as drugi on prvi.carModelId = drugi.carModelId) AS tabela LEFT join  OptiTech.biz.Vehicles  ON tabela.carModelId = optitech.biz.vehicles.carModelId WHERE vehicleId =?;");
-            ps.setString(1, Integer.toString(carID));
-            resultSet = ps.executeQuery();
+            String selectSql = "SELECT Vehicles.carModelId, carMakerId,carModel,vehicleSubtypeId,countryID,carMaker,vehicleId,vin,vehicleTitle,regNumber,carModelYear,fuelTypeId,drivenWheelsId,engineSize,enginePower,dateRegStart,dateRegEnd from (select prvi.carModelId, carMakerId, carModel, vehicleSubtypeId, countryID, carMaker  from (select carModel, vehicleSubtypeId, carMakerId, carModelId from optitech.reg.carModels where carModelId IN (select carModelId from OptiTech.biz.Vehicles Where vehicleId IN  (select distinct vehicleId from optitech.tlm.DriveData))) as prvi left join (select carModelId,countryId,carMaker from optitech.reg.carModels LEFT JOIN optitech.reg.CarMakers on optitech.reg.CarMakers.carMakerId = optitech.reg.CarModels.carMakerId) as drugi on prvi.carModelId = drugi.carModelId) AS tabela LEFT join  OptiTech.biz.Vehicles  ON tabela.carModelId = optitech.biz.vehicles.carModelId WHERE vehicleId ="+carID+";";
+            System.out.println(selectSql);
+            resultSet = statement.executeQuery(selectSql);
+
             // Print results from select statement
-            try {
-                 vehicle = new Vehicle(resultSet.getLong(1),
+            while (resultSet.next()) {
+                vehicle = new Vehicle(resultSet.getLong(1),
                         resultSet.getLong(2),
                         resultSet.getString(3),
                         resultSet.getInt(4),
@@ -80,9 +80,7 @@ public class SQLCarsDatabase {
                         resultSet.getDate(16),
                         resultSet.getDate(17));
 //                System.out.println(resultSet.getLong(1));
-            }
-            catch (SQLException e ){
-                e.printStackTrace();
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
