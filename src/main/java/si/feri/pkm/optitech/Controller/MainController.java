@@ -24,17 +24,21 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/carsList"}, method = RequestMethod.GET)
-    public String seznamVozil(Model model) {
+    public String seznamVozil(Model model, @RequestParam(value="id", required = false) Integer id) throws ParseException {
 
         // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
         // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
         ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
 
-        for (int i = 0; i < vehicles.size(); i++) {
-            System.out.println(vehicles.get(i));
+        model.addAttribute("vehicles", vehicles);
+
+        Vehicle vehicle = null;
+
+        if(id != null){
+             vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         }
 
-        model.addAttribute("vehicles", vehicles);
+        model.addAttribute("vehicle", vehicle);
 
         return "carsList";
 

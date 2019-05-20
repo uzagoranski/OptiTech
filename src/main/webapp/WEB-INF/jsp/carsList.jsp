@@ -49,7 +49,7 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <h2 class="title-1 m-b-25">Vehicles</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
@@ -61,7 +61,7 @@
                                     </thead>
                                     <tbody>
                                       <c:forEach items="${vehicles}" var="v">
-                                            <tr class='clickable-row' data-href='http://localhost:8080/carDetails?id=${v.getVehicleId()}'>
+                                            <tr class='clickable-row' data-href='http://localhost:8080/carsList?id=${v.getVehicleId()}'>
                                                 <td>${v.getCarMaker()} ${v.getVehicleTitle()}</td>
                                                 <td>${v.getCarModelYear()}</td>
                                             </tr>
@@ -69,6 +69,19 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="col-lg-6">
+                            <c:choose>
+                                <c:when test="${vehicle != null}">
+                                    <p>${vehicle.getVehicleTitle()}</p>
+                                </c:when>
+                                <c:otherwise>
+                                    ${vehicle = SQLCarsDatabase.getSelectedVehicle(217)}
+                                    <p>${vehicle.getVehicleTitle()}</p>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                     <div class="row">
