@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.SQLCarImage;
 import si.feri.pkm.optitech.Database.SQLCarsDatabase;
+import si.feri.pkm.optitech.Database.SQLDrive;
 import si.feri.pkm.optitech.Database.SQLFuelType;
+import si.feri.pkm.optitech.Entity.Drive;
 import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
@@ -36,6 +38,7 @@ public class MainController {
         Vehicle vehicle = null;
         String linkSlika ="";
         String fuel ="";
+        String drive = "";
 
         if(id != null){
              vehicle = SQLCarsDatabase.getSelectedVehicle(id);
@@ -43,6 +46,8 @@ public class MainController {
 
         //tu not imaš VSE IDje in Imena če je bencinar / dizel / hibrid...
         ArrayList<FuelType> fuelTypes= SQLFuelType.getAllFuelTypes();
+
+        ArrayList<Drive> drives = SQLDrive.getAllDriveTypes();
 
         //Tu je pravo Gorivo, ki ga uporablja avto
 
@@ -53,12 +58,18 @@ public class MainController {
                     fuel = f.getNaziv();
                 }
             }
+            for (Drive d : drives){
+                if(d.getId() == vehicle.getDrivenWheelsId()){
+                    drive = d.getNaziv();
+                }
+            }
         }
 
 
         System.out.println(linkSlika);
         model.addAttribute("slika",linkSlika);
         model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
         model.addAttribute("vehicle", vehicle);
 
         return "carsList";
