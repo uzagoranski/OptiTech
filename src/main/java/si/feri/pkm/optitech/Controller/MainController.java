@@ -1,4 +1,4 @@
-package si.feri.pkm.optitech.controller;
+package si.feri.pkm.optitech.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.SQLCarsDatabase;
-import si.feri.pkm.optitech.Database.SQLDatabaseConnection;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
-import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.ArrayList;
 

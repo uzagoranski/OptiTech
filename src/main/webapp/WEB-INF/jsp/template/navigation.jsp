@@ -208,23 +208,23 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="images/icon/avatar-01.jpg" alt="Primož Stopar" />
+                                    <img src="images/icon/avatar-01.jpg" alt="Janez Novak" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Primož Stopar</a>
+                                    <a class="js-acc-btn" href="#">Janez Novak</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="images/icon/avatar-01.jpg" alt="Primož Stopar" />
+                                                <img src="images/icon/avatar-01.jpg" alt="Janez Novak" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">Primoz Stopar</a>
+                                                <a href="#">Janez Novak</a>
                                             </h5>
-                                            <span class="email">primoz.stopar@student.um.si</span>
+                                            <span class="email">janez.novak@student.um.si</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">
