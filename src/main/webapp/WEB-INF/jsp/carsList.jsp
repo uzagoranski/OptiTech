@@ -49,21 +49,21 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-9">
-                            <h2 class="title-1 m-b-25">Cars</h2>
+                        <div class="col-lg-5">
+                            <h2 class="title-1 m-b-25">Vehicles</h2>
                             <div class="table-responsive table--no-card m-b-40">
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>Brand</th>
-                                        <th>Model</th>
+                                        <th>Vehicle</th>
+                                        <th>Year</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                       <c:forEach items="${vehicles}" var="v">
                                             <tr class='clickable-row' data-href='http://localhost:8080/carDetails?id=${v.getVehicleId()}'>
-                                                <td>${v.getCarMaker()}</td>
-                                                <td> ${v.getCarModel()} </td>
+                                                <td>${v.getCarMaker()} ${v.getVehicleTitle()}</td>
+                                                <td>${v.getCarModelYear()}</td>
                                             </tr>
                                       </c:forEach>
                                     </tbody>
