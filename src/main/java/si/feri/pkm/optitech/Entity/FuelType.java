@@ -4,6 +4,8 @@ public class FuelType {
     int id;
     String naziv;
 
+
+
     public FuelType(int id, String naziv){
         this.id = id;
         this.naziv = naziv;

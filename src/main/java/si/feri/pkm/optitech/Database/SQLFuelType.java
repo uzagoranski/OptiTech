@@ -31,4 +31,5 @@ public class SQLFuelType {
         }
         return fuelTypes;
     }
+
 }
