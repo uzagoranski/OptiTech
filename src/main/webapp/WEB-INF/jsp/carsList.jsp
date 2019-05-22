@@ -35,6 +35,7 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="css/style.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -69,8 +70,10 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mx-auto" id="carView">
-                            <h2 align="center" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h2>
-                            <img class="avto" src="${slika}">
+                            <h1 align="center" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h1>
+                            <div align="center">
+                                <img class="avto" src="${slika}">
+                            </div> <br/>
                             <div align="center">
                                 <span><i>Registry number: </i> <b> ${vehicle.getRegNumber()}</b></span><br/>
                                 <span><i>Vin: </i> <b> ${vehicle.getVin()}</b></span><br/>
@@ -78,13 +81,12 @@
                                 <span><i>Fuel: </i> <b> ${fuel}</b></span><br/>
                                 <span><i>Engine size: </i> <b> ${vehicle.getEngineSize()}</b></span><br/>
                                 <span><i>Horsepower: </i> <b> ${vehicle.getEnginePower()} HP</b></span><br/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2019 APU. All rights reserved.</p>
+                            </div><br/>
+                            <div>
+                                <a href="http://localhost:8080/carDetails?id=${vehicle.getVehicleId()}" id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                    <span id="payment-button-amount">Stats</span>
+                                    <span id="payment-button-sending" style="display:none;">Searching…</span>
+                                </a>
                             </div>
                         </div>
                     </div>
