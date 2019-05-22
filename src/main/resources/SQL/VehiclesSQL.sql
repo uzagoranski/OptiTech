@@ -12,7 +12,7 @@ prikažeš ZNAMKO (reg.CarMakers), MODEL (reg.CarModels), POVPREČJA RPM, VSS, P
 */
 select carModel, carMakerId
 from optitech.reg.carModels
-where carModelId IN (select * from OptiTech.dbo.nekaj);
+WHERE carModelId IN (select * from OptiTech.dbo.nekaj);
 
 
 /* SLABO
@@ -98,24 +98,24 @@ SELECT AVG(DrvDist) as povprecna_Prevozena_Razdalja, AVG(DrvTime) as povprecen_C
 /*
 5) Update, za imena avtov
 */
-UPDATE optitech.biz.Vehicles SET vehicleTitle='318d' where vehicleId = 217
-UPDATE optitech.biz.Vehicles SET vehicleTitle='320d Touring' where vehicleId = 224
-UPDATE optitech.biz.Vehicles SET vehicleTitle='330d' where vehicleId = 1384
-UPDATE optitech.biz.Vehicles SET vehicleTitle='320d' where vehicleId = 1386
-UPDATE optitech.biz.Vehicles SET vehicleTitle='GLE 350d' where vehicleId = 1369
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Cooper S' where vehicleId = 1364
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Megane' where vehicleId = 1380
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' where vehicleId = 225
-UPDATE optitech.biz.Vehicles SET vehicleTitle='S60' where vehicleId = 1309
-UPDATE optitech.biz.Vehicles SET vehicleTitle='V50' where vehicleId = 218
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf GTI' where vehicleId = 1368
-UPDATE optitech.biz.Vehicles SET vehicleTitle='C3' where vehicleId = 1360
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Mondeo' where vehicleId = 1363
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Octavia RS' where vehicleId = 1361
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' where vehicleId = 245
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' where vehicleId = 1346
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf' where vehicleId = 1358
-UPDATE optitech.biz.Vehicles SET vehicleTitle='Passat' where vehicleId = 1387
+UPDATE optitech.biz.Vehicles SET vehicleTitle='318d' WHERE vehicleId = 217
+UPDATE optitech.biz.Vehicles SET vehicleTitle='320d Touring' WHERE vehicleId = 224
+UPDATE optitech.biz.Vehicles SET vehicleTitle='330d' WHERE vehicleId = 1384
+UPDATE optitech.biz.Vehicles SET vehicleTitle='320d' WHERE vehicleId = 1386
+UPDATE optitech.biz.Vehicles SET vehicleTitle='GLE 350d' WHERE vehicleId = 1369
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Cooper S' WHERE vehicleId = 1364
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Megane' WHERE vehicleId = 1380
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' WHERE vehicleId = 225
+UPDATE optitech.biz.Vehicles SET vehicleTitle='S60' WHERE vehicleId = 1309
+UPDATE optitech.biz.Vehicles SET vehicleTitle='V50' WHERE vehicleId = 218
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf GTI' WHERE vehicleId = 1368
+UPDATE optitech.biz.Vehicles SET vehicleTitle='C3' WHERE vehicleId = 1360
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Mondeo' WHERE vehicleId = 1363
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Octavia RS' WHERE vehicleId = 1361
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' WHERE vehicleId = 245
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Superb' WHERE vehicleId = 1346
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Golf' WHERE vehicleId = 1358
+UPDATE optitech.biz.Vehicles SET vehicleTitle='Passat' WHERE vehicleId = 1387
 
 /*
 6)
@@ -185,21 +185,60 @@ UPDATE  Optitech.biz.Vehicles SET enginePower = '75' WHERE vehicleId =1360;
 10)
 Posodobitev slik v bazi.
 */
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/PinBdZf.png' where VehicleID = 217;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/vT1hJ7h.png' where VehicleID = 224;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/4FYRV7A.png' where VehicleID = 1384;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/3BveKdH.png' where VehicleID = 1386;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/i1KaZ0S.png' where VehicleID = 1369;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/DuBKfmi.png' where VehicleID = 1364;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/KQ1IIcK.png' where VehicleID = 1380;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 225;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/v0aKVel.png' where VehicleID = 1309;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/0qNAtWL.png' where VehicleID = 218;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/AhHhnYs.png' where VehicleID = 1368;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/I5vU9YU.png' where VehicleID = 1360;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/d7NtCb5.png' where VehicleID = 1363;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/Vs93QP0.png' where VehicleID = 1361;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 245;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 1346;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/dalClVb.png' where VehicleID = 1358;
-UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/CcT8OJ1.png' where VehicleID = 1387;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/PinBdZf.png' WHERE VehicleID = 217;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/vT1hJ7h.png' WHERE VehicleID = 224;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/4FYRV7A.png' WHERE VehicleID = 1384;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/3BveKdH.png' WHERE VehicleID = 1386;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/i1KaZ0S.png' WHERE VehicleID = 1369;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/DuBKfmi.png' WHERE VehicleID = 1364;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/KQ1IIcK.png' WHERE VehicleID = 1380;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' WHERE VehicleID = 225;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/v0aKVel.png' WHERE VehicleID = 1309;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/0qNAtWL.png' WHERE VehicleID = 218;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/AhHhnYs.png' WHERE VehicleID = 1368;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/I5vU9YU.png' WHERE VehicleID = 1360;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/d7NtCb5.png' WHERE VehicleID = 1363;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/Vs93QP0.png' WHERE VehicleID = 1361;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' WHERE VehicleID = 245;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' WHERE VehicleID = 1346;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/dalClVb.png' WHERE VehicleID = 1358;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/CcT8OJ1.png' WHERE VehicleID = 1387;
+
+
+/*
+11)
+Izbor dtcDescription
+*/
+SELECT * FROM optitech.reg.DtcCodes WHERE dtc='P0101';
+
+/*
+12)
+Zaznane napake, za avte ki jih imamo
+*/
+SELECT  vehicleId, userID, p.dtc, dtcCode, dtcDescription
+FROM OptiTech.tlm.DtcInfo as p
+         LEFT JOIN (select * from optitech.reg.dtccodes) as d ON p.dtc = d.dtc
+WHERE vehicleId IN (select distinct vehicleId from OPTITECH.TLM.DRIVEDATA WHERE vehicleId IN(
+
+
+    SELECT vehicleId FROM ( SELECT prvi.carModelId, carMakerId, carModel, vehicleSubtypeId, status, countryID, carMaker FROM ( SELECT * FROM optitech.reg.carModels WHERE carModelId IN ( SELECT carModelId FROM OptiTech.biz.Vehicles
+                                                                                                                                                                                          WHERE vehicleId
+                                                                                                                                                                                                    IN (
+                                                                                                                                                                                                    SELECT DISTINCT vehicleId
+                                                                                                                                                                                                    FROM optitech.tlm.DriveData))) as prvi
+                                                                                                                                 LEFT JOIN (
+        SELECT carModelId, countryId, carMaker
+        FROM optitech.reg.carModels
+                 LEFT JOIN optitech.reg.CarMakers
+                           ON optitech.reg.CarMakers.carMakerId = optitech.reg.CarModels.carMakerId
+    ) AS drugi
+                                                                                                                                           ON prvi.carModelId = drugi.carModelId
+                          ) AS tabela
+                              RIGHT JOIN OptiTech.biz.Vehicles
+                                         ON tabela.carModelId = optitech.biz.vehicles.carModelId
+
+    WHERE engineSize != 0
+      AND countryID != 'XY'
+      AND vehicleId != '1357'
+)
+);  

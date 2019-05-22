@@ -9,7 +9,7 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLDriveData {
 
-    public static ArrayList<Integer> getAllFuelTypes(int carID){
+    public static ArrayList<Integer> getDriveData(int carID){
         ResultSet resultSet;
         ArrayList<Integer> driveData= new ArrayList<>();
 
@@ -17,21 +17,21 @@ public class SQLDriveData {
              Statement statement = connection.createStatement()) {
 
             // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT AVG(DrvDist) as povprecna_Prevozena_Razdalja, AVG(DrvTime) as povprecen_Cas_Voznje, AVG(RpmAvg) as povprecen_RPM_Povprecna, AVG(RpmMax) as povprecen_RPM_Max, avg(VssMax) as povprecna_hitrost_max FROM OptiTech.tlm.DriveData WHERE vehicleId="+carID+" AND DrvTime != 0 AND DrvDist > 400;";
+            String selectSql = "SELECT AVG(DrvDist) as averageDistance, AVG(DrvTime) as averageDriveTime, AVG(RpmAvg) as averageRPM, AVG(RpmMax) as averageRPMMax, avg(VssMax) as averageVssMax FROM OptiTech.tlm.DriveData WHERE vehicleId="+carID+" AND DrvTime != 0 AND DrvDist > 400;";
             resultSet = statement.executeQuery(selectSql);
 
             // Print results from select statement
             while (resultSet.next()) {
-                int povprecna_Prevozena_Razdalja = resultSet.getInt(1);
-                int povprecen_Cas_Voznje = resultSet.getInt(2);
-                int povprecen_RPM_Povprecna = resultSet.getInt(3);
-                int povprecen_RPM_Max = resultSet.getInt(4);
-                int povprecna_hitrost_Max = resultSet.getInt(5);
-                driveData.add(povprecna_Prevozena_Razdalja);
-                driveData.add(povprecen_Cas_Voznje);
-                driveData.add(povprecen_RPM_Povprecna);
-                driveData.add(povprecen_RPM_Max);
-                driveData.add(povprecna_hitrost_Max);
+                int averageDistance = resultSet.getInt(1);
+                int averageDriveTime = resultSet.getInt(2);
+                int averageRPM = resultSet.getInt(3);
+                int averageRPMMax = resultSet.getInt(4);
+                int averageVssMax = resultSet.getInt(5);
+                driveData.add(averageDistance);
+                driveData.add(averageDriveTime);
+                driveData.add(averageRPM );
+                driveData.add(averageRPMMax);
+                driveData.add(averageVssMax);
             }
         } catch (SQLException e) {
             e.printStackTrace();
