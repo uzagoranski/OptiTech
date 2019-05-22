@@ -39,7 +39,7 @@
         <%@include file="template/navigation.jsp"%>
 
         <!-- MAIN CONTENT-->
-        <div class="main-content" style="background-color: aliceblue">
+        <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row" style="background-color: whitesmoke; border-radius: 25px; padding: 25px">

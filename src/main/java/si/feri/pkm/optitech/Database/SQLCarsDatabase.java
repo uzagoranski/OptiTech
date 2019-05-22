@@ -12,7 +12,7 @@ public class SQLCarsDatabase {
     public static ArrayList<Vehicle> getInsertedVehicles() {
 
         ResultSet resultSet;
-        ArrayList<Vehicle> avti = new ArrayList<>();
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
@@ -24,12 +24,12 @@ public class SQLCarsDatabase {
             while (resultSet.next()) {
                 Vehicle vehicle = null;
                 vehicle = createVehicleFromDb(resultSet);
-                avti.add(vehicle);
+                vehicles.add(vehicle);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return avti;
+        return vehicles;
     }
 
     public static Vehicle getSelectedVehicle(int carID) {
