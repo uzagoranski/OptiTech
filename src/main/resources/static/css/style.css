@@ -1,3 +1,108 @@
 .avto {
     max-height: 250px !important;
 }
+
+.intro {
+    height: 750px;
+    background-image: url('https://www.kivi.si/portals/1/Images/Backgrounds/OptiTech-bgimg-2.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.naslov {
+    padding-top: 350px;
+    text-align: center;
+}
+
+.dashboardH1 {
+    color: white;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.blueDashboardH1 {
+    color: #3875d7;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.sub {
+    color: white;
+    font-size: 20px;
+}
+
+.dashboardFirst {
+    padding: 100px 100px 100px 100px;
+    text-align: center;
+}
+
+.dashboardFirstP {
+    font-size: 18px;
+}
+
+.gumb {
+    background-color: #3875d7;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.full-width {
+    padding: 100px 0 100px 0;
+    width: 100%;
+    position: relative;
+}
+.half-image, .half-color {
+    display: block;
+    height: 100%;
+    position: absolute; top: 0;
+    width: 50%;
+    z-index: 0;
+}
+
+.half-color {
+    background-color: black;
+}
+
+.site-width-limit {
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+}
+.col-wrapper {display: block}
+.col {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 3%;
+    vertical-align: top;
+    width: 100%;
+    /* irrelevant */
+    color: #FFF;
+    font-family: sans-serif;
+    line-height: 30px;
+    padding: 30px 0;
+}
+.col.col-1-2 {width: 48.31%}
+.col-wrapper .col:last-child {margin-right: 0}
+
+@media screen and (max-width:1160px) {
+    .site-width {
+        background: red;
+        margin: 0 5%;
+        width: 90%;
+    }
+}
+
+.dashboardSecond {
+    text-align: center;
+    padding: 100px 100px 100px 100px;
+}
+
+.sredina {
+    text-align: center;
+}

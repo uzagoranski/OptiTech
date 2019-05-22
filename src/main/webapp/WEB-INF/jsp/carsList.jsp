@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Vehicles</title>
+    <title>Vehicles list</title>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -69,7 +69,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6 mx-auto" id="carView" style="background-color: whitesmoke; border-radius: 10px; padding: 25px; max-height: 600px">
+                        <div class="col-lg-6 mx-auto" id="carView" style="background-color: whitesmoke; border-radius: 10px; padding: 25px; max-height: 580px">
                             <h1 align="center" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h1>
                             <div align="center">
                                 <img class="avto" src="${slika}">
@@ -80,11 +80,8 @@
                                 <span><i>Engine size: </i> <b> ${vehicle.getEngineSize()} ccm</b></span><br/>
                                 <span><i>Horsepower: </i> <b> ${vehicle.getEnginePower()} HP</b></span><br/>
                             </div><br/>
-                            <div>
-                                <a href="http://localhost:8080/carDetails?id=${vehicle.getVehicleId()}" id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                    <span id="payment-button-amount">Stats</span>
-                                    <span id="payment-button-sending" style="display:none;">Searching…</span>
-                                </a>
+                            <div class="sredina">
+                                <a class="gumb" href="http://localhost:8080/carDetails?id=${vehicle.getVehicleId()}" type="submit">Stats</a>
                             </div>
                         </div>
                     </div>
