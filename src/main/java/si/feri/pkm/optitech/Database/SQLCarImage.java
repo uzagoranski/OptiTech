@@ -11,7 +11,7 @@ public class SQLCarImage {
 
     public static String getCarImage(int carId){
         ResultSet resultSet;
-        String naslovSlike ="";
+        String imageLink ="";
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
@@ -21,12 +21,12 @@ public class SQLCarImage {
 
             // Print results from select statement
             while (resultSet.next()) {
-            naslovSlike = resultSet.getString(1);
+            imageLink = resultSet.getString(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return naslovSlike;
+        return imageLink;
     }
 }
 

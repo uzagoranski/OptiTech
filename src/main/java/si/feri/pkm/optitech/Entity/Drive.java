@@ -2,7 +2,7 @@ package si.feri.pkm.optitech.Entity;
 
 public class Drive {
     int id;
-    String naziv;
+    String type;
 
     public int getId() {
         return id;
@@ -12,17 +12,17 @@ public class Drive {
         this.id = id;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getType() {
+        return type;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Drive(int id, String naziv){
+    public Drive(int id, String type){
         this.id = id;
-        this.naziv = naziv;
+        this.type = type;
 
 
     }

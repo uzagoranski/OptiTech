@@ -86,7 +86,7 @@ public class MainController {
 
             for (FuelType f : fuelTypes) {
                 if (f.getId() == vehicle.getFuelTypeId()) {
-                    fuel = f.getNaziv();
+                    fuel = f.getType();
                 }
             }
         return fuel;
@@ -99,7 +99,7 @@ public class MainController {
 
             for (Drive d : drives) {
                 if (d.getId() == vehicle.getFuelTypeId()) {
-                    drive = d.getNaziv();
+                    drive = d.getType();
                 }
             }
         return drive;
