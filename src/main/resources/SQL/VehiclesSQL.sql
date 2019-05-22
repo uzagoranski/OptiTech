@@ -91,8 +91,7 @@ WHERE engineSize != 0
   AND vehicleId != '1357';
 
 /*
-4)
-Podatki kako je bil avto vožen.
+4) Podatki kako je bil avto vožen.
 */
 SELECT AVG(DrvDist) as povprecna_Prevozena_Razdalja, AVG(DrvTime) as povprecen_Cas_Voznje, AVG(RpmAvg) as povprecen_RPM_Povprecna, AVG(RpmMax) as povprecen_RPM_Max, avg(VssMax) as povprecna_hitrost_max FROM OptiTech.tlm.DriveData WHERE vehicleId=217 AND DrvTime != 0 AND DrvDist > 400;
 
@@ -157,3 +156,23 @@ INSERT INTO Optitech.[tlm].[CarImage] (VehicleID, ImageLink) VALUES
 (1346, 'https://i.imgur.com/zfOPCgH.png'),
 (1358, 'https://i.imgur.com/ZAzuis3.png'),
 (1387, 'https://i.imgur.com/DsD8AwZ.png');
+
+/*
+9)
+Update registrskih tablic
+*/
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'GO 28-841' WHERE vehicleId = 1384;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB 98-CS0' WHERE vehicleId = 1369;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB 64-8EA' WHERE vehicleId = 1364;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'SG UV-768' WHERE vehicleId = 224;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'LJ 55-A84' WHERE vehicleId = 1380;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'LJ 89-7PA' WHERE vehicleId = 225;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB UJ-735' WHERE vehicleId = 218;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB UZ-998' WHERE vehicleId = 1368;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'KP 97-AS3' WHERE vehicleId = 1360;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'KK J1-85F' WHERE vehicleId = 1363;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'NM H4-0H6' WHERE vehicleId = 1361;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MS HA-442' WHERE vehicleId = 245;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'LJ 37-UGF' WHERE vehicleId = 1346;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'LJ 17-2HZ' WHERE vehicleId = 1358;
+UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB 1P-H6V' WHERE vehicleId = 1387;
