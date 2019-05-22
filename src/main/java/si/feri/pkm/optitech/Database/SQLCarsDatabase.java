@@ -22,24 +22,9 @@ public class SQLCarsDatabase {
 
             // Print results from select statement
             while (resultSet.next()) {
-                    Vehicle v = new Vehicle(resultSet.getLong(1),
-                                            resultSet.getLong(2),
-                                            resultSet.getString(3),
-                                            resultSet.getInt(4),
-                                            resultSet.getString(5),
-                                            resultSet.getString(6),
-                                            resultSet.getInt(7),
-                                            resultSet.getString(8),
-                                            resultSet.getString(9),
-                                            resultSet.getString(10),
-                                            resultSet.getInt(11),
-                                            resultSet.getInt(12),
-                                            resultSet.getInt(13),
-                                            resultSet.getInt(14),
-                                            resultSet.getInt(15),
-                                            resultSet.getDate(16),
-                                            resultSet.getDate(17));
-                avti.add(v);
+                Vehicle vehicle = null;
+                vehicle = createVehicleFromDb(resultSet);
+                avti.add(vehicle);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,29 +44,40 @@ public class SQLCarsDatabase {
 
             // Print results from select statement
             while (resultSet.next()) {
-                vehicle = new Vehicle(resultSet.getLong(1),
-                        resultSet.getLong(2),
-                        resultSet.getString(3),
-                        resultSet.getInt(4),
-                        resultSet.getString(5),
-                        resultSet.getString(6),
-                        resultSet.getInt(7),
-                        resultSet.getString(8),
-                        resultSet.getString(9),
-                        resultSet.getString(10),
-                        resultSet.getInt(11),
-                        resultSet.getInt(12),
-                        resultSet.getInt(13),
-                        resultSet.getInt(14),
-                        resultSet.getInt(15),
-                        resultSet.getDate(16),
-                        resultSet.getDate(17));
-//                System.out.println(resultSet.getLong(1));
-
+                vehicle = createVehicleFromDb(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return vehicle;
+    }
+
+    public static Vehicle createVehicleFromDb(ResultSet resultSet) {
+
+        Vehicle vehicle = null;
+
+        try {
+                 vehicle = new Vehicle(resultSet.getLong(1),
+                    resultSet.getLong(2),
+                    resultSet.getString(3),
+                    resultSet.getInt(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getInt(7),
+                    resultSet.getString(8),
+                    resultSet.getString(9),
+                    resultSet.getString(10),
+                    resultSet.getInt(11),
+                    resultSet.getInt(12),
+                    resultSet.getInt(13),
+                    resultSet.getInt(14),
+                    resultSet.getInt(15),
+                    resultSet.getDate(16),
+                    resultSet.getDate(17));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return vehicle;
     }
 }
