@@ -179,3 +179,26 @@ UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB 1P-H6V' WHERE vehicleId = 1387;
 
 UPDATE Optitech.biz.Vehicles SET vin = 'WBANE53516B99215X' WHERE vehicleId = 224;
 UPDATE  Optitech.biz.Vehicles SET enginePower = '75' WHERE vehicleId =1360;
+
+/*
+10)
+Posodobitev slik v bazi.
+*/
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/PinBdZf.png' where VehicleID = 217;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/vT1hJ7h.png' where VehicleID = 224;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/4FYRV7A.png' where VehicleID = 1384;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/3BveKdH.png' where VehicleID = 1386;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/i1KaZ0S.png' where VehicleID = 1369;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/DuBKfmi.png' where VehicleID = 1364;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/KQ1IIcK.png' where VehicleID = 1380;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 225;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/v0aKVel.png' where VehicleID = 1309;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/0qNAtWL.png' where VehicleID = 218;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/AhHhnYs.png' where VehicleID = 1368;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/I5vU9YU.png' where VehicleID = 1360;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/d7NtCb5.png' where VehicleID = 1363;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/Vs93QP0.png' where VehicleID = 1361;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 245;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/zFzsacI.png' where VehicleID = 1346;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/dalClVb.png' where VehicleID = 1358;
+UPDATE optitech.tlm.CarImage SET ImageLink='https://i.imgur.com/CcT8OJ1.png' where VehicleID = 1387;
