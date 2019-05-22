@@ -39,9 +39,27 @@
         <%@include file="template/navigation.jsp"%>
 
         <!-- MAIN CONTENT-->
-        <div class="main-content">
+        <div class="main-content" style="background-color: aliceblue">
             <div class="section__content section__content--p30">
-
+                <div class="container-fluid">
+                    <div class="row" style="background-color: whitesmoke; border-radius: 25px; padding: 25px">
+                            <div class="col-lg-6 mx-auto" id="carView">
+                                <h1 align="left" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h1>
+                                <div align="left">
+                                    <span><i>Year: </i> <b> ${vehicle.getCarModelYear()}</b></span><br/>
+                                    <span><i>Fuel: </i> <b> ${fuel}</b></span><br/>
+                                    <span><i>Engine: </i> <b> ${vehicle.getEngineSize()} ccm, ${vehicle.getEnginePower()} HP</b></span><br/>
+                                    <span><i>Drive: </i> <b> ${drive}</b></span><br/>
+                                    <span><i>Registry number: </i> <b> ${vehicle.getRegNumber()}</b></span><br/>
+                                    <span><i>Vin: </i> <b> ${vehicle.getVin()}</b></span><br/>
+                                </div><br/>
+                            </div>
+                            <div class ="col-lg-6 mx-auto" id="image">
+                                <img class="avto" src="${linkImage}">
+                            </div>
+                    </div>
+                    <hr/>
+                </div>
             </div>
         </div>
         <!-- END MAIN CONTENT-->

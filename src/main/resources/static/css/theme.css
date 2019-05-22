@@ -4256,7 +4256,7 @@ section {
 }
 
 .table-earning tbody tr:hover td {
-    color: #555;
+    color: #007bff;
     cursor: pointer;
 }
 

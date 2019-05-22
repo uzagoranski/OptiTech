@@ -72,8 +72,10 @@ public class MainController {
              drive = loadDrive(vehicle);
         }
 
-        model.addAttribute("imageURL", linkImage);
+        model.addAttribute("linkImage", linkImage);
         model.addAttribute("vehicle", vehicle);
+        model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
         return "carDetails";
     }
 

@@ -45,7 +45,7 @@
     <!-- PAGE CONTAINER-->
     <div class="page-container">
         <%@include file="template/navigation.jsp"%>
-        <div class="main-content">
+        <div class="main-content" style="background-color: aliceblue">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
@@ -61,25 +61,23 @@
                                     <tbody>
                                       <c:forEach items="${vehicles}" var="v">
                                             <tr class='clickable-row' data-href='http://localhost:8080/carsList?id=${v.getVehicleId()}'>
-                                                <td>${v.getCarMaker()} ${v.getVehicleTitle()}</td>
-                                                <td>${v.getCarModelYear()}</td>
+                                                <td class="basicData">${v.getCarMaker()} ${v.getVehicleTitle()}</td>
+                                                <td class="basicData">${v.getCarModelYear()}</td>
                                             </tr>
                                       </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="col-lg-6 mx-auto" id="carView">
+                        <div class="col-lg-6 mx-auto" id="carView" style="background-color: whitesmoke; border-radius: 10px; padding: 25px; max-height: 600px">
                             <h1 align="center" class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h1>
                             <div align="center">
                                 <img class="avto" src="${slika}">
                             </div> <br/>
                             <div align="center">
-                                <span><i>Registry number: </i> <b> ${vehicle.getRegNumber()}</b></span><br/>
-                                <span><i>Vin: </i> <b> ${vehicle.getVin()}</b></span><br/>
                                 <span><i>Year: </i> <b> ${vehicle.getCarModelYear()}</b></span><br/>
                                 <span><i>Fuel: </i> <b> ${fuel}</b></span><br/>
-                                <span><i>Engine size: </i> <b> ${vehicle.getEngineSize()}</b></span><br/>
+                                <span><i>Engine size: </i> <b> ${vehicle.getEngineSize()} ccm</b></span><br/>
                                 <span><i>Horsepower: </i> <b> ${vehicle.getEnginePower()} HP</b></span><br/>
                             </div><br/>
                             <div>
