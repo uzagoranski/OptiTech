@@ -178,6 +178,7 @@ UPDATE OptiTech.biz.Vehicles SET regNumber = 'LJ 17-2HZ' WHERE vehicleId = 1358;
 UPDATE OptiTech.biz.Vehicles SET regNumber = 'MB 1P-H6V' WHERE vehicleId = 1387;
 
 UPDATE Optitech.biz.Vehicles SET vin = 'WBANE53516B99215X' WHERE vehicleId = 224;
+UPDATE Optitech.biz.Vehicles SET vin = 'YV4CZ982081434533' WHERE vehicleId = 1309;
 UPDATE  Optitech.biz.Vehicles SET enginePower = '75' WHERE vehicleId =1360;
 
 /*
