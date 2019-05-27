@@ -71,4 +71,32 @@ public class SQLDriveData {
 
         return json;
     }
+
+
+    public static ArrayList<Date> sliderRange(int carID) {
+    ArrayList<Date> rangeDates= new ArrayList<>();
+        ResultSet resultSet;
+
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+    String selectSql = "SELECT DISTINCT dateMsg from OptiTech.tlm.DriveData WHERE vehicleId="+carID+" AND (DrvTime != 0 OR DrvDist > 400) ;";
+
+            resultSet = statement.executeQuery(selectSql);
+
+            // Print results from select statement
+            while (resultSet.next()) {
+                Date date = resultSet.getDate(1);
+                if(!rangeDates.contains(date)){
+                rangeDates.add(date);
+                }
+                }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    return  rangeDates;
+    }
+
 }
+

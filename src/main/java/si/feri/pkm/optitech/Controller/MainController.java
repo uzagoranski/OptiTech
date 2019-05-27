@@ -64,6 +64,7 @@ public class MainController {
         String drive = "";
 
         SQLDriveData.vssAvgSpeedForSelectedCar(0);
+        SQLDriveData.sliderRange(217);
 
         if(vehicle != null){
              linkImage = SQLCarImage.getCarImage(id);
