@@ -5,10 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import si.feri.pkm.optitech.Database.SQLCarImage;
-import si.feri.pkm.optitech.Database.SQLCarsDatabase;
-import si.feri.pkm.optitech.Database.SQLDrive;
-import si.feri.pkm.optitech.Database.SQLFuelType;
+import si.feri.pkm.optitech.Database.*;
 import si.feri.pkm.optitech.Entity.Drive;
 import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.Vehicle;
@@ -65,6 +62,8 @@ public class MainController {
         String linkImage = "";
         String fuel = "";
         String drive = "";
+
+        SQLDriveData.vssAvgSpeedForSelectedCar(0);
 
         if(vehicle != null){
              linkImage = SQLCarImage.getCarImage(id);
