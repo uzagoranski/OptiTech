@@ -52,7 +52,7 @@ public class SQLDriveData {
              Statement statement = connection.createStatement()) {
 
             // Create and execute a SELECT SQL statement.
-            String selectSql = "select VssAvg, dateMsg from OptiTech.tlm.DriveData WHERE vehicleId=218 AND (DrvTime != 0 OR DrvDist > 400);";
+            String selectSql = "select VssAvg, dateMsg from OptiTech.tlm.DriveData WHERE vehicleId="+carID+" AND (DrvTime != 0 OR DrvDist > 400);";
             resultSet = statement.executeQuery(selectSql);
 
             // Print results from select statement
@@ -69,7 +69,6 @@ public class SQLDriveData {
         json.put("date",dateForSelectedCar);
         json.put("vssAvg", vssAvgSpeedForSelectedCar);
 
-        System.out.println(json);
         return json;
     }
 }
