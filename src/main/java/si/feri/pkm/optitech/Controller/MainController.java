@@ -1,5 +1,6 @@
 package si.feri.pkm.optitech.Controller;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class MainController {
@@ -63,8 +65,8 @@ public class MainController {
         String fuel = "";
         String drive = "";
 
-        SQLDriveData.vssAvgSpeedForSelectedCar(0);
-        SQLDriveData.sliderRange(217);
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
+        ArrayList<Date> sliderRange = SQLDriveData.sliderRange(id);
 
         if(vehicle != null){
              linkImage = SQLCarImage.getCarImage(id);
@@ -76,6 +78,8 @@ public class MainController {
         model.addAttribute("vehicle", vehicle);
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
+        model.addAttribute("jsonSpeed", jsonSpeed);
+        model.addAttribute("sliderRange", sliderRange);
         return "carDetails";
     }
 
