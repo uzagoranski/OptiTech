@@ -1,6 +1,7 @@
 package si.feri.pkm.optitech.Database;
 
 import org.json.JSONObject;
+import org.springframework.boot.jackson.JsonObjectDeserializer;
 import si.feri.pkm.optitech.Entity.FuelType;
 
 import java.sql.*;
@@ -73,7 +74,7 @@ public class SQLDriveData {
     }
 
 
-    public static ArrayList<Date> sliderRange(int carID) {
+    public static JSONObject sliderRange(int carID) {
     ArrayList<Date> rangeDates= new ArrayList<>();
         ResultSet resultSet;
 
@@ -94,8 +95,10 @@ public class SQLDriveData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        JSONObject json = new JSONObject();
+        json.put("rangeDates",rangeDates);
 
-    return  rangeDates;
+    return json;
     }
 
 }

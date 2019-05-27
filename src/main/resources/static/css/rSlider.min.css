@@ -120,6 +120,7 @@
     font-size: 12px;
     margin-top: 20px;
     text-decoration: none;
+    visibility: hidden;
 }
 
 .rs-container.disabled .rs-scale span ins {
@@ -129,7 +130,7 @@
 .rs-tooltip {
     color: #333;
     width: auto;
-    min-width: 60px;
+    min-width: 90px;
     height: 30px;
     background: #fff;
     border: 1px solid #00969b;

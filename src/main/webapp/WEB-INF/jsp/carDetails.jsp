@@ -102,17 +102,17 @@
                             </div>
                     </div>
                     <hr/>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" id="slider" class="slider" style="margin: 10px">
+                        </div>
+                    </div>
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px">
                         <div class="col-lg-6">
                             <canvas id="speedChart" width="800" height="450"></canvas>
                         </div>
                         <div class="col-lg-6">
                             <canvas id="rpmChart" width="800" height="450"></canvas>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="text" id="slider" class="slider" style="margin: 10px">
                         </div>
                     </div>
                 </div>
@@ -230,13 +230,11 @@
 </script>
 
 <script>
+    <c:set var="jsonSlider" value="${sliderRange}"></c:set>
     var mySlider = new rSlider({
         target: '#slider',
-    values: [
-        <c:forEach items="${sliderRange}" var="sr">
-            ${sr},
-        </c:forEach>
-    ],
+    values: ${jsonSlider.get("rangeDates")}
+    ,
     range: true
     });
 

@@ -66,7 +66,7 @@ public class MainController {
         String drive = "";
 
         JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
-        ArrayList<Date> sliderRange = SQLDriveData.sliderRange(id);
+        JSONObject sliderRange = SQLDriveData.sliderRange(id);
 
         if(vehicle != null){
              linkImage = SQLCarImage.getCarImage(id);
