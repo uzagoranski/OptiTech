@@ -227,18 +227,20 @@
             }
         }
     });
-</script>
 
-<script>
     <c:set var="jsonSlider" value="${sliderRange}"></c:set>
     var mySlider = new rSlider({
         target: '#slider',
     values: ${jsonSlider.get("rangeDates")}
     ,
-    range: true
+    range: true,
+        onChange: function () {
+            alert(mySlider.getValue());
+        }
+
     });
 
-</script>
+</script>0
 </body>
 
 </html>

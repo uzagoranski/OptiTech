@@ -241,4 +241,25 @@ WHERE vehicleId IN (select distinct vehicleId from OPTITECH.TLM.DRIVEDATA WHERE 
       AND countryID != 'XY'
       AND vehicleId != '1357'
 )
-);  
+);
+
+
+/*
+ 13)
+ Izbor podatkov za graf, na nekem časovnem intervalu. Potrebno je spremeniti vehicleId IN datuma!
+ */
+SELECT rpmAvg, dateMsg
+FROM OptiTech.tlm.DriveData
+WHERE vehicleId = 1380
+  AND dateMsg > Convert(datetime, '2019-05-03')
+  AND dateMsg < Convert(datetime, '2019-05-06');
+
+/*
+ 14)
+ Izbor podatkov za graf, na nekem časovnem intervalu. Potrebno je spremeniti vehicleId IN datuma!
+ */
+SELECT VssAvg, dateMsg
+FROM OptiTech.tlm.DriveData
+WHERE vehicleId = 1380
+  AND dateMsg > Convert(datetime, '2019-05-03')
+  AND dateMsg < Convert(datetime, '2019-05-06');
