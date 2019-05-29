@@ -258,8 +258,19 @@ WHERE vehicleId = 1380
  14)
  Izbor podatkov za graf, na nekem časovnem intervalu. Potrebno je spremeniti vehicleId IN datuma!
  */
-SELECT VssAvg, dateMsg
-FROM OptiTech.tlm.DriveData
-WHERE vehicleId = 1380
-  AND dateMsg > Convert(datetime, '2019-05-03')
-  AND dateMsg < Convert(datetime, '2019-05-06');
+SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE vehicleId = 1380 AND dateMsg > Convert(datetime, '2019-05-03') AND dateMsg < Convert(datetime, '2019-05-06');
+
+
+/*
+ 15)
+ Pridobitev podatkov o vseh avtih za izračun scora.
+ */
+SELECT rpmMax, rpmAvg, vssMax, vssAvg, DrvDist, DrvTime, DrvStartStopCnt, FuelConsAvg FROM OptiTech.tlm.DriveData  WHERE VssMax!= 0 AND VssAvg != 0 AND DrvDist != 0 AND DrvTime != 0 AND FuelConsAvg != 0;
+
+/*
+ 16)
+ Pridobitev podatkov o določenem avtu za izračun scora.
+ */
+SELECT rpmMax, rpmAvg, vssMax, vssAvg, DrvDist, DrvTime, DrvStartStopCnt, FuelConsAvg FROM OptiTech.tlm.DriveData  WHERE VehicleId=217 AND VssMax!= 0 AND VssAvg != 0 AND DrvDist != 0 AND DrvTime != 0 AND FuelConsAvg != 0;
+
+

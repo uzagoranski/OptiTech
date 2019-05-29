@@ -101,7 +101,7 @@ public class MainController {
         String fuel = "";
         String drive = "";
 
-        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id,"2017-01-01","2020-01-01");
         JSONObject sliderRange = SQLDriveData.sliderRange(id);
 
         if(vehicle != null){
@@ -133,7 +133,7 @@ public class MainController {
         String fuel = "";
         String drive = "";
 
-        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id,from,to);
         JSONObject sliderRange = SQLDriveData.sliderRange(id);
 
         if(vehicle != null){
