@@ -46,6 +46,7 @@
                         <div class="naslov">
                             <span class="blueDashboardH1">OptiTech</span><span class="dashboardH1"> connected vehicle platform</span><br/>
                             <i class="sub">Vehicle data ecosystem management is the future of automotive industry</i>
+                            <a href = "user">Click here to Google Login</a>
                         </div>
                     </div>
                 </div>
