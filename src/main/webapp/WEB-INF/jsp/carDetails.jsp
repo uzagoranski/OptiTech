@@ -104,7 +104,7 @@
                     <hr/>
                     <div class="row">
                         <div class="col-lg-12">
-                            <input type="text" id="slider" class="slider" style="margin: 10px">
+                            <input type="text" href="http://localhost:8080/carDetails?id=${idCar}&sliderValue=${sliderValue}" id="slider" class="slider" style="margin: 10px">
                         </div>
                     </div>
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px">
@@ -234,10 +234,32 @@
     values: ${jsonSlider.get("rangeDates")}
     ,
     range: true,
-        onChange: function () {
-            alert(mySlider.getValue());
-        }
+        onChange: function (href) {
+                var link = "http://localhost:8080/carDetails?id=${idCar}&sliderValue=" + mySlider.getValue();
+                $.ajax({
+                    url: link,
+                    type: 'POST',
+                    cache: false,
+                    success: function (result) {
+                        $('#target').html(result);
+                        $.validator.unobtrusive.parse($("form#ValidateForm"));
+                    }
+                });
+                window.history.pushState({href: href}, '', "carDetails?id=${idCar}&sliderValue="+href);
 
+                $(document).ready(function() {
+                    $(document).on('change', 'slider', function () {
+                        openURL($(this).attr("href"));
+                        return false; //intercept the link
+                    });
+
+                    window.addEventListener('popstate', function(e){
+                        if(e.state)
+                            openURL(e.state.href);
+                    });
+
+                });
+        }
     });
 
 </script>0

@@ -49,6 +49,41 @@ public class MainController {
             drive = loadDrive(vehicle);
         }
 
+        model.addAttribute("idCar", id);
+        model.addAttribute("slika", linkSlika);
+        model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
+        model.addAttribute("vehicle", vehicle);
+
+        return "carsList";
+    }
+
+    @RequestMapping(value = {"/carsList"}, method = RequestMethod.POST)
+    public String seznamVozilPost(Model model, @RequestParam(value = "id", required = false) Integer id) throws ParseException {
+
+        // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
+        // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
+        ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
+
+        model.addAttribute("vehicles", vehicles);
+
+        Vehicle vehicle = null;
+        String linkSlika = "";
+        String fuel = "";
+        String drive = "";
+
+        if (id == null) {
+            id = 217;
+        }
+
+        vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+
+        if (vehicle != null) {
+            linkSlika = SQLCarImage.getCarImage(id);
+            fuel = loadFuel(vehicle);
+            drive = loadDrive(vehicle);
+        }
+
         model.addAttribute("slika", linkSlika);
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
@@ -58,7 +93,8 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
-    public String carDetails(Model model, @RequestParam(value = "id") int id) throws ParseException {
+    public String carDetails(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue) throws ParseException {
+
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
@@ -74,6 +110,40 @@ public class MainController {
              drive = loadDrive(vehicle);
         }
 
+        model.addAttribute("idCar", id);
+        model.addAttribute("sliderValue", sliderValue);
+        model.addAttribute("linkImage", linkImage);
+        model.addAttribute("vehicle", vehicle);
+        model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
+        model.addAttribute("jsonSpeed", jsonSpeed);
+        model.addAttribute("sliderRange", sliderRange);
+        return "carDetails";
+    }
+
+    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
+    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue) throws ParseException {
+
+        String[] dates = sliderValue.split(",");
+        String from = dates[0];
+        String to = dates[1];
+
+        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+        String linkImage = "";
+        String fuel = "";
+        String drive = "";
+
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
+        JSONObject sliderRange = SQLDriveData.sliderRange(id);
+
+        if(vehicle != null){
+            linkImage = SQLCarImage.getCarImage(id);
+            fuel = loadFuel(vehicle);
+            drive = loadDrive(vehicle);
+        }
+
+        model.addAttribute("idCar", id);
+        model.addAttribute("sliderValue", sliderValue);
         model.addAttribute("linkImage", linkImage);
         model.addAttribute("vehicle", vehicle);
         model.addAttribute("fuel", fuel);
@@ -108,4 +178,5 @@ public class MainController {
             }
         return drive;
     }
+
 }
