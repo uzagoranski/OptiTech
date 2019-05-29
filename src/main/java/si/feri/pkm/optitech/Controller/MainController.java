@@ -11,47 +11,55 @@ import si.feri.pkm.optitech.Entity.Drive;
 import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
-import java.security.Principal;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class MainController {
 
-    static String user;
-
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public String index(Model model, Principal principal) {
-
-        if(principal != null) {
-            user = principal.getName();
-        } else {
-            user = "anonymousUser";
-        }
-
-        model.addAttribute("user", user);
-
-        return "index";
-    }
-
-    @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
-    public String logout(Model model) {
-
-        user = "anonymousUser";
-
-        model.addAttribute("user", user);
-
+    public String index(Model model) {
         return "index";
     }
 
     @RequestMapping(value = {"/carsList"}, method = RequestMethod.GET)
-    public String seznamVozil(Model model, @RequestParam(value = "id", required = false) Integer id, Principal principal) throws ParseException {
+    public String seznamVozil(Model model, @RequestParam(value = "id", required = false) Integer id) throws ParseException {
 
-        if(principal != null) {
-            user = principal.getName();
-        } else {
-            user = "anonymousUser";
+        // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
+        // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
+        ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
+
+        model.addAttribute("vehicles", vehicles);
+
+        Vehicle vehicle = null;
+        String linkSlika = "";
+        String fuel = "";
+        String drive = "";
+
+        if (id == null) {
+            id = 217;
         }
+
+        vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+
+        if (vehicle != null) {
+            linkSlika = SQLCarImage.getCarImage(id);
+            fuel = loadFuel(vehicle);
+            drive = loadDrive(vehicle);
+        }
+
+        model.addAttribute("idCar", id);
+        model.addAttribute("slika", linkSlika);
+        model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
+        model.addAttribute("vehicle", vehicle);
+
+        return "carsList";
+    }
+
+    @RequestMapping(value = {"/carsList"}, method = RequestMethod.POST)
+    public String seznamVozilPost(Model model, @RequestParam(value = "id", required = false) Integer id) throws ParseException {
 
         // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
         // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
@@ -80,26 +88,20 @@ public class MainController {
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
         model.addAttribute("vehicle", vehicle);
-        model.addAttribute("user", user);
 
         return "carsList";
     }
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
-    public String carDetails(Model model, @RequestParam(value = "id") int id, Principal principal) throws ParseException {
+    public String carDetails(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue) throws ParseException {
 
-        if(principal != null) {
-            user = principal.getName();
-        } else {
-            user = "anonymousUser";
-        }
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
         String fuel = "";
         String drive = "";
 
-        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id);
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id,"2017-01-01","2020-01-01");
         JSONObject sliderRange = SQLDriveData.sliderRange(id);
 
         if(vehicle != null){
@@ -108,14 +110,46 @@ public class MainController {
              drive = loadDrive(vehicle);
         }
 
+        model.addAttribute("idCar", id);
+        model.addAttribute("sliderValue", sliderValue);
         model.addAttribute("linkImage", linkImage);
         model.addAttribute("vehicle", vehicle);
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
         model.addAttribute("jsonSpeed", jsonSpeed);
         model.addAttribute("sliderRange", sliderRange);
-        model.addAttribute("user", user);
+        return "carDetails";
+    }
 
+    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
+    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue) throws ParseException {
+
+        String[] dates = sliderValue.split(",");
+        String from = dates[0];
+        String to = dates[1];
+
+        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+        String linkImage = "";
+        String fuel = "";
+        String drive = "";
+
+        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id,from,to);
+        JSONObject sliderRange = SQLDriveData.sliderRange(id);
+
+        if(vehicle != null){
+            linkImage = SQLCarImage.getCarImage(id);
+            fuel = loadFuel(vehicle);
+            drive = loadDrive(vehicle);
+        }
+
+        model.addAttribute("idCar", id);
+        model.addAttribute("sliderValue", sliderValue);
+        model.addAttribute("linkImage", linkImage);
+        model.addAttribute("vehicle", vehicle);
+        model.addAttribute("fuel", fuel);
+        model.addAttribute("drive", drive);
+        model.addAttribute("jsonSpeed", jsonSpeed);
+        model.addAttribute("sliderRange", sliderRange);
         return "carDetails";
     }
 
@@ -145,5 +179,4 @@ public class MainController {
         return drive;
     }
 
-    //public String getJSON()
 }
