@@ -11,20 +11,47 @@ import si.feri.pkm.optitech.Entity.Drive;
 import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Controller
 public class MainController {
 
+    static String user;
+
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model, Principal principal) {
+
+        if(principal != null) {
+            user = principal.getName();
+        } else {
+            user = "anonymousUser";
+        }
+
+        model.addAttribute("user", user);
+
+        return "index";
+    }
+
+    @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
+    public String logout(Model model) {
+
+        user = "anonymousUser";
+
+        model.addAttribute("user", user);
+
         return "index";
     }
 
     @RequestMapping(value = {"/carsList"}, method = RequestMethod.GET)
-    public String seznamVozil(Model model, @RequestParam(value = "id", required = false) Integer id) throws ParseException {
+    public String seznamVozil(Model model, @RequestParam(value = "id", required = false) Integer id, Principal principal) throws ParseException {
+
+        if(principal != null) {
+            user = principal.getName();
+        } else {
+            user = "anonymousUser";
+        }
 
         // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
         // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
@@ -53,12 +80,19 @@ public class MainController {
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
         model.addAttribute("vehicle", vehicle);
+        model.addAttribute("user", user);
 
         return "carsList";
     }
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.GET)
-    public String carDetails(Model model, @RequestParam(value = "id") int id) throws ParseException {
+    public String carDetails(Model model, @RequestParam(value = "id") int id, Principal principal) throws ParseException {
+
+        if(principal != null) {
+            user = principal.getName();
+        } else {
+            user = "anonymousUser";
+        }
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
@@ -80,6 +114,8 @@ public class MainController {
         model.addAttribute("drive", drive);
         model.addAttribute("jsonSpeed", jsonSpeed);
         model.addAttribute("sliderRange", sliderRange);
+        model.addAttribute("user", user);
+
         return "carDetails";
     }
 
@@ -108,4 +144,6 @@ public class MainController {
             }
         return drive;
     }
+
+    //public String getJSON()
 }
