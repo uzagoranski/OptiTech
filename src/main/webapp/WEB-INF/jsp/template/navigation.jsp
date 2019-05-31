@@ -3,6 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="user" value="${user}"/>
+<c:set var="email" value="${email}"/>
+<c:set var="name" value="${name}"/>
+<c:set var="image" value="${image}"/>
+
 <c:choose>
     <c:when test="${user == 'anonymousUser'}">
         <!-- HEADER MOBILE-->
@@ -33,12 +37,12 @@
                                 <i class="fas fa-chart-bar"></i>Vehicles</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="comparison">
                                 <i class="fas fa-table"></i>Comparison</a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>MOS</a>
+                            <a href="statsAI">
+                                <i class="far fa-check-square"></i>AI</a>
                         </li>
                     </ul>
                 </div>
@@ -65,12 +69,12 @@
                                 <i class="fa fa-car"></i>Vehicles</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="comparison">
                                 <i class="fas fa-table"></i>Comparison</a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>MOS</a>
+                            <a href="statsAI">
+                                <i class="far fa-check-square"></i>AI</a>
                         </li>
                     </ul>
                 </nav>
@@ -130,12 +134,12 @@
                                 <i class="fas fa-chart-bar"></i>Vehicles</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="comparison">
                                 <i class="fas fa-table"></i>Comparison</a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>MOS</a>
+                            <a href="statsAI">
+                                <i class="far fa-check-square"></i>AI</a>
                         </li>
                     </ul>
                 </div>
@@ -162,12 +166,12 @@
                                 <i class="fa fa-car"></i>Vehicles</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="comparison">
                                 <i class="fas fa-table"></i>Comparison</a>
                         </li>
                         <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>MOS</a>
+                            <a href="statsAI">
+                                <i class="far fa-check-square"></i>AI</a>
                         </li>
                     </ul>
                 </nav>
@@ -228,23 +232,23 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="Janez Novak" />
+                                            <img src="${image}" alt="${name}" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Janez Novak</a>
+                                            <a class="js-acc-btn" href="#">${name}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="Janez Novak" />
+                                                        <img src="${image}" alt="${name}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Janez Novak</a>
+                                                        <a href="#">${name}</a>
                                                     </h5>
-                                                    <span class="email">janez.novak@student.um.si</span>
+                                                    <span class="email">${email}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
