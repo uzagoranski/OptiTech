@@ -1,5 +1,5 @@
 <p align="center">
-  <img  src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
+  <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
 </p>
           Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
 
@@ -37,6 +37,50 @@ Platformo sestavlajo:
 - analitični center, ki obdeluje in pripravlja podatke za potrebe različnih skupin uporabnikov ekosistema in 
 - portal OptiTech, ki omogoča preglede podatkov in upravljanje vseh delov sistema.
 
+### Uporabniški vmesnik
+
+Rok za izdelavo projekta je izjemno kratek (5 tednov), zaradi česar si ne moremo privoščiti izgube časa z vidika samostojnega programiranja uporabniškega vmesnika. Iz tega razloga smo prebrskali med najboljšimi brezplačnimi predlogami, ki so ustrezale našemu konceptu in tipu projekta in izbrali temo [CoolAdmin](https://colorlib.com/polygon/cooladmin/index.html). Ta je seveda prilagojena in prirejena našim potrebam, zatorej je popolna uporabniška izkušnja zagotovljena.
+
+### Prijava in registracija
+
+Zaradi boljše uporabniške izkušnje je platforma kar se da izpopolnjena za čim lažjo uporabo in k temu spada tudi prijava v sistem. Celotna varnost spletne strani je implementirana preko kombinacije Spring Security-ja in OAuth 2.0 protokola. Neprijavljen uporabnik lahko tako dostopa samo do pozdravne strani z osnovnimi informacijami, prijavljen uporabnik pa lahko brska po podrobnejših podatkih. Celotna zadeva je implementirana tako, da deluje podobno kot vsi večji SSO (single sign-on) sistemi. V primeru neregistriranega uporabnika se registracija izvede praktično ob prvi prijavi in se podatki shranijo v Google-ovo shrambo podatkov, za že prijavljene uporabnike pa se izvede samo klasična avtorizacija.
+
+## Arhitektura
+
+Tekom celotnega projekta je uporabljena klasična MVC arhitektura, zgrajena s pomočjo Spring Boot ogrodja. Natančnejši opis posameznih komponent: 
+* MODEL:  javanski razredi za dostop do entitet v SQL Server-ju 
+* VIEW: prejem informacij in gradnja uporabniškega vmesnika v obliki .jsp strani, souporaba anotacij JSTL
+* CONTROLLER: klasični Spring kontrolerji (nadzorniki) z anotacijami in mappingi 
+
+Prednosti MVC arhitekture:
+*Modularnost
+*Fleksibilnost
+*Hitrejši razvoj
+*Lažje vzdrževanje
+
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/1080/0*Qf1s2lG86MjX-Zcv.jpg">
+</p>
+
+Podporne tehnologije, uporabljene v projektu: Bootstrap, jQuery, AJAX, JavaScript, SASS
+
+Kot dodatek se pri statistiki in javljanju napak posameznega vozila uporabljajo metode umetne inteligence. Iz širokega nabora podatkov smo izbrskali vzorec in po vnosu podatkov uporabnika lahko do 99% natančno določimo čas in tip napake, ki se lahko pojavi.
+
+## Metode dela
+
+#### Kanban
+
+Kanban je metoda za upravljanje in organizacijo dela, s poudarkom na vmesnih rezultatih in usklajenemu delu vseh vpletenih. Najsi to metodo uporabljal le en posameznik ali velika skupina ljudi, vsem so vidne vse naloge, celoten potek in zaključek. Iz tega razloga za sledenje dela in nalog uporabljamo "Projects" segment, ki je ponujen na GitHubu. Za pregled nad projektom OptiTech kliknite naslednjo [povezavo](https://github.com/uzagoranski/Praktikum_OptiTech/projects/1).
+
+#### Iterativen pristop
+
+Za implementacijo posameznih komponent platforme se poslužujemo iterativnega pristopa dela. S tem pridobimo pregled nad delom, omogočimo lažjo organizacijo dela in boljše sodelovanje med člani ekipe. Posamezna iteracija traja 1 teden, v času le-te pa se izvede implementacija dodeljenih funkcionalnosti.
+
+#### Inkrementalen pristop
+
+Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti dodeljene naloge. Zaradi tega je v igri tudi inkrementalen pristop dela, v katerem izvedemo gradnjo na prvotni funkcionalnosti z dopolnjevanjem in dodajanjem vrednosti obstoječi platformi.
+
+
 ## Navodila za implementacijo
 
 1.	Prenesite in namestite: IntelliJ IDEA 2019.1.2, Java 1.8 MSSQL Server (vsaj 2016), SQL Server Management Studio (SMMS) 18.0
@@ -55,13 +99,13 @@ Platformo sestavlajo:
 
 ## Prispevki
 
-Za prispevke ki želite da bi bili dodani k tej strani, nas kontaktirajte na mail: mestniutripmaribor@gmail.com
+V primeru želje po sodelovanju pri projektu nas lahko kontaktirate in nam pošljete morebitne prispevke na email naslov: mestniutripmaribor@gmail.com
 
 ## Različica
 
 Različica: 7.5.2
 
-To je zadnja uradna objavljena različica.
+To je zadnja uradno objavljena različica.
 
 ## Avtorji
 
