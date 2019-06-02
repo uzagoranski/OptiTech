@@ -255,6 +255,10 @@ public class MainController {
         } else {
             user = "anonymousUser";
         }
+
+        ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
+
+        model.addAttribute("vehicles", vehicles);
         model.addAttribute("user", user);
         model.addAttribute("email", email);
         model.addAttribute("name", name);
