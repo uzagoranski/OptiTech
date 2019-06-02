@@ -32,7 +32,7 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
     <link href="css/reset.css" rel="stylesheet" media="all">
-    <link href="css/style.css" rel="stylesheet" media="all">
+    <link href="css/comparison.css" rel="stylesheet" media="all">
 
     <!-- Charts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -162,6 +162,7 @@
 <!-- Main JS-->
 <script src="js/main.js"></script>
 <script src="js/modernizr.js"></script>
+<script src="js/comparison.js"></script>
 
 
 </body>
