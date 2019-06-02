@@ -19,6 +19,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/images/**");
         web.ignoring().antMatchers("/fonts/poppins/**");
         web.ignoring().antMatchers("/js/**");
+        web.ignoring().antMatchers("/partials/**");
+        web.ignoring().antMatchers("/scss/**");
         web.ignoring().antMatchers("/WEB-INF/jsp/template/navigation.jsp");
     }
 
@@ -33,7 +35,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().logout()    //logout configuration
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/");
-
         http.csrf().disable();
     }
 }
