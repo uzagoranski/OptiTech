@@ -1,26 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="org.json.JSONObject" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Title Page-->
     <title>Artificial intelligence stats</title>
 
-    <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-    <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -29,10 +23,8 @@
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
-    <!-- Charts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 
@@ -74,38 +66,113 @@
 
 <body class="animsition">
 <div class="page-wrapper">
-    <!-- PAGE CONTAINER-->
     <div class="page-container">
         <%@include file="template/navigation.jsp"%>
 
-        <!-- MAIN CONTENT-->
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
-                            <div class="col-lg-6 mx-auto" id="carView">
-
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">Your drive data</div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3 class="text-center title-2">Vehicle error calculator</h3>
+                                    </div>
+                                    <hr>
+                                    <form action="" method="post" novalidate="novalidate">
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="vehicleSelect" class="form-control-label">Vehicle</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <select name="vehicleSelect" id="vehicleSelect" class="form-control">
+                                                    <option value="0">Please select your vehicle</option>
+                                                    <option value="1">Volvo V70</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="yearInput" class=" form-control-label">Year</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="yearInput" name="yearInput" placeholder="2007" disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="fuelInput" class=" form-control-label">Gasoline</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="fuelInput" name="fuelInput" placeholder="Gasoline" disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="engineInput" class=" form-control-label">Engine</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="engineInput" name="engineInput" placeholder="1598 ccm, 130 HP" disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="driveInput" class=" form-control-label">Drive</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="driveInput" name="driveInput" placeholder="Front wheel drive" disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="speedInput" class="form-control-label">Average speed</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="speedInput" name="speedInput" placeholder="Enter your average speed..." class="form-control">
+<%--                                                <small class="form-text text-muted">Enter your average speed...</small>--%>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="RPMInput" class=" form-control-label">Average RPM</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="RPMInput" name="RPMInput" placeholder="Enter your average RPM..." class="form-control">
+<%--                                                <small class="form-text text-muted">Enter your average RPM...</small>--%>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="consumptionInput" class=" form-control-label">Average consumption</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="consumptionInput" name="consumptionInput" placeholder="Enter your average consumption..." class="form-control">
+<%--                                                <small class="form-text text-muted">Enter your average consumption...</small>--%>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                <i class="fa fa-save fa-lg"></i>&nbsp;
+                                                <span id="payment-button-amount">Submit</span>
+                                                <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class ="col-lg-6 mx-auto" id="image">
-
-                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
-        <!-- END MAIN CONTENT-->
-        <!-- END PAGE CONTAINER-->
     </div>
-
 </div>
 
-<!-- Jquery JS-->
 <script src="vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
 <script src="vendor/slick/slick.min.js">
 </script>
 <script src="vendor/wow/wow.min.js"></script>
@@ -119,13 +186,6 @@
 <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="vendor/select2/select2.min.js"></script>
-
-<!-- Main JS-->
 <script src="js/main.js"></script>
-
-<!-- Charts-->
-
 </body>
-
 </html>
-<!-- end document-->
