@@ -116,7 +116,7 @@
 
                                             <ul class="cd-features-list">
                                                 <li>${v.getEngineSize()}</li>
-                                                <li class="rate"><span>${v.getEnginePower()}</span></li>
+                                                <li>${v.getEnginePower()}</li>
                                                 <!-- other values here -->
                                             </ul>
                                         </li> <!-- .product -->
