@@ -31,6 +31,8 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="css/reset.css" rel="stylesheet" media="all">
+    <link href="css/style.css" rel="stylesheet" media="all">
 
     <!-- Charts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -82,7 +84,52 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
+                    <section class="cd-products-comparison-table">
+                        <header>
+                            <h2>Compare Vehicles</h2>
 
+                            <div class="actions">
+                                <a href="#0" class="reset">Reset</a>
+                                <a href="#0" class="filter">Filter</a>
+                            </div>
+                        </header>
+
+                        <div class="cd-products-table">
+                            <div class="features">
+                                <div class="top-info">Modeli</div>
+                                <ul class="cd-features-list">
+                                    <li>Engine size</li>
+                                    <li>Engine power</li>
+                                    <!-- other features here -->
+                                </ul>
+                            </div> <!-- .features -->
+
+                            <div class="cd-products-wrapper">
+                                <ul class="cd-products-columns">
+                                    <c:forEach items="${vehicles}" var="v">
+                                        <li class="product">
+                                            <div class="top-info">
+                                                <div class="check"></div>
+                                                <img src="${v.getImgLink()}" alt="product image">
+                                                <h3>${v.getVehicleTitle()}</h3>
+                                            </div> <!-- .top-info -->
+
+                                            <ul class="cd-features-list">
+                                                <li>${v.getEngineSize()}</li>
+                                                <li>${v.getEnginePower()}</li>
+                                                <!-- other values here -->
+                                            </ul>
+                                        </li> <!-- .product -->
+                                    </c:forEach>
+                                </ul> <!-- .cd-products-columns -->
+                            </div> <!-- .cd-products-wrapper -->
+
+                            <ul class="cd-table-navigation">
+                                <li><a href="#0" class="prev inactive">Prev</a></li>
+                                <li><a href="#0" class="next">Next</a></li>
+                            </ul>
+                        </div> <!-- .cd-products-table -->
+                    </section> <!-- .cd-products-comparison-table -->
                 </div>
             </div>
         </div>
@@ -114,6 +161,8 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
+<script src="js/modernizr.js"></script>
+
 
 </body>
 
