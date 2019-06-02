@@ -53,10 +53,10 @@ Tekom celotnega projekta je uporabljena klasična MVC arhitektura, zgrajena s po
 * CONTROLLER: klasični Spring kontrolerji (nadzorniki) z anotacijami in mappingi 
 
 Prednosti MVC arhitekture:
-*Modularnost
-*Fleksibilnost
-*Hitrejši razvoj
-*Lažje vzdrževanje
+* Modularnost
+* Fleksibilnost
+* Hitrejši razvoj
+* Lažje vzdrževanje
 
 <p align="center">
   <img src="https://cdn-images-1.medium.com/max/1080/0*Qf1s2lG86MjX-Zcv.jpg">
