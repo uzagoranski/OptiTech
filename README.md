@@ -43,7 +43,9 @@ Rok za izdelavo projekta je izjemno kratek (5 tednov), zaradi česar si ne morem
 
 ### Prijava in registracija
 
-Zaradi boljše uporabniške izkušnje je platforma kar se da izpopolnjena za čim lažjo uporabo in k temu spada tudi prijava v sistem. Celotna varnost spletne strani je implementirana preko kombinacije Spring Security-ja in OAuth 2.0 protokola. Neprijavljen uporabnik lahko tako dostopa samo do pozdravne strani z osnovnimi informacijami, prijavljen uporabnik pa lahko brska po podrobnejših podatkih. Celotna zadeva je implementirana tako, da deluje podobno kot vsi večji SSO (single sign-on) sistemi. V primeru neregistriranega uporabnika se registracija izvede praktično ob prvi prijavi in se podatki shranijo v Google-ovo shrambo podatkov, za že prijavljene uporabnike pa se izvede samo klasična avtorizacija.
+Zaradi boljše uporabniške izkušnje je platforma kar se da izpopolnjena za čim lažjo uporabo in k temu spada tudi prijava v sistem. Celotna varnost spletne strani je implementirana preko kombinacije Spring Security-ja in OAuth 2.0 protokola. Neprijavljen uporabnik lahko tako dostopa samo do pozdravne strani z osnovnimi informacijami, prijavljen uporabnik pa lahko brska po podrobnejših podatkih. 
+
+Celotna platforma je implementirana tako, da deluje podobno kot vsi večji SSO (single sign-on) sistemi. V primeru neregistriranega uporabnika se registracija izvede praktično ob prvi prijavi in se podatki shranijo v Google-ovo shrambo podatkov, za že prijavljene uporabnike pa se izvede samo klasična avtorizacija.
 
 ## Arhitektura
 
