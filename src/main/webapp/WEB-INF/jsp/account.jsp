@@ -159,7 +159,7 @@
                                             <h5>
                                                 ${email}
                                             </h5>
-                                            <p class="proile-rating">VERIFIED EMAIL : <span>YES</span></p><br/>
+                                            <p class="proile-rating">VERIFIED EMAIL : <span><i class="fas fa-check-circle"></i></span></p><br/>
 
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item">
