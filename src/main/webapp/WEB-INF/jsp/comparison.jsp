@@ -95,7 +95,7 @@
                         </header>
                         <div class="cd-products-table">
                             <div class="features">
-                                <div class="top-info">Modeli</div>
+                                <div class="top-info">Name</div>
                                 <ul class="cd-features-list">
                                     <li>Engine size</li>
                                     <li>Engine power</li>
@@ -110,7 +110,7 @@
                                             <div class="top-info">
                                                 <div class="check"></div>
                                                 <img src="${v.getImgLink()}" alt="product image">
-                                                <h3>${v.getVehicleTitle()}</h3>
+                                                <h3>${v.getCarMaker()} ${v.getVehicleTitle()}</h3>
                                             </div> <!-- .top-info -->
 
                                                 <ul class="cd-features-list">

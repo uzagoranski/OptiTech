@@ -9,7 +9,6 @@
 
 <c:choose>
     <c:when test="${user == 'anonymousUser'}">
-        <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
@@ -48,9 +47,7 @@
                 </div>
             </nav>
         </header>
-        <!-- END HEADER MOBILE-->
 
-        <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="/">
@@ -80,28 +77,23 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
 
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <div></div>
                             <div class="header-button">
-                                <a href="user">LOGIN</a>
+                                <a href="login">LOGIN</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-            <!-- HEADER DESKTOP-->
         </div>
     </c:when>
     <c:otherwise>
-        <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
@@ -145,9 +137,7 @@
                 </div>
             </nav>
         </header>
-        <!-- END HEADER MOBILE-->
 
-        <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="/">
@@ -177,11 +167,8 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
 
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -253,12 +240,8 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="account">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Settings</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
@@ -273,7 +256,6 @@
                     </div>
                 </div>
             </header>
-            <!-- HEADER DESKTOP-->
         </div>
     </c:otherwise>
 </c:choose>
