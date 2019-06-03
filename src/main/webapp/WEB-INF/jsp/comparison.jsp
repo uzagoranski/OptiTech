@@ -104,7 +104,7 @@
                             </div> <!-- .features -->
 
                             <div class="cd-products-wrapper">
-                                <ul class="cd-products-columns">
+                                <ul class="cd-products-columns" style="width: 5800px">
                                     <c:forEach items="${vehicles}" var="v">
                                         <li class="product">
                                             <div class="top-info">

@@ -98,7 +98,7 @@ Main Components
     }
     .cd-products-comparison-table::after {
         /* never visible - this is used in jQuery to check the current MQ */
-        content: 'desktop';
+        content: '';
     }
     .cd-products-comparison-table header {
         padding: 0 5% 40px;
