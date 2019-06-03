@@ -149,8 +149,8 @@
 
 <!-- Charts-->
 <script type="text/javascript">
-    var value = 57866;
-    var max = 80000;
+    var value =${score}
+    var max = 100;
 
     var bar_ctx = document.getElementById('bar-chart');
     var bar_chart = new Chart(bar_ctx, {
@@ -159,7 +159,7 @@
             labels: [],
             datasets: [{
                 data: [value],
-                backgroundColor: "rgba(51,230,125,1)"
+                backgroundColor: "${color}"
             }, {
                 data: [max - value],
                 backgroundColor: "lightgrey",

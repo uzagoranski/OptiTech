@@ -10,9 +10,9 @@ prikažeš ZNAMKO (reg.CarMakers), MODEL (reg.CarModels), POVPREČJA RPM, VSS, P
 /*  SLABO
 1) View za modelId in makerId, ta View se v bazi nahaja pod: OptiTech -> Views -> dbo.nekaj
 */
-select carModel, carMakerId
-from optitech.reg.carModels
-WHERE carModelId IN (select * from OptiTech.dbo.nekaj);
+-- select carModel, carMakerId
+-- from optitech.reg.carModels
+-- WHERE carModelId IN (select * from OptiTech.dbo.nekaj);
 
 
 /* SLABO
@@ -237,6 +237,7 @@ WHERE vehicleId IN (select distinct vehicleId from OPTITECH.TLM.DRIVEDATA WHERE 
                               RIGHT JOIN OptiTech.biz.Vehicles
                                          ON tabela.carModelId = optitech.biz.vehicles.carModelId
 
+
     WHERE engineSize != 0
       AND countryID != 'XY'
       AND vehicleId != '1357'
@@ -263,14 +264,56 @@ SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE vehicleId = 1380 AND da
 
 /*
  15)
- Pridobitev podatkov o vseh avtih za izračun scora.
+ Pridobitev max in min vrednosti za izračun.
  */
-SELECT rpmMax, rpmAvg, vssMax, vssAvg, DrvDist, DrvTime, DrvStartStopCnt, FuelConsAvg FROM OptiTech.tlm.DriveData  WHERE VssMax!= 0 AND VssAvg != 0 AND DrvDist != 0 AND DrvTime != 0 AND FuelConsAvg != 0;
+SELECT
+    MAX(AvgRpmMax) AS rpmMaxMAX,
+    MIN(AvgRpmMax) AS rpmMaxMIN,
+
+    MAX(avgRpmAvg) AS rpmAvgMAX,
+    MIN(avgRpmAvg) AS rpmAvgMIN,
+
+    MAX(avgVssMax) AS vssMaxMAX,
+    MIN(avgVssMax) AS vssMaxMIN,
+
+    MAX(vssAvg) AS vssAvgMAX,
+    MIN(vssAvg) AS vssAvgMIN,
+
+    MAX(avgDrvDist) AS drvDistMAX,
+    MIN(avgDrvDist) AS drvDistMIN,
+
+    MAX(avgDrvTime) AS drvTimeMAX,
+    MIN(avgDrvTime) AS drvTimeMIN,
+
+    MAX(avgDrvStartStopCnt) AS drvStartStopMAX,
+    MIN(avgDrvStartStopCnt) AS drvStartStopMIN,
+
+    MAX(avgFuelConsAvg) AS FuelConsMAX,
+    MIN(avgFuelConsAvg)  AS FuelConsMIN
+from (SELECT vehicleId, COUNT(vehicleId) as numberOfInputs, avg(rpmMax) AS AvgRpmMax, MAX(RpmMax) as maxRpmMax, AVG(RpmAvg) as avgRpmAvg, AVG(vssMax) as avgVssMax, AVG(VssAvg) as vssAvg, Avg(DrvDist) as avgDrvDist, avg(DrvTime) as avgDrvTime, AVG(DrvStartStopCnt) AS avgDrvStartStopCnt, AVG(FuelConsAvg) as avgFuelConsAvg from OptiTech.tlm.DriveData WHERE VssMax!= 0 AND VssAvg != 0 AND DrvDist != 0 AND DrvTime != 0 AND FuelConsAvg != 0  GROUP BY vehicleId) AS prva
+WHERE prva.numberOfInputs != 1
 
 /*
  16)
  Pridobitev podatkov o določenem avtu za izračun scora.
  */
-SELECT rpmMax, rpmAvg, vssMax, vssAvg, DrvDist, DrvTime, DrvStartStopCnt, FuelConsAvg FROM OptiTech.tlm.DriveData  WHERE VehicleId=217 AND VssMax!= 0 AND VssAvg != 0 AND DrvDist != 0 AND DrvTime != 0 AND FuelConsAvg != 0;
+SELECT
+       COUNT(vehicleId),
+       AVG(rpmMax) AS AvgRpmMax,
+       AVG(RpmAvg) AS avgRpmAvg,
+       AVG(vssMax) AS avgVssMax,
+       AVG(VssAvg) as vssAvg,
+       Avg(DrvDist) as avgDrvDist,
+       avg(DrvTime) as avgDrvTime,
+       AVG(DrvStartStopCnt) AS avgDrvStartStopCnt,
+       AVG(FuelConsAvg) as avgFuelConsAvg
+FROM OptiTech.tlm.DriveData
+WHERE VssMax!= 0
+  AND VssAvg != 0
+  AND DrvDist != 0
+  AND DrvTime != 0
+  AND FuelConsAvg != 0
+  AND VehicleId =1368;
 
 
+SELECT  AVG(ScoreTotal) FROM  Optitech.tlm.DriveData WHERE vehicleId = 217;

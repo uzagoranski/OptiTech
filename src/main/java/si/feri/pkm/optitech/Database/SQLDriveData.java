@@ -2,7 +2,10 @@ package si.feri.pkm.optitech.Database;
 
 import org.json.JSONObject;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
+import si.feri.pkm.optitech.Entity.Drive;
+import si.feri.pkm.optitech.Entity.DriveData;
 import si.feri.pkm.optitech.Entity.FuelType;
+import si.feri.pkm.optitech.Entity.VehicleForScore;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -125,29 +128,89 @@ public class SQLDriveData {
         json.put("date", date);
         json.put("vssAvg", rpmAvg);
 
-        System.out.println(json);
         return json;
     }
 
 
-    public static void getDrivenData() {
+    public static DriveData getScoreDataForAllCars() {
         ResultSet resultSet;
-
+        DriveData allCarsMaxAndMin = null;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "";
+            String selectSql = "SELECT MAX(AvgRpmMax) AS rpmMaxMAX, MIN(AvgRpmMax) AS rpmMaxMIN, MAX(avgRpmAvg) AS rpmAvgMAX, MIN(avgRpmAvg) AS rpmAvgMIN, MAX(avgVssMax) AS vssMaxMAX, MIN(avgVssMax) AS vssMaxMIN, MAX(vssAvg) AS vssAvgMAX, MIN(vssAvg) AS vssAvgMIN, MAX(avgDrvDist) AS drvDistMAX, MIN(avgDrvDist) AS drvDistMIN, MAX(avgDrvTime) AS drvTimeMAX, MIN(avgDrvTime) AS drvTimeMIN, MAX(avgDrvStartStopCnt) AS drvStartStopMAX, MIN(avgDrvStartStopCnt) AS drvStartStopMIN, MAX(avgFuelConsAvg) AS FuelConsMAX, MIN(avgFuelConsAvg) AS FuelConsMIN from (SELECT vehicleId, COUNT(vehicleId) as numberOfInputs, avg(rpmMax) AS AvgRpmMax, MAX(RpmMax) as maxRpmMax, AVG(RpmAvg) as avgRpmAvg, AVG(vssMax) as avgVssMax, AVG(VssAvg) as vssAvg, Avg(DrvDist) as avgDrvDist, avg(DrvTime) as avgDrvTime, AVG(DrvStartStopCnt) AS avgDrvStartStopCnt, AVG(FuelConsAvg) as avgFuelConsAvg from OptiTech.tlm.DriveData WHERE vehicleId IN (SELECT vehicleId FROM ( SELECT prvi.carModelId, carMakerId, carModel, vehicleSubtypeId, status, countryID, carMaker FROM ( SELECT * FROM optitech.reg.carModels WHERE carModelId IN ( SELECT carModelId FROM OptiTech.biz.Vehicles WHERE vehicleId IN ( SELECT DISTINCT vehicleId FROM optitech.tlm.DriveData))) as prvi LEFT JOIN ( SELECT carModelId, countryId, carMaker FROM optitech.reg.carModels LEFT JOIN optitech.reg.CarMakers ON optitech.reg.CarMakers.carMakerId = optitech.reg.CarModels.carMakerId ) AS drugi ON prvi.carModelId = drugi.carModelId ) AS tabela LEFT JOIN OptiTech.biz.Vehicles ON tabela.carModelId = optitech.biz.vehicles.carModelId WHERE engineSize != 0 AND countryID != 'XY' AND vehicleId != '1357') GROUP BY vehicleId)  AS prva WHERE avgFuelConsAvg < 8900;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
+
+                allCarsMaxAndMin = new DriveData (
+                        resultSet.getInt(1),
+                        resultSet.getInt(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getInt(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8),
+                        resultSet.getInt(9),
+                        resultSet.getInt(10),
+                        resultSet.getInt(11),
+                        resultSet.getInt(12),
+                        resultSet.getInt(13),
+                        resultSet.getInt(14),
+                        resultSet.getInt(15),
+                        resultSet.getInt(16)
+                );
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return allCarsMaxAndMin;
+    }
+
+    public static VehicleForScore getScoreDataForSelectedCar(int carId) {
+        ResultSet resultSet;
+        VehicleForScore vehicle = null;
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "SELECT AVG(rpmMax) AS AvgRpmMax, AVG(RpmAvg) AS avgRpmAvg, AVG(vssMax) AS avgVssMax, AVG(VssAvg) as vssAvg, Avg(DrvDist) as avgDrvDist, avg(DrvTime) as avgDrvTime, AVG(DrvStartStopCnt) AS avgDrvStartStopCnt, AVG(FuelConsAvg) as avgFuelConsAvg from OptiTech.tlm.DriveData WHERE VehicleId ="+carId+";";
+            resultSet = statement.executeQuery(selectSql);
+
+
+            while (resultSet.next()) {
+                vehicle = new VehicleForScore(
+                resultSet.getInt(1),
+                resultSet.getInt(2),
+                resultSet.getInt(3),
+                resultSet.getInt(4),
+                resultSet.getInt(5),
+                resultSet.getInt(6),
+                resultSet.getInt(7),
+                resultSet.getInt(8)
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vehicle;
     }
 
 
+    public static int getTotalScoreForSelectedCar(int carId) {
+        ResultSet resultSet;
+        int stevilo = 0;
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "    SELECT  AVG(ScoreTotal) FROM  Optitech.tlm.DriveData WHERE vehicleId ="+carId+";";
+            resultSet = statement.executeQuery(selectSql);
 
-
+            while (resultSet.next()) {
+                stevilo = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stevilo;
+    }
 
    //EMPTY FOR COPYING
     public static void neKliciTega() {
