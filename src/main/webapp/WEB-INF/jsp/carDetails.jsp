@@ -192,14 +192,17 @@
 </script>
 
 <script>
-    new Chart(document.getElementById("speedChart"), {
-        <c:set var="json" value="${jsonSpeed}"></c:set>
+    <c:set var="json" value="${jsonSpeed}"></c:set>
+    var date = ${json.get("date")};
+    var vssAvg = ${json.get("vssAvg")};
+
+    var speedChart = new Chart(document.getElementById("speedChart"), {
         type: 'line',
         data: {
-            labels: ${json.get("date")}
+            labels: date
             ,
             datasets: [{
-                data: ${json.get("vssAvg")},
+                data: vssAvg,
                 label: "Speed",
                 borderColor: "#3e95cd",
                 fill: false
@@ -233,6 +236,7 @@
         }
     });
 
+    var podatki = {};
     <c:set var="jsonSlider" value="${sliderRange}"></c:set>
     var mySlider = new rSlider({
         target: '#slider',
@@ -240,14 +244,41 @@
         ,
         range: true,
         onChange: function (href) {
-            var link = "http://localhost:8080/carDetails?id=${idCar}&sliderValue=" + mySlider.getValue();
+                var link = "/carDetails?id=${idCar}&sliderValue=" + mySlider.getValue();
             $.ajax({
                 url: link,
                 type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(podatki),
                 cache: false,
                 success: function (result) {
-                    $('#target').html(result);
-                    $.validator.unobtrusive.parse($("form#ValidateForm"));
+                    vssAvg = result['vssAvg'];
+                    date = result['date'];
+                    speedChart.destroy();
+                    speedChart = new Chart(document.getElementById("speedChart"), {
+
+
+                        type: 'line',
+                        data: {
+                            labels: date
+                            ,
+                            datasets: [{
+                                data: vssAvg,
+                                label: "Speed",
+                                borderColor: "#3e95cd",
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Vehicle speed per Log'
+                            }
+                        }
+                    });
+
+                    // $('#target').html(JSON.stringify(result));
+                    // $.validator.unobtrusive.parse($("form#ValidateForm"));
                 }
             });
             window.history.pushState({href: href}, '', "carDetails?id=${idCar}&sliderValue=" + href);

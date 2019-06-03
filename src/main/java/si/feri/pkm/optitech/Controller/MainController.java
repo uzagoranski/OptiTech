@@ -1,6 +1,7 @@
 package si.feri.pkm.optitech.Controller;
 
 import org.json.JSONObject;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -231,7 +232,7 @@ public class MainController {
             fuel = loadFuel(vehicle);
             drive = loadDrive(vehicle);
         }
-        String color = "rgba(214, 69, 65, 1)";
+        String color;
         if (score > 34 && score < 67)
             color = "rgba(248, 148, 6, 1)";
         else if (score > 66) {
@@ -255,54 +256,69 @@ public class MainController {
         return "carDetails";
     }
 
+
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
-    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
-
-        if (authentication != null) {
-            LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
-
-            email = (String) properties.get("email");
-            name = (String) properties.get("name");
-            image = (String) properties.get("picture");
-            user = name;
-
-        } else {
-            user = "anonymousUser";
-        }
-        model.addAttribute("user", user);
-        model.addAttribute("email", email);
-        model.addAttribute("name", name);
-        model.addAttribute("image", image);
-
-
-        String[] dates = sliderValue.split(",");
+    public ResponseEntity<?> carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
+                String[] dates = sliderValue.split(",");
         String from = dates[0];
         String to = dates[1];
 
-        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
-        String linkImage = "";
-        String fuel = "";
-        String drive = "";
+        JSONObject result = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
 
-        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
-        JSONObject sliderRange = SQLDriveData.sliderRange(id);
-
-        if (vehicle != null) {
-            linkImage = SQLCarImage.getCarImage(id);
-            fuel = loadFuel(vehicle);
-            drive = loadDrive(vehicle);
+        return ResponseEntity.ok(result.toString());
         }
-
-        model.addAttribute("idCar", id);
-        model.addAttribute("sliderValue", sliderValue);
-        model.addAttribute("linkImage", linkImage);
-        model.addAttribute("vehicle", vehicle);
-        model.addAttribute("fuel", fuel);
-        model.addAttribute("drive", drive);
-        model.addAttribute("jsonSpeed", jsonSpeed);
-        model.addAttribute("sliderRange", sliderRange);
-        return "carDetails";
-    }
+        //
+//    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
+//    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
+//
+//        if (authentication != null) {
+//            LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
+//
+//            email = (String) properties.get("email");
+//            name = (String) properties.get("name");
+//            image = (String) properties.get("picture");
+//            user = name;
+//
+//        } else {
+//            user = "anonymousUser";
+//        }
+//        model.addAttribute("user", user);
+//        model.addAttribute("email", email);
+//        model.addAttribute("name", name);
+//        model.addAttribute("image", image);
+//
+//
+//        String[] dates = sliderValue.split(",");
+//        String from = dates[0];
+//        String to = dates[1];
+//
+//        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+//        String linkImage = "";
+//        String fuel = "";
+//        String drive = "";
+//
+//        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
+//        JSONObject sliderRange = SQLDriveData.sliderRange(id);
+//
+//        if (vehicle != null) {
+//            linkImage = SQLCarImage.getCarImage(id);
+//            fuel = loadFuel(vehicle);
+//            drive = loadDrive(vehicle);
+//        }
+//
+//        System.out.println("Kliče se POST");
+//
+//
+//        model.addAttribute("idCar", id);
+//        model.addAttribute("sliderValue", sliderValue);
+//        model.addAttribute("linkImage", linkImage);
+//        model.addAttribute("vehicle", vehicle);
+//        model.addAttribute("fuel", fuel);
+//        model.addAttribute("drive", drive);
+//        model.addAttribute("jsonSpeed", jsonSpeed);
+//        model.addAttribute("sliderRange", sliderRange);
+//        return "carDetails";
+//    }
 
     @RequestMapping(value = {"/comparison"}, method = RequestMethod.GET)
     public String comparison(Model model, OAuth2Authentication authentication) throws IOException {
