@@ -211,15 +211,15 @@ public class MainController {
         DriveData dd = SQLDriveData.getScoreDataForAllCars();
         VehicleForScore vehicleForScore = SQLDriveData.getScoreDataForSelectedCar(id);
 
-        int score=vehicleForScore.calculateScore(
-                (int)Math.round(100-dd.koefRpmMax()*(vehicleForScore.getRpmMax()-dd.getRpmMaxMIN())),
-                (int)Math.round(100-dd.koefRpmAvg()*(vehicleForScore.getRpmAvg()-dd.getRpmAvgMIN())),
-                (int)Math.round(100-dd.koefVssMax()*(vehicleForScore.getVssMax()-dd.getVssMaxMIN())),
-                (int)Math.round(100-dd.koefVssAvg()*(vehicleForScore.getVssAvg()-dd.getVssAvgMIN())),
-                (int)Math.round(100-dd.koefDrvDist()*(vehicleForScore.getDrvDist()-dd.getDrvDistMIN())),
-                (int)Math.round(100-dd.koefDrvTime()*(vehicleForScore.getDrvTime()-dd.getDrvTimeMIN())),
-                (int)Math.round(100-dd.koefDrvStartStopCnt()*(vehicleForScore.getDrvStartStopCnt()-dd.getDrvStartStopMIN())),
-                (int)Math.round(100-dd.koefFuelCons()*(vehicleForScore.getFuelCons()-dd.getFuelConsMIN())),
+        int score = vehicleForScore.calculateScore(
+                (int) Math.round(100 - dd.koefRpmMax() * (vehicleForScore.getRpmMax() - dd.getRpmMaxMIN())),
+                (int) Math.round(100 - dd.koefRpmAvg() * (vehicleForScore.getRpmAvg() - dd.getRpmAvgMIN())),
+                (int) Math.round(100 - dd.koefVssMax() * (vehicleForScore.getVssMax() - dd.getVssMaxMIN())),
+                (int) Math.round(100 - dd.koefVssAvg() * (vehicleForScore.getVssAvg() - dd.getVssAvgMIN())),
+                (int) Math.round(100 - dd.koefDrvDist() * (vehicleForScore.getDrvDist() - dd.getDrvDistMIN())),
+                (int) Math.round(100 - dd.koefDrvTime() * (vehicleForScore.getDrvTime() - dd.getDrvTimeMIN())),
+                (int) Math.round(100 - dd.koefDrvStartStopCnt() * (vehicleForScore.getDrvStartStopCnt() - dd.getDrvStartStopMIN())),
+                (int) Math.round(100 - dd.koefFuelCons() * (vehicleForScore.getFuelCons() - dd.getFuelConsMIN())),
                 SQLDriveData.getTotalScoreForSelectedCar(id)
         );
 
@@ -231,14 +231,13 @@ public class MainController {
             fuel = loadFuel(vehicle);
             drive = loadDrive(vehicle);
         }
-        String color="rgba(214, 69, 65, 1)";
-        if(score > 34 && score < 67)
-            color="rgba(248, 148, 6, 1)";
-                    else if(score > 66){
-                        color="rgba(38, 194, 129, 1)";
-        }else
-        {
-        color="rgba(214, 69, 65, 1)";
+        String color = "rgba(214, 69, 65, 1)";
+        if (score > 34 && score < 67)
+            color = "rgba(248, 148, 6, 1)";
+        else if (score > 66) {
+            color = "rgba(38, 194, 129, 1)";
+        } else {
+            color = "rgba(214, 69, 65, 1)";
         }
 
         model.addAttribute("color", color);

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLDrive {
-    public static ArrayList<Drive> getAllDriveTypes(){
+    public static ArrayList<Drive> getAllDriveTypes() {
         ResultSet resultSet;
-        ArrayList<Drive> drives= new ArrayList<>();
+        ArrayList<Drive> drives = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 

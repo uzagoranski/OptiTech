@@ -24,7 +24,7 @@ public class Vehicle {
     Date dateRegStarted;
     Date dateRegEnd;
 
-    public Vehicle(){
+    public Vehicle() {
 
     }
 
@@ -191,11 +191,11 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Maker id:"+carMakerId+"\nMaker:"+carMaker+"\nModelId:"+carModelId+"\nModel:"+carModel+"\nCountryId:"+countryId+"\nVehicleSubtype:"+vehicleSubtypeId+"\nModelYear:"+carModelYear+"\nDrivenWheels:"+drivenWheelsId+"\nEngine size:"+engineSize+"\nEngine power:"+enginePower+"\n"+dateRegStarted+"\n"+"\n";
+        return "Maker id:" + carMakerId + "\nMaker:" + carMaker + "\nModelId:" + carModelId + "\nModel:" + carModel + "\nCountryId:" + countryId + "\nVehicleSubtype:" + vehicleSubtypeId + "\nModelYear:" + carModelYear + "\nDrivenWheels:" + drivenWheelsId + "\nEngine size:" + engineSize + "\nEngine power:" + enginePower + "\n" + dateRegStarted + "\n" + "\n";
 
     }
 
-    public String getImgLink(){
+    public String getImgLink() {
         return SQLCarImage.getCarImage(this.getVehicleId());
     }
 }

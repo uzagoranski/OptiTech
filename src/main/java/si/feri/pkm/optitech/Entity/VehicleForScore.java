@@ -24,7 +24,6 @@ public class VehicleForScore {
     }
 
 
-
     public int getRpmMax() {
         return rpmMax;
     }
@@ -57,15 +56,15 @@ public class VehicleForScore {
         return fuelCons;
     }
 
-    public int calculateScore(int rpmMax, int rpmAvg, int vssMax, int vssAvg, int drvDist, int drvTime, int drvStartStop, int fuelCons, int totalScore){
-int stevec = 1;
-int[] a = {rpmMax, rpmAvg, vssMax, vssAvg, drvDist,drvTime,drvStartStop, fuelCons};
-        for(int i=0;i<a.length;i++){
-         if(a[i] != 0) {
-             stevec++;
-         }
-         }
-     return (rpmMax+rpmAvg+vssMax+vssAvg+drvDist+drvTime+drvStartStop+fuelCons+totalScore)/stevec;
+    public int calculateScore(int rpmMax, int rpmAvg, int vssMax, int vssAvg, int drvDist, int drvTime, int drvStartStop, int fuelCons, int totalScore) {
+        int stevec = 1;
+        int[] a = {rpmMax, rpmAvg, vssMax, vssAvg, drvDist, drvTime, drvStartStop, fuelCons};
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != 0) {
+                stevec++;
+            }
+        }
+        return (rpmMax + rpmAvg + vssMax + vssAvg + drvDist + drvTime + drvStartStop + fuelCons + totalScore) / stevec;
     }
 }
 

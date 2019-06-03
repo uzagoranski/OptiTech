@@ -20,7 +20,7 @@ public class Drive {
         this.type = type;
     }
 
-    public Drive(int id, String type){
+    public Drive(int id, String type) {
         this.id = id;
         this.type = type;
 

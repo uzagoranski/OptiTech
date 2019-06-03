@@ -5,8 +5,7 @@ public class FuelType {
     String type;
 
 
-
-    public FuelType(int id, String type){
+    public FuelType(int id, String type) {
         this.id = id;
         this.type = type;
     }

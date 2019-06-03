@@ -45,7 +45,7 @@
 <body class="animsition">
 <div class="page-wrapper">
     <div class="page-container">
-        <%@include file="template/navigation.jsp"%>
+        <%@include file="template/navigation.jsp" %>
 
         <div class="main-content">
             <div class="section__content section__content--p30">
@@ -78,11 +78,11 @@
                                                 <img style="max-height: 100px" src="${v.getImgLink()}" alt="vehicle">
                                                 <h3>${v.getCarMaker()} ${v.getVehicleTitle()}</h3>
                                             </div>
-                                                <ul class="cd-features-list">
-                                                    <li>${v.getCarModelYear()}</li>
-                                                    <li>${v.getEngineSize()}</li>
-                                                    <li>${v.getEnginePower()}</li>
-                                                </ul>
+                                            <ul class="cd-features-list">
+                                                <li>${v.getCarModelYear()}</li>
+                                                <li>${v.getEngineSize()}</li>
+                                                <li>${v.getEnginePower()}</li>
+                                            </ul>
                                         </li>
                                     </c:forEach>
                                 </ul>

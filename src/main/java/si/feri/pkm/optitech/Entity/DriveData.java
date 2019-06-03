@@ -50,29 +50,36 @@ public class DriveData {
 //    double koefFuelCons  = 100.d / ( fuelConsMAX - fuelConsMIN);
 
 
-    public double koefRpmMax (){
+    public double koefRpmMax() {
         return (100.d / (rpmMaxMAX - rpmMaxMIN));
     }
-    public double koefRpmAvg (){
+
+    public double koefRpmAvg() {
         return (100.d / (rpmAvgMAX - rpmAvgMIN));
     }
-    public double koefVssMax (){
+
+    public double koefVssMax() {
         return (100.d / (vssMaxMAX - vssMaxMIN));
     }
-    public double koefVssAvg (){
+
+    public double koefVssAvg() {
         return (100.d / (vssAvgMAX - vssAvgMIN));
     }
-    public double koefDrvDist(){
+
+    public double koefDrvDist() {
         return (100.d / (drvDistMAX - drvDistMIN));
     }
-    public double koefDrvTime (){
+
+    public double koefDrvTime() {
         return (100.d / (drvTimeMAX - drvTimeMIN));
     }
-    public double koefDrvStartStopCnt(){
-        return (100.d / (drvStartStopMAX- drvStartStopMIN));
+
+    public double koefDrvStartStopCnt() {
+        return (100.d / (drvStartStopMAX - drvStartStopMIN));
     }
-    public double koefFuelCons(){
-        return (100.d / (fuelConsMAX- fuelConsMIN));
+
+    public double koefFuelCons() {
+        return (100.d / (fuelConsMAX - fuelConsMIN));
     }
 
     public int getRpmMaxMAX() {

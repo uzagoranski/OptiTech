@@ -1,10 +1,7 @@
 package si.feri.pkm.optitech.Database;
 
 import org.json.JSONObject;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
-import si.feri.pkm.optitech.Entity.Drive;
 import si.feri.pkm.optitech.Entity.DriveData;
-import si.feri.pkm.optitech.Entity.FuelType;
 import si.feri.pkm.optitech.Entity.VehicleForScore;
 
 import java.sql.*;
@@ -142,7 +139,7 @@ public class SQLDriveData {
 
             while (resultSet.next()) {
 
-                allCarsMaxAndMin = new DriveData (
+                allCarsMaxAndMin = new DriveData(
                         resultSet.getInt(1),
                         resultSet.getInt(2),
                         resultSet.getInt(3),
@@ -172,20 +169,20 @@ public class SQLDriveData {
         VehicleForScore vehicle = null;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "SELECT AVG(rpmMax) AS AvgRpmMax, AVG(RpmAvg) AS avgRpmAvg, AVG(vssMax) AS avgVssMax, AVG(VssAvg) as vssAvg, Avg(DrvDist) as avgDrvDist, avg(DrvTime) as avgDrvTime, AVG(DrvStartStopCnt) AS avgDrvStartStopCnt, AVG(FuelConsAvg) as avgFuelConsAvg from OptiTech.tlm.DriveData WHERE VehicleId ="+carId+";";
+            String selectSql = "SELECT AVG(rpmMax) AS AvgRpmMax, AVG(RpmAvg) AS avgRpmAvg, AVG(vssMax) AS avgVssMax, AVG(VssAvg) as vssAvg, Avg(DrvDist) as avgDrvDist, avg(DrvTime) as avgDrvTime, AVG(DrvStartStopCnt) AS avgDrvStartStopCnt, AVG(FuelConsAvg) as avgFuelConsAvg from OptiTech.tlm.DriveData WHERE VehicleId =" + carId + ";";
             resultSet = statement.executeQuery(selectSql);
 
 
             while (resultSet.next()) {
                 vehicle = new VehicleForScore(
-                resultSet.getInt(1),
-                resultSet.getInt(2),
-                resultSet.getInt(3),
-                resultSet.getInt(4),
-                resultSet.getInt(5),
-                resultSet.getInt(6),
-                resultSet.getInt(7),
-                resultSet.getInt(8)
+                        resultSet.getInt(1),
+                        resultSet.getInt(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getInt(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8)
                 );
             }
         } catch (SQLException e) {
@@ -200,7 +197,7 @@ public class SQLDriveData {
         int stevilo = 0;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "    SELECT  AVG(ScoreTotal) FROM  Optitech.tlm.DriveData WHERE vehicleId ="+carId+";";
+            String selectSql = "    SELECT  AVG(ScoreTotal) FROM  Optitech.tlm.DriveData WHERE vehicleId =" + carId + ";";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
@@ -212,7 +209,7 @@ public class SQLDriveData {
         return stevilo;
     }
 
-   //EMPTY FOR COPYING
+    //EMPTY FOR COPYING
     public static void neKliciTega() {
         ResultSet resultSet;
 

@@ -34,11 +34,13 @@
             height: 200px;
             margin: 0 auto;
         }
+
         .outer .chart-container {
             width: 300px;
             float: left;
             height: 200px;
         }
+
         .highcharts-yaxis-grid .highcharts-grid-line {
             display: none;
         }
@@ -48,6 +50,7 @@
                 width: 100%;
                 height: 400px;
             }
+
             .outer .chart-container {
                 width: 300px;
                 float: none;
@@ -55,6 +58,7 @@
             }
 
         }
+
         .chart {
             min-width: 320px;
             max-width: 800px;
@@ -67,7 +71,7 @@
 <body class="animsition">
 <div class="page-wrapper">
     <div class="page-container">
-        <%@include file="template/navigation.jsp"%>
+        <%@include file="template/navigation.jsp" %>
 
         <div class="main-content">
             <div class="section__content section__content--p30">
@@ -100,7 +104,8 @@
                                                 <label for="yearInput" class=" form-control-label">Year</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="yearInput" name="yearInput" placeholder="2007" disabled="" class="form-control">
+                                                <input type="text" id="yearInput" name="yearInput" placeholder="2007"
+                                                       disabled="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -108,7 +113,8 @@
                                                 <label for="fuelInput" class=" form-control-label">Gasoline</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="fuelInput" name="fuelInput" placeholder="Gasoline" disabled="" class="form-control">
+                                                <input type="text" id="fuelInput" name="fuelInput"
+                                                       placeholder="Gasoline" disabled="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -116,7 +122,8 @@
                                                 <label for="engineInput" class=" form-control-label">Engine</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="engineInput" name="engineInput" placeholder="1598 ccm, 130 HP" disabled="" class="form-control">
+                                                <input type="text" id="engineInput" name="engineInput"
+                                                       placeholder="1598 ccm, 130 HP" disabled="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -124,7 +131,8 @@
                                                 <label for="driveInput" class=" form-control-label">Drive</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="driveInput" name="driveInput" placeholder="Front wheel drive" disabled="" class="form-control">
+                                                <input type="text" id="driveInput" name="driveInput"
+                                                       placeholder="Front wheel drive" disabled="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -132,8 +140,9 @@
                                                 <label for="speedInput" class="form-control-label">Average speed</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="speedInput" name="speedInput" placeholder="Enter your average speed..." class="form-control">
-<%--                                                <small class="form-text text-muted">Enter your average speed...</small>--%>
+                                                <input type="text" id="speedInput" name="speedInput"
+                                                       placeholder="Enter your average speed..." class="form-control">
+                                                <%--                                                <small class="form-text text-muted">Enter your average speed...</small>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -141,21 +150,26 @@
                                                 <label for="RPMInput" class=" form-control-label">Average RPM</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="RPMInput" name="RPMInput" placeholder="Enter your average RPM..." class="form-control">
-<%--                                                <small class="form-text text-muted">Enter your average RPM...</small>--%>
+                                                <input type="text" id="RPMInput" name="RPMInput"
+                                                       placeholder="Enter your average RPM..." class="form-control">
+                                                <%--                                                <small class="form-text text-muted">Enter your average RPM...</small>--%>
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="consumptionInput" class=" form-control-label">Average consumption</label>
+                                                <label for="consumptionInput" class=" form-control-label">Average
+                                                    consumption</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="consumptionInput" name="consumptionInput" placeholder="Enter your average consumption..." class="form-control">
-<%--                                                <small class="form-text text-muted">Enter your average consumption...</small>--%>
+                                                <input type="text" id="consumptionInput" name="consumptionInput"
+                                                       placeholder="Enter your average consumption..."
+                                                       class="form-control">
+                                                <%--                                                <small class="form-text text-muted">Enter your average consumption...</small>--%>
                                             </div>
                                         </div>
                                         <div>
-                                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                            <button id="payment-button" type="submit"
+                                                    class="btn btn-lg btn-info btn-block">
                                                 <i class="fa fa-save fa-lg"></i>&nbsp;
                                                 <span id="payment-button-amount">Submit</span>
                                                 <span id="payment-button-sending" style="display:none;">Sending…</span>
