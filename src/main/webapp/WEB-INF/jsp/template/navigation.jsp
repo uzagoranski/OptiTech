@@ -85,7 +85,9 @@
                         <div class="header-wrap">
                             <div></div>
                             <div class="header-button">
-                                <a href="login">LOGIN</a>
+                                <form method="get" action="login">
+                                    <input type="submit" class="login-btn" value="LOGIN"/>
+                                </form>
                             </div>
                         </div>
                     </div>

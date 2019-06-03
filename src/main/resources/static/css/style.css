@@ -52,6 +52,11 @@
     cursor: pointer;
 }
 
+.gumb:hover {
+    background-color: #4d96d7;
+
+}
+
 .full-width {
     padding: 100px 0 100px 0;
     width: 100%;
@@ -112,4 +117,15 @@
     max-width: 800px;
     height: 400px;
     margin: 0 auto
+}
+
+.login-btn{
+    border: none;
+    height: 50px;
+    width: 100px;
+    border-radius: 1.5rem;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
 }

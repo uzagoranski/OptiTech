@@ -81,7 +81,9 @@
                                 <span><i>Horsepower: </i> <b> ${vehicle.getEnginePower()} HP</b></span><br/>
                             </div><br/>
                             <div class="sredina">
-                                <a class="gumb" href="http://localhost:8080/carDetails?id=${vehicle.getVehicleId()}" type="submit">Stats</a>
+                                <form method="get" action="http://localhost:8080/carDetails?id=${vehicle.getVehicleId()}">
+                                    <button class="gumb" type="submit">Stats</button>
+                                </form>
                             </div>
                         </div>
                     </div>
