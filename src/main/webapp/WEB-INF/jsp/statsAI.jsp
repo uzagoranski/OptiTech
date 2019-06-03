@@ -89,7 +89,9 @@
                                             <div class="col-12 col-md-9">
                                                 <select name="vehicleSelect" id="vehicleSelect" class="form-control">
                                                     <option value="0">Please select your vehicle</option>
-                                                    <option value="1">Volvo V70</option>
+                                                    <c:forEach items="${vehicles}" var="v">
+                                                        <option value="${v.getVehicleId()}">${v.getCarMaker()} ${v.getVehicleTitle()}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
@@ -169,6 +171,31 @@
         </div>
     </div>
 </div>
+
+<%--<script>--%>
+<%--    jQuery(document).ready(function(){--%>
+<%--        jQuery('#vehicleSelect').on('change',function(){--%>
+<%--            let vehicleID = jQuery(this).val();--%>
+
+<%--            <c:set var="vehicleID" value=""></c:set> --%>
+<%--            --%>
+<%--            if(vehicleID){--%>
+<%--                jQuery.ajax({--%>
+<%--                    data:'vehicleID='+vehicleID,--%>
+<%--                    success:function(html){--%>
+<%--                        jQuery(document).on("change", "vehicleSelect", function (--%>
+
+<%--                        jQuery('#yearInput').innerHTML()--%>
+
+<%--                    ) {--%>
+
+<%--                        });--%>
+<%--                    }--%>
+<%--                });--%>
+<%--            }--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 
 <script src="vendor/jquery-3.2.1.min.js"></script>
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>

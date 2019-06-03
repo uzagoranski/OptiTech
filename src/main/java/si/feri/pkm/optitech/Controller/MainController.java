@@ -320,11 +320,15 @@ public class MainController {
         } else {
             user = "anonymousUser";
         }
+
         model.addAttribute("user", user);
         model.addAttribute("email", email);
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
+        ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
+
+        model.addAttribute("vehicles", vehicles);
 
         return "statsAI";
     }
