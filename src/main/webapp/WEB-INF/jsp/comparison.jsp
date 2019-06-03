@@ -93,7 +93,6 @@
                                 <a href="#0" class="filter">Filter</a>
                             </div>
                         </header>
-
                         <div class="cd-products-table">
                             <div class="features">
                                 <div class="top-info">Modeli</div>
@@ -114,11 +113,11 @@
                                                 <h3>${v.getVehicleTitle()}</h3>
                                             </div> <!-- .top-info -->
 
-                                            <ul class="cd-features-list">
-                                                <li>${v.getEngineSize()}</li>
-                                                <li>${v.getEnginePower()}</li>
-                                                <!-- other values here -->
-                                            </ul>
+                                                <ul class="cd-features-list">
+                                                    <li>${v.getEngineSize()}</li>
+                                                    <li>${v.getEnginePower()}</li>
+                                                    <!-- other values here -->
+                                                </ul>
                                         </li> <!-- .product -->
                                     </c:forEach>
                                 </ul> <!-- .cd-products-columns -->

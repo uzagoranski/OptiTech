@@ -13,7 +13,6 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: "Source Sans Pro", sans-serif;
     color: #404042;
     background-color: #ffffff;
 }
@@ -234,7 +233,7 @@ Main Components
     display: inline-block;
     height: 22px;
     width: 110px;
-    background: url(../img/cd-star.svg);
+    background: url(../images/cd-star.png);
     color: transparent;
 }
 @media only screen and (min-width: 1170px) {
@@ -343,7 +342,7 @@ Main Components
 }
 .cd-products-table .top-info .check::after {
     /* check icon */
-    background: url(../img/cd-check.svg) no-repeat center center;
+    background: url(../images/cd-check.png) no-repeat center center;
     background-size: 24px 24px;
     opacity: 0;
     -webkit-transition: opacity 0.3s;
@@ -500,7 +499,7 @@ Main Components
     color: transparent;
     height: 60px;
     width: 40px;
-    background: rgba(64, 64, 66, 0.8) url("../img/cd-arrow.svg") no-repeat center center;
+    background: rgba(64, 64, 66, 0.8) url("../images/cd-arrow.png") no-repeat center center;
     border-radius: 3px;
     -webkit-transition: background-color 0.3s, opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
     -moz-transition: background-color 0.3s, opacity 0.3s, visibility 0.3s, -moz-transform 0.3s;
