@@ -1,9 +1,6 @@
 package si.feri.pkm.optitech.Database;
 
-import si.feri.pkm.optitech.Entity.FuelType;
-
 import java.sql.*;
-import java.util.ArrayList;
 
 import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 

@@ -1,8 +1,7 @@
 package si.feri.pkm.optitech.Entity;
 
-import si.feri.pkm.optitech.Database.SQLDriveData;
-
 public class VehicleForScore {
+
     int rpmMax;
     int rpmAvg;
     int vssMax;
@@ -66,6 +65,7 @@ public class VehicleForScore {
         }
         return (rpmMax + rpmAvg + vssMax + vssAvg + drvDist + drvTime + drvStartStop + fuelCons + totalScore) / stevec;
     }
+
 }
 
 

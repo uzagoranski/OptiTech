@@ -2,12 +2,9 @@ package si.feri.pkm.optitech;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 import java.util.LinkedHashMap;
 
 @SpringBootApplication
@@ -18,6 +15,7 @@ public class OptitechApplication {
         SpringApplication.run(OptitechApplication.class, args);
     }
 
+    // Mapping for user details from OAuth2Authentication
     @RequestMapping(value = "/user")
     public String[] user(OAuth2Authentication authentication) {
 
@@ -30,5 +28,5 @@ public class OptitechApplication {
         String[] data = {email, name, image};
         return data;
     }
-}
 
+}

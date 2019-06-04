@@ -189,13 +189,14 @@ public class Vehicle {
         this.dateRegEnd = dateRegEnd;
     }
 
+    public String getImgLink() {
+        return SQLCarImage.getCarImage(this.getVehicleId());
+    }
+
     @Override
     public String toString() {
         return "Maker id:" + carMakerId + "\nMaker:" + carMaker + "\nModelId:" + carModelId + "\nModel:" + carModel + "\nCountryId:" + countryId + "\nVehicleSubtype:" + vehicleSubtypeId + "\nModelYear:" + carModelYear + "\nDrivenWheels:" + drivenWheelsId + "\nEngine size:" + engineSize + "\nEngine power:" + enginePower + "\n" + dateRegStarted + "\n" + "\n";
 
     }
 
-    public String getImgLink() {
-        return SQLCarImage.getCarImage(this.getVehicleId());
-    }
 }

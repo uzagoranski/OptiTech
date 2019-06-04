@@ -1,9 +1,9 @@
 package si.feri.pkm.optitech.Entity;
 
 public class FuelType {
+
     int id;
     String type;
-
 
     public FuelType(int id, String type) {
         this.id = id;
@@ -25,4 +25,5 @@ public class FuelType {
     public void setType(String type) {
         this.type = type;
     }
+
 }
