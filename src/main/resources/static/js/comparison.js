@@ -106,7 +106,6 @@ jQuery(document).ready(function($){
         ( scrollLeft < this.tableColumns.outerWidth(true) - this.productsWrapper.width() && this.tableColumns.outerWidth(true) > this.productsWrapper.width() ) ? this.navigation.find('.next').removeClass('inactive') : this.navigation.find('.next').addClass('inactive');
     }
 
-    /* Za TOP SCROLL
     productsTable.prototype.updateTopScrolling = function(scrollTop) {
         var offsetTop = this.table.offset().top,
             tableScrollLeft = this.productsWrapper.scrollLeft();
@@ -136,7 +135,7 @@ jQuery(document).ready(function($){
         }
 
         this.updateLeftScrolling();
-    }  */
+    }  
 
     productsTable.prototype.updateProperties = function() {
         this.tableHeight = this.table.height();

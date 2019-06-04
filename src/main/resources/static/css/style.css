@@ -129,3 +129,15 @@
     color: #6c757d;
     cursor: pointer;
 }
+
+tbody {
+    overflow-y: auto;
+    display: block;
+    max-height: 520px;
+}
+
+thead {
+    display: table;
+    width: 100%;     // Fill the containing table
+}
+

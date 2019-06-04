@@ -42,7 +42,7 @@
                                     <thead>
                                     <tr>
                                         <th>Vehicle</th>
-                                        <th>Year</th>
+                                        <th style="padding-left: 160px">Year</th>
                                     </tr>
                                     </thead>
                                     <tbody>
