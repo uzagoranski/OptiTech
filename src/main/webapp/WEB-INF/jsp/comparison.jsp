@@ -51,7 +51,7 @@
                 <div class="container-fluid">
                     <section class="cd-products-comparison-table">
                         <header>
-                            <h2>Vehicle comparator</h2>
+                            <h2>VEHICLE COMPARATOR</h2>
 
                             <div class="actions">
                                 <a href="#0" class="reset">Reset</a>
@@ -62,9 +62,14 @@
                             <div class="features">
                                 <div class="top-info">Vehicle</div>
                                 <ul class="cd-features-list">
-                                    <li>Year</li>
-                                    <li>Engine size</li>
+                                    <li>Condition</li>
+                                    <li>Model year</li>
                                     <li>Engine power</li>
+                                    <li>Engine size</li>
+                                    <li>Fuel type</li>
+                                    <li>Drive</li>
+                                    <li>Max speed</li>
+                                    <li>Max RPM</li>
                                 </ul>
                             </div>
 
@@ -74,13 +79,20 @@
                                         <li class="product">
                                             <div class="top-info">
                                                 <div class="check"></div>
-                                                <img style="max-height: 100px" src="${v.getImgLink()}" alt="vehicle">
-                                                <h3>${v.getCarMaker()} ${v.getVehicleTitle()}</h3>
+                                                <div class="vehicle">
+                                                    <img style="max-height: 120px" src="${v.getImgLink()}" alt="vehicle">
+                                                    <h3>${v.getCarMaker()} ${v.getVehicleTitle()}</h3>
+                                                </div>
                                             </div>
                                             <ul class="cd-features-list">
-                                                <li>${v.getCarModelYear()}</li>
-                                                <li>${v.getEngineSize()}</li>
-                                                <li>${v.getEnginePower()}</li>
+                                                <li style="line-height: 16px;">${v.getConditionScore()}%</li>
+                                                <li style="line-height: 16px;">${v.getCarModelYear()}</li>
+                                                <li style="line-height: 16px;">${v.getEnginePower()} HP</li>
+                                                <li style="line-height: 16px;">${v.getEngineSize()} ccm</li>
+                                                <li style="line-height: 16px;">${v.getFuelType()}</li>
+                                                <li style="line-height: 16px;">${v.getDrivenWheels()}</li>
+                                                <li style="line-height: 16px;">${v.getMaxSpeed()} km/h</li>
+                                                <li style="line-height: 16px;">${v.getMaxRpm()} rpm</li>
                                             </ul>
                                         </li>
                                     </c:forEach>

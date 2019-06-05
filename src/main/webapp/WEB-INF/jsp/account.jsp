@@ -163,7 +163,6 @@
                                     <div class="col-md-4">
                                         <div class="profile-img">
                                             <img src="${image}" alt=""/>
-
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -174,8 +173,7 @@
                                             <h5>
                                                 ${email}
                                             </h5>
-                                            <p class="proile-rating">VERIFIED EMAIL : <span><i
-                                                    class="fas fa-check-circle"></i></span></p><br/>
+                                            <p class="proile-rating">VERIFIED EMAIL : <span><i style="color: #5cb85c;" class="fas fa-check-circle"></i></span></p><br/>
 
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item">

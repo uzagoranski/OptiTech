@@ -405,4 +405,17 @@ public class MainController {
         }
         return drive;
     }
+
+    @RequestMapping(value = {"/statsAI"}, method = RequestMethod.POST)
+    public ResponseEntity<?> statsAIPost(Model model, @RequestParam(value = "id") int id , OAuth2Authentication authentication) throws ParseException, IOException {
+        JSONObject json = new JSONObject();
+        Vehicle v = SQLCarsDatabase.getSelectedVehicle(id);
+        json.put("year", v.getCarModelYear());
+        json.put("fuel", v.getFuelType());
+        json.put("enginePower", v.getEnginePower());
+        json.put("engineSize", v.getEngineSize());
+        json.put("drive", v.getDrivenWheels());
+        json.put("id", v.getVehicleId());
+        return ResponseEntity.ok(json.toString());
+    }
 }
