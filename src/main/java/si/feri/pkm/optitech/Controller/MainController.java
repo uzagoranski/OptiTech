@@ -1,5 +1,6 @@
 package si.feri.pkm.optitech.Controller;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -225,6 +226,7 @@ public class MainController {
         );
 
         JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id, "2017-01-01", "2020-01-01");
+        JSONObject jsonRpm = SQLDriveData.rpmAvgSpeedForSelectedCar(id, "2017-01-01", "2020-01-01");
         JSONObject sliderRange = SQLDriveData.sliderRange(id);
 
         if (vehicle != null) {
@@ -250,6 +252,7 @@ public class MainController {
         model.addAttribute("fuel", fuel);
         model.addAttribute("drive", drive);
         model.addAttribute("jsonSpeed", jsonSpeed);
+        model.addAttribute("jsonRpm", jsonRpm);
         model.addAttribute("sliderRange", sliderRange);
         model.addAttribute("user", user);
 
@@ -259,15 +262,18 @@ public class MainController {
 
     @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
     public ResponseEntity<?> carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
-                String[] dates = sliderValue.split(",");
+        String[] dates = sliderValue.split(",");
         String from = dates[0];
         String to = dates[1];
 
-        JSONObject result = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
-
-        return ResponseEntity.ok(result.toString());
-        }
-        //
+        JSONArray jsonArray = new JSONArray();
+        JSONObject vssAvg = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
+        JSONObject rpmAvg = SQLDriveData.rpmAvgSpeedForSelectedCar(id,from, to);
+        jsonArray.put(vssAvg);
+        jsonArray.put(rpmAvg);
+        return ResponseEntity.ok(jsonArray.toString());
+    }
+    //
 //    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
 //    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
 //

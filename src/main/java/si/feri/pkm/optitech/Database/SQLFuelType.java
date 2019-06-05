@@ -16,11 +16,9 @@ public class SQLFuelType {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
-            // Create and execute a SELECT SQL statement.
             String selectSql = "SELECT * FROM OptiTech.reg.FuelTypes;";
             resultSet = statement.executeQuery(selectSql);
 
-            // Print results from select statement
             while (resultSet.next()) {
                 FuelType f = new FuelType(resultSet.getInt(1), resultSet.getString(2));
                 fuelTypes.add(f);

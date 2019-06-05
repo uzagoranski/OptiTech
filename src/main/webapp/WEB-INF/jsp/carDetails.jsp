@@ -114,10 +114,12 @@
                     </div>
                 </div>
             </div>
+            <br />
+            <br />
+
         </div>
     </div>
 </div>
-
 <script src="vendor/jquery-3.2.1.min.js"></script>
 <script src="vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -144,6 +146,7 @@
         data: {
             labels: [],
             datasets: [{
+
                 data: [value],
                 backgroundColor: "${color}"
             }, {
@@ -172,6 +175,7 @@
     });
 </script>
 
+
 <script>
     <c:set var="json" value="${jsonSpeed}"></c:set>
     var date = ${json.get("date")};
@@ -196,14 +200,17 @@
             }
         }
     });
-</script>
-<script>
-    new Chart(document.getElementById('rpmChart'), {
+    <c:set var="jsonRpm2" value="${jsonRpm}"></c:set>
+    var rpmDate =
+    ${jsonRpm2.get("date2")}
+    var rpmAvg =
+    ${jsonRpm2.get("rpmAvg")}
+    var rpmChart = new Chart(document.getElementById('rpmChart'), {
         type: 'bar',
         data: {
-            labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+            labels: rpmDate,
             datasets: [{
-                data: [1320, 1540, 2816, 2303, 1758, 3403, 1231, 4144, 4243, 1943],
+                data: rpmAvg,
                 label: "RPM",
                 borderColor: "#3e95cd",
                 fill: false
@@ -225,7 +232,7 @@
         ,
         range: true,
         onChange: function (href) {
-                var link = "/carDetails?id=${idCar}&sliderValue=" + mySlider.getValue();
+            var link = "/carDetails?id=${idCar}&sliderValue=" + mySlider.getValue();
             $.ajax({
                 url: link,
                 type: 'POST',
@@ -233,8 +240,10 @@
                 data: JSON.stringify(podatki),
                 cache: false,
                 success: function (result) {
-                    vssAvg = result['vssAvg'];
-                    date = result['date'];
+
+                    //SPEED CHART
+                    vssAvg = result[0]['vssAvg'];
+                    date = result[0]['date'];
                     speedChart.destroy();
                     speedChart = new Chart(document.getElementById("speedChart"), {
 
@@ -258,6 +267,30 @@
                         }
                     });
 
+
+                    //RPM CHART
+                    rpmDate = result[1]['date2'];
+                    rpmAvg =result[1]['rpmAvg'];
+                    rpmChart.destroy();
+                        rpmChart = new Chart(document.getElementById('rpmChart'), {
+                            type: 'bar',
+                            data: {
+                                labels: rpmDate,
+                                datasets: [{
+                                    data: rpmAvg,
+                                    label: "RPM",
+                                    borderColor: "#3e95cd",
+                                    fill: false
+                                }]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Vehicle speed per Log'
+                                }
+                            }
+                        });
+
                     // $('#target').html(JSON.stringify(result));
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
                 }
@@ -280,7 +313,6 @@
     });
 
 </script>
-
 </body>
 
 </html>

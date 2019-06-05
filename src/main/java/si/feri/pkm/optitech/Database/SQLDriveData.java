@@ -51,11 +51,9 @@ public class SQLDriveData {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\');";
+            String selectSql = "SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') ORDER BY dateMsg;";
             resultSet = statement.executeQuery(selectSql);
 
-            // Print results from select statement
             while (resultSet.next()) {
                 int vssAvg = resultSet.getInt(1);
                 Date dateMsg = resultSet.getDate(2);
@@ -68,6 +66,33 @@ public class SQLDriveData {
         JSONObject json = new JSONObject();
         json.put("date", dateForSelectedCar);
         json.put("vssAvg", vssAvgSpeedForSelectedCar);
+
+        return json;
+    }
+
+    public static JSONObject rpmAvgSpeedForSelectedCar(int carID, String first, String last ) {
+        ResultSet resultSet;
+        ArrayList<Integer> rpmAvg = new ArrayList<>();
+        ArrayList<Date> date = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+
+            String selectSql = "select rpmAvg, dateMsg from OptiTech.tlm.DriveData WHERE vehicleId=" + carID + " AND (DrvTime != 0 OR DrvDist > 400) AND dateMsg > Convert(datetime, \'"+ first +"\') AND dateMsg < CONVERT(datetime, \'" + last + "\') ORDER BY dateMsg;";
+            resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                int rpmAvgFromDB = resultSet.getInt(1);
+                Date dateMsg = resultSet.getDate(2);
+                date.add(dateMsg);
+                rpmAvg.add(rpmAvgFromDB);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        JSONObject json = new JSONObject();
+        json.put("date2", date);
+        json.put("rpmAvg", rpmAvg);
 
         return json;
     }
@@ -98,36 +123,6 @@ public class SQLDriveData {
 
         return json;
     }
-
-    public static JSONObject rpmAvgSpeedForSelectedCar(int carID) {
-        ResultSet resultSet;
-        ArrayList<Integer> rpmAvg = new ArrayList<>();
-        ArrayList<Date> date = new ArrayList<>();
-
-        try (Connection connection = DriverManager.getConnection(connectionUrl);
-             Statement statement = connection.createStatement()) {
-
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "select rpmAvg, dateMsg from OptiTech.tlm.DriveData WHERE vehicleId=" + carID + " AND (DrvTime != 0 OR DrvDist > 400);";
-            resultSet = statement.executeQuery(selectSql);
-
-            // Print results from select statement
-            while (resultSet.next()) {
-                int rpmAvgFromDB = resultSet.getInt(1);
-                Date dateMsg = resultSet.getDate(2);
-                date.add(dateMsg);
-                rpmAvg.add(rpmAvgFromDB);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        JSONObject json = new JSONObject();
-        json.put("date", date);
-        json.put("vssAvg", rpmAvg);
-
-        return json;
-    }
-
 
     public static DriveData getScoreDataForAllCars() {
         ResultSet resultSet;
