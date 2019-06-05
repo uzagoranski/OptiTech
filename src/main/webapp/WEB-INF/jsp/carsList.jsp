@@ -42,7 +42,7 @@
                                     <thead>
                                     <tr>
                                         <th>Vehicle</th>
-                                        <th style="padding-left: 160px">Year</th>
+                                        <th>Year</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mx-auto" id="carView"
-                             style="background-color: whitesmoke; border-radius: 10px; padding: 25px; max-height: 580px">
+                             style="background-color: whitesmoke; border-radius: 10px; padding: 25px; max-height: 570px">
                             <h1 align="center"
                                 class="title-1 m-b-25">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h1>
                             <div align="center">
