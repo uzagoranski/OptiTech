@@ -80,4 +80,40 @@ public class SQLCarsDatabase {
 
         return vehicle;
     }
+
+    public static int getMaxSpeedForSelectedCar(int carId) {
+        ResultSet resultSet;
+
+        int maxSpeed = -1;
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=" + carId + ";";
+            resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                maxSpeed = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return maxSpeed;
+    }
+
+    public static int getMaxRpmForSelectedCar(int carId) {
+        ResultSet resultSet;
+
+        int rpmSpeed = -1;
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + ";";
+            resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                rpmSpeed = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rpmSpeed;
+    }
 }

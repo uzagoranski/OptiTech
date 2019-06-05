@@ -466,3 +466,8 @@ WHERE VssMax != 0
   AND FuelConsAvg != 0
   AND VehicleId = 1368;
 
+/*
+17)
+ Pridobitev Maksimalne hitrosti s katero je avto vozil.
+ */
+select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=217;

@@ -25,6 +25,9 @@ public class Vehicle {
     Date dateRegEnd;
     FuelType fuelType;
     Drive driveWheels;
+    int maxSpeed;
+    int maxRpm;
+    int conditionScore;
 
     public Vehicle() {
 
@@ -48,8 +51,47 @@ public class Vehicle {
         this.enginePower = enginePower;
         this.dateRegStarted = dateRegStarted;
         this.dateRegEnd = dateRegEnd;
+        this.maxSpeed = -1;
+        this.maxRpm = -1;
+        this.conditionScore = -1;
     }
 
+    public int getMaxSpeed() {
+        if (maxSpeed == -1) {
+            maxSpeed = SQLCarsDatabase.getMaxSpeedForSelectedCar(vehicleId);
+        }
+        return maxSpeed;
+    }
+
+    public int getMaxRpm() {
+        if (maxRpm == -1) {
+            maxRpm = SQLCarsDatabase.getMaxRpmForSelectedCar(vehicleId);
+        }
+        return maxRpm;
+    }
+
+    public int getConditionScore() {
+        if (conditionScore == -1) {
+            DriveData dd = SQLDriveData.getScoreDataForAllCars();
+            VehicleForScore vehicle = SQLDriveData.getScoreDataForSelectedCar(vehicleId);
+            System.out.println(vehicle.toString());
+            conditionScore = vehicle.calculateScore(
+                    (int) Math.round(100 - dd.koefRpmMax() * (vehicle.getRpmMax() - dd.getRpmMaxMIN())),
+                    (int) Math.round(100 - dd.koefRpmAvg() * (vehicle.getRpmAvg() - dd.getRpmAvgMIN())),
+                    (int) Math.round(100 - dd.koefVssMax() * (vehicle.getVssMax() - dd.getVssMaxMIN())),
+                    (int) Math.round(100 - dd.koefVssAvg() * (vehicle.getVssAvg() - dd.getVssAvgMIN())),
+                    (int) Math.round(100 - dd.koefDrvDist() * (vehicle.getDrvDist() - dd.getDrvDistMIN())),
+                    (int) Math.round(100 - dd.koefDrvTime() * (vehicle.getDrvTime() - dd.getDrvTimeMIN())),
+                    (int) Math.round(100 - dd.koefDrvStartStopCnt() * (vehicle.getDrvStartStopCnt() - dd.getDrvStartStopMIN())),
+                    (int) Math.round(100 - dd.koefFuelCons() * (vehicle.getFuelCons() - dd.getFuelConsMIN())),
+                    SQLDriveData.getTotalScoreForSelectedCar(vehicleId));
+        }
+        return conditionScore;
+    }
+
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
 
     public long getCarModelId() {
         return carModelId;
