@@ -1,9 +1,9 @@
 package si.feri.pkm.optitech.Entity;
 
-import si.feri.pkm.optitech.Database.SQLCarImage;
-import si.feri.pkm.optitech.Database.SQLCarsDatabase;
+import si.feri.pkm.optitech.Database.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Vehicle {
     long carModelId;
@@ -23,6 +23,8 @@ public class Vehicle {
     int enginePower;
     Date dateRegStarted;
     Date dateRegEnd;
+    FuelType fuelType;
+    Drive driveWheels;
 
     public Vehicle() {
 
@@ -48,10 +50,6 @@ public class Vehicle {
         this.dateRegEnd = dateRegEnd;
     }
 
-//    public Vehicle getSelectedVehicle(int id){
-//
-//        return ;
-//    }
 
     public long getCarModelId() {
         return carModelId;
@@ -145,12 +143,37 @@ public class Vehicle {
         return fuelTypeId;
     }
 
+    public String getFuelType() {
+        if (fuelType == null) {
+            ArrayList<FuelType> fuelTypes = SQLFuelType.getAllFuelTypes();
+            for (FuelType f : fuelTypes) {
+                if (f.getId() == fuelTypeId) {
+                    fuelType = f;
+                }
+            }
+        }
+        return fuelType.type;
+    }
+
     public void setFuelTypeId(int fuelTypeId) {
         this.fuelTypeId = fuelTypeId;
     }
 
     public int getDrivenWheelsId() {
         return drivenWheelsId;
+    }
+
+    public String getDrivenWheels() {
+        if (driveWheels == null) {
+            ArrayList<Drive> driveTypes = SQLDrive.getAllDriveTypes();
+            for (Drive d : driveTypes) {
+                if (d.getId() == fuelTypeId) {
+                    driveWheels = d;
+                }
+            }
+        }
+        return driveWheels.type;
+
     }
 
     public void setDrivenWheelsId(int drivenWheelsId) {
