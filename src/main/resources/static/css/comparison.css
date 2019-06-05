@@ -45,7 +45,7 @@ Main Components
 
 -------------------------------- */
 .cd-products-comparison-table {
-    margin-bottom: 6em;
+    margin-bottom: 0;
 }
 .cd-products-comparison-table::after {
     /* never visible - this is used in jQuery to check the current MQ */
@@ -53,7 +53,7 @@ Main Components
     content: '';
 }
 .cd-products-comparison-table header {
-    padding: 0 5% 25px;
+    padding: 0 0 25px 0;
 }
 .cd-products-comparison-table header::after {
     clear: both;
@@ -71,8 +71,14 @@ Main Components
     font-size: 1.4rem;
 }
 .cd-products-comparison-table .reset {
-    color: #404042;
-    text-decoration: underline;
+    padding: .6em 1.5em;
+    color: #ffffff;
+    background-color: #cc5349;
+    border-radius: 3px;
+    margin-left: 1em;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
 }
 .cd-products-comparison-table .filter {
     padding: .6em 1.5em;
@@ -94,14 +100,14 @@ Main Components
 }
 @media only screen and (min-width: 1170px) {
     .cd-products-comparison-table {
-        margin-bottom: 8em;
+        margin-bottom: 0;
     }
     .cd-products-comparison-table::after {
         /* never visible - this is used in jQuery to check the current MQ */
         content: '';
     }
     .cd-products-comparison-table header {
-        padding: 0 5% 40px;
+        padding: 0 0 40px 0;
     }
     .cd-products-comparison-table h2 {
         font-size: 2.4rem;
@@ -254,6 +260,7 @@ Main Components
     line-height: 14px;
     padding: 25px 10px;
     text-align: left;
+    position: relative;
 }
 @media only screen and (min-width: 1170px) {
     .features .cd-features-list li,
@@ -576,4 +583,13 @@ No JS
 
 .no-js .cd-products-columns .check {
     display: none;
+}
+
+.vehicle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }

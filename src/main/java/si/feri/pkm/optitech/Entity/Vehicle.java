@@ -74,7 +74,6 @@ public class Vehicle {
         if (conditionScore == -1) {
             DriveData dd = SQLDriveData.getScoreDataForAllCars();
             VehicleForScore vehicle = SQLDriveData.getScoreDataForSelectedCar(vehicleId);
-            System.out.println(vehicle.toString());
             conditionScore = vehicle.calculateScore(
                     (int) Math.round(100 - dd.koefRpmMax() * (vehicle.getRpmMax() - dd.getRpmMaxMIN())),
                     (int) Math.round(100 - dd.koefRpmAvg() * (vehicle.getRpmAvg() - dd.getRpmAvgMIN())),
