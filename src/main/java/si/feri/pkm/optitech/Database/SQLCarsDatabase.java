@@ -5,7 +5,6 @@ import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.sql.*;
 import java.util.ArrayList;
-import si.feri.pkm.optitech.Entity.Error;
 
 import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
@@ -85,7 +84,7 @@ public class SQLCarsDatabase {
         int maxSpeed = -1;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=" + carId + ";";
+            String selectSql = "select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "AND VssMax < 200;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
@@ -103,7 +102,7 @@ public class SQLCarsDatabase {
         int rpmSpeed = -1;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "where RpmMax < 8000;";
+            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "AND RpmMax < 8000;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {

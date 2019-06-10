@@ -318,7 +318,7 @@
                             options: {
                                 title: {
                                     display: true,
-                                    text: 'Vehicle speed per Log'
+                                    text: 'Vehicle RPM per Log'
                                 }
                             }
                         });

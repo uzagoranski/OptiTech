@@ -101,9 +101,6 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-
-        // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
-        // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
         ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
 
         model.addAttribute("vehicles", vehicles);
@@ -153,9 +150,6 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-
-        // V vehicles maš hranjene vse avte, ki jih dobim nazaj tipa Vehicle,
-        // pol pa z getterji pa setterji pridobivaj podatke ki jih rabiš za izpis.
         ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
 
         model.addAttribute("vehicles", vehicles);
@@ -204,7 +198,7 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-        JSONObject err=  SQLCarsDatabase.getErrorsOnSelectedCar(id,"2017-01-01", "2020-01-01");
+        JSONObject err = SQLCarsDatabase.getErrorsOnSelectedCar(id, "2017-01-01", "2020-01-01");
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
@@ -271,12 +265,11 @@ public class MainController {
 
         JSONArray jsonArray = new JSONArray();
         JSONObject vssAvg = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
-        JSONObject rpmAvg = SQLDriveData.rpmAvgSpeedForSelectedCar(id,from, to);
-        JSONObject error = SQLCarsDatabase.getErrorsOnSelectedCar(id,from,to);
+        JSONObject rpmAvg = SQLDriveData.rpmAvgSpeedForSelectedCar(id, from, to);
+        JSONObject error = SQLCarsDatabase.getErrorsOnSelectedCar(id, from, to);
         jsonArray.put(vssAvg);
         jsonArray.put(rpmAvg);
         jsonArray.put(error);
-        System.out.println(error);
         return ResponseEntity.ok(jsonArray.toString());
     }
 
@@ -329,6 +322,42 @@ public class MainController {
         return "trip";
     }
 
+    public static String loadFuel(Vehicle vehicle) {
+
+        String fuel = "";
+        ArrayList<FuelType> fuelTypes = SQLFuelType.getAllFuelTypes();
+
+        for (FuelType f : fuelTypes) {
+            if (f.getId() == vehicle.getFuelTypeId()) {
+                fuel = f.getType();
+            }
+        }
+        return fuel;
+    }
+
+    public static String loadDrive(Vehicle vehicle) {
+
+        String drive = "";
+        ArrayList<Drive> drives = SQLDrive.getAllDriveTypes();
+
+        for (Drive d : drives) {
+            if (d.getId() == vehicle.getFuelTypeId()) {
+                drive = d.getType();
+            }
+        }
+        return drive;
+    }
+
+    // Naive Bayes AI section
+    //             _____     _____ ______ _____ _______ _____ ____  _   _
+    //       /\   |_   _|   / ____|  ____/ ____|__   __|_   _/ __ \| \ | |
+    //      /  \    | |    | (___ | |__ | |       | |    | || |  | |  \| |
+    //     / /\ \   | |     \___ \|  __|| |       | |    | || |  | | . ` |
+    //    / ____ \ _| |_    ____) | |___| |____   | |   _| || |__| | |\  |
+    //   /_/    \_\_____|  |_____/|______\_____|  |_|  |_____\____/|_| \_|
+    //
+    //
+
     @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.GET)
     public String errorPrediction(Model model, OAuth2Authentication authentication) throws IOException {
 
@@ -357,32 +386,6 @@ public class MainController {
         return "errorPrediction";
     }
 
-    public static String loadFuel(Vehicle vehicle) {
-
-        String fuel = "";
-        ArrayList<FuelType> fuelTypes = SQLFuelType.getAllFuelTypes();
-
-        for (FuelType f : fuelTypes) {
-            if (f.getId() == vehicle.getFuelTypeId()) {
-                fuel = f.getType();
-            }
-        }
-        return fuel;
-    }
-
-    public static String loadDrive(Vehicle vehicle) {
-
-        String drive = "";
-        ArrayList<Drive> drives = SQLDrive.getAllDriveTypes();
-
-        for (Drive d : drives) {
-            if (d.getId() == vehicle.getFuelTypeId()) {
-                drive = d.getType();
-            }
-        }
-        return drive;
-    }
-
     @RequestMapping(value = {"/statsAI"}, method = RequestMethod.POST)
     public ResponseEntity<?> statsAIPost(Model model, @RequestParam(value = "id") int id, OAuth2Authentication authentication) throws ParseException, IOException {
         JSONObject json = new JSONObject();
@@ -396,19 +399,10 @@ public class MainController {
         return ResponseEntity.ok(json.toString());
     }
 
-    // Naive Bayes AI section
-    //             _____     _____ ______ _____ _______ _____ ____  _   _
-    //       /\   |_   _|   / ____|  ____/ ____|__   __|_   _/ __ \| \ | |
-    //      /  \    | |    | (___ | |__ | |       | |    | || |  | |  \| |
-    //     / /\ \   | |     \___ \|  __|| |       | |    | || |  | | . ` |
-    //    / ____ \ _| |_    ____) | |___| |____   | |   _| || |__| | |\  |
-    //   /_/    \_\_____|  |_____/|______\_____|  |_|  |_____\____/|_| \_|
-    //
-    //
-    private static void overrideCSV(String imeDatoteke, String[] vnos) throws IOException{
+    private static void overrideCSV(String imeDatoteke, String[] vnos) throws IOException {
 
         //Branje s pomocjo knjiznice CSVReader
-        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',', '"', 0);
 
         List<String[]> csvBody = reader.readAll();
 
@@ -435,10 +429,10 @@ public class MainController {
     private static String[] atributi;
 
     //Metoda za branje učne množice podatkov iz CSV datoteke
-    private static void branjeUcneDatoteke(String imeDatoteke) throws IOException{
+    private static void branjeUcneDatoteke(String imeDatoteke) throws IOException {
 
         //Branje s pomocjo knjiznice CSVReader
-        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',', '"', 0);
 
         //Dodajanje vseh vrednosti na glavni seznam
         glavniUcna = reader.readAll();
@@ -456,10 +450,10 @@ public class MainController {
     private static List<String[]> glavniTestna = new ArrayList<>();
     private static List<String[]> pomozniTestna = new ArrayList<>();
 
-    private static void branjeTestneDatoteke(String imeDatoteke) throws Exception{
+    private static void branjeTestneDatoteke(String imeDatoteke) throws Exception {
 
         //Branje s pomocjo knjiznice CSVReader
-        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',', '"', 0);
 
         //Dodajanje vseh vrednosti na glavni seznam
         glavniTestna = reader.readAll();
@@ -474,38 +468,38 @@ public class MainController {
 
     //Instanciramo ArrayListe za shranjevanje koncnih razredov, stevila razredov in verjetnosti ter spremenljivko kot stevec
     private static ArrayList<String> razredi = new ArrayList<>();
-    private static	ArrayList<Integer> st_razredov = new ArrayList<>();
-    private static	ArrayList<Double> verjetnost = new ArrayList<>();
+    private static ArrayList<Integer> st_razredov = new ArrayList<>();
+    private static ArrayList<Double> verjetnost = new ArrayList<>();
     private static int steviloRazredov;
 
     //Implementirana metoda klasifikacije
-    private static void klasifikator(){
+    private static void klasifikator() {
 
         //Prebiranje stevila vrstic in stolpcev
         final int steviloVrstic = glavniUcna.size();
         final int steviloStolpcev = pomozniUcna.get(0).length;
 
         //Sortiranje & primerjanje elementov s pomocjo Collections.sort
-        Collections.sort(pomozniUcna,new Comparator<String[]>() {
+        Collections.sort(pomozniUcna, new Comparator<String[]>() {
             public int compare(String[] strings, String[] otherStrings) {
-                return strings[steviloStolpcev-1].compareTo(otherStrings[steviloStolpcev-1]);
+                return strings[steviloStolpcev - 1].compareTo(otherStrings[steviloStolpcev - 1]);
             }
         });
 
         //Inicializacija spremenljivk, potrebnih za izracune
-        String razred = pomozniUcna.get(0)[steviloStolpcev-1];
+        String razred = pomozniUcna.get(0)[steviloStolpcev - 1];
         int stevilo_razredov = 0;
-        int st =1;
+        int st = 1;
 
         for (int i = 0; i < steviloVrstic - 1; i++) {
 
             //Stetje stevila razredov
-            if	(razred.equals(pomozniUcna.get(i)[steviloStolpcev-1])) {
+            if (razred.equals(pomozniUcna.get(i)[steviloStolpcev - 1])) {
                 stevilo_razredov++;
             } else {
                 razredi.add(razred);
                 st_razredov.add(stevilo_razredov);
-                razred = pomozniUcna.get(i)[steviloStolpcev-1];
+                razred = pomozniUcna.get(i)[steviloStolpcev - 1];
                 stevilo_razredov = 1;
                 st++;
             }
@@ -518,7 +512,7 @@ public class MainController {
 
         //Racunanje verjetnosti za napoved
         for (int i = 0; i < razredi.size(); i++) {
-            verjetnost.add(st_razredov.get(i)/((double) steviloVrstic-1)) ;
+            verjetnost.add(st_razredov.get(i) / ((double) steviloVrstic - 1));
         }
     }
 
@@ -527,7 +521,7 @@ public class MainController {
     private static ArrayList<Integer> steviloAtributov = new ArrayList<>();
 
     //Metoda za branje vseh atributov csv datoteke
-    private static void atributi () {
+    private static void atributi() {
 
         //Inicializacija spremenljivk za stevilo stolpcev, vrstic, atributov in vrednost atributov
         int steviloStolpcev = glavniUcna.get(0).length;
@@ -535,29 +529,29 @@ public class MainController {
         int st_atr;
         String atr;
 
-        for (int p = 0; p < steviloStolpcev-1; p++)	{
+        for (int p = 0; p < steviloStolpcev - 1; p++) {
 
             final int o = p;
-            Collections.sort(pomozniUcna,new Comparator<String[]>() {
+            Collections.sort(pomozniUcna, new Comparator<String[]>() {
                 public int compare(String[] strings, String[] otherStrings) {
                     return strings[o].compareTo(otherStrings[o]);
                 }
             });
 
             atr = pomozniUcna.get(0)[p];
-            st_atr=0;
+            st_atr = 0;
             int st = 1;
 
             for (int k = 0; k < steviloVrstic - 1; k++) {
 
-                if	(atr.equals(pomozniUcna.get(k)[p])) {
+                if (atr.equals(pomozniUcna.get(k)[p])) {
                     st_atr++;
                 } else {
                     atribut.add(atr);
                     steviloAtributov.add(st_atr);
 
                     atr = pomozniUcna.get(k)[p];
-                    st_atr=1;
+                    st_atr = 1;
                     st++;
                 }
             }
@@ -570,7 +564,7 @@ public class MainController {
     private static Double[][][] verjetnostAtributa;
 
     //Metoda za racunanje verjetnosti posameznega atributa
-    private static void verjetnostiAtributa(){
+    private static void verjetnostiAtributa() {
 
         //Inicializacija spremenljivk za stevilo stolpcev in vrstic
         final int steviloStolpcev = glavniUcna.get(0).length;
@@ -580,17 +574,17 @@ public class MainController {
         verjetnostAtributa = new Double[steviloStolpcev][atribut.size()][razredi.size()];
 
         //Trojna vgnezdena for zanka za zapolnjevanje tridimenzionalnega polja z vrednostmi atributov
-        for(int i = 0; i < razredi.size(); i++){
-            for(int j = 0; j < steviloStolpcev - 1; j++) {
-                for(int k = 0; k < atribut.size(); k++){
+        for (int i = 0; i < razredi.size(); i++) {
+            for (int j = 0; j < steviloStolpcev - 1; j++) {
+                for (int k = 0; k < atribut.size(); k++) {
                     int steviloAtributov = 0;
-                    for(int l = 0; l < steviloVrstic - 1; l++){
-                        if((atribut.get(k).equals(pomozniUcna.get(l)[j])) && (razredi.get(i).equals(pomozniUcna.get(l)[steviloStolpcev-1])) ){
+                    for (int l = 0; l < steviloVrstic - 1; l++) {
+                        if ((atribut.get(k).equals(pomozniUcna.get(l)[j])) && (razredi.get(i).equals(pomozniUcna.get(l)[steviloStolpcev - 1]))) {
                             steviloAtributov++;
                         }
                     }
                     //Dodajanje verjetnosti v tridimenzionalno polje
-                    verjetnostAtributa[j][k][i] = ((double) steviloAtributov)/(double) st_razredov.get(i);
+                    verjetnostAtributa[j][k][i] = ((double) steviloAtributov) / (double) st_razredov.get(i);
                 }
             }
         }
@@ -600,20 +594,20 @@ public class MainController {
     private static ArrayList<String> ocene = new ArrayList<>();
 
     //Metoda za izracun vrednosti
-    private static void izracun(){
+    private static void izracun() {
 
         double[] vredn = new double[steviloRazredov];
         int vrstice_testna = glavniTestna.size();
         int stolpci_testna = pomozniTestna.get(0).length;
         double a;
 
-        for(int i = 0; i < vrstice_testna-1; i++)	{
-            for (int o = 0; o< steviloRazredov; o++) {
-                vredn[o]=1.0;
+        for (int i = 0; i < vrstice_testna - 1; i++) {
+            for (int o = 0; o < steviloRazredov; o++) {
+                vredn[o] = 1.0;
             }
-            for(int j = 0; j < stolpci_testna-1; j++)	{
-                for (int k = 0; k < atribut.size()-1; k++){
-                    if(atribut.get(k).equals(pomozniTestna.get(i)[j])) {
+            for (int j = 0; j < stolpci_testna - 1; j++) {
+                for (int k = 0; k < atribut.size() - 1; k++) {
+                    if (atribut.get(k).equals(pomozniTestna.get(i)[j])) {
                         for (int l = 0; l < steviloRazredov; l++) {
                             a = verjetnostAtributa[j][k][l];
                             vredn[l] *= a;
@@ -622,10 +616,10 @@ public class MainController {
                 }
             }
             double max = 0;
-            int maxx=  0;
-            for(int m = 0; m < steviloRazredov; m++)	{
-                vredn[m]=vredn[m]*verjetnost.get(m);
-                if(vredn[m] > max){
+            int maxx = 0;
+            for (int m = 0; m < steviloRazredov; m++) {
+                vredn[m] = vredn[m] * verjetnost.get(m);
+                if (vredn[m] > max) {
                     max = vredn[m];
                     maxx = m;
                 }
@@ -635,7 +629,7 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.POST)
-    public static void errorPrediction(Model model, @RequestParam(value = "idInput") int id, @RequestParam(value= "timeInput") String time, @RequestParam(value= "distanceInput") String distance, @RequestParam(value= "speedInput") String speed, @RequestParam(value= "RPMInput") String RPM, @RequestParam(value= "ODODistanceInput") String mileage, OAuth2Authentication authentication) throws Exception {
+    public static void errorPrediction(Model model, @RequestParam(value = "idInput") int id, @RequestParam(value = "timeInput") String time, @RequestParam(value = "distanceInput") String distance, @RequestParam(value = "speedInput") String speed, @RequestParam(value = "RPMInput") String RPM, @RequestParam(value = "ODODistanceInput") String mileage, OAuth2Authentication authentication) throws Exception {
 
         String[] seznam = new String[6];
         seznam[0] = time;
@@ -645,11 +639,11 @@ public class MainController {
         seznam[4] = mileage;
         seznam[5] = "Fuel Volume Regulator Control Circuit Low";
 
-        overrideCSV("testna_mnozica.csv", seznam);
+        overrideCSV("errorPrediction_testna.csv", seznam);
 
-        branjeUcneDatoteke("ucna_mnozica.csv");
+        branjeUcneDatoteke("errorPrediction_ucna.csv");
 
-        branjeTestneDatoteke("testna_mnozica.csv");
+        branjeTestneDatoteke("errorPrediction_testna.csv");
 
         //Klic vseh metod za izracune in prikaz matrike zmede
         klasifikator();

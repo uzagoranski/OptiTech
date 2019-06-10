@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="ODODistanceInput" class=" form-control-label">Total mileage (km)</label>
+                                                <label for="ODODistanceInput" class=" form-control-label">Total mileage (m)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="ODODistanceInput" name="ODODistanceInput"
