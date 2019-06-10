@@ -35,12 +35,6 @@ public class MainController {
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model, OAuth2Authentication authentication) throws Exception {
 
-        ArrayList<Error> err=  SQLCarsDatabase.getErrorsOnSelectedCar(217, "2018-06-19","2019-03-27");
-        for (Error e :
-                err) {
-            System.out.println(e);
-        }
-
         if (authentication != null) {
             LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
 
@@ -212,6 +206,7 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
+        ArrayList<Error> err=  SQLCarsDatabase.getErrorsOnSelectedCar(id,"2017-01-01", "2020-01-01");
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
@@ -252,6 +247,7 @@ public class MainController {
             color = "rgba(214, 69, 65, 1)";
         }
 
+        model.addAttribute("errors", err);
         model.addAttribute("color", color);
         model.addAttribute("score", score);
         model.addAttribute("idCar", id);

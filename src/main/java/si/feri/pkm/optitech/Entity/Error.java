@@ -3,23 +3,23 @@ package si.feri.pkm.optitech.Entity;
 import java.sql.Date;
 
 public class Error {
-    String descrition;
+    String description;
     int code;
     Date date;
 
 
-    public Error(String descrition, int code, Date date) {
-        this.descrition = descrition;
+    public Error(String description, int code, Date date) {
+        this.description = description;
         this.code = code;
         this.date = date;
     }
 
-    public String getDescrition() {
-        return descrition;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrition(String descrition) {
-        this.descrition = descrition;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getCode() {
@@ -42,7 +42,7 @@ public class Error {
     @Override
     public String toString() {
         return "Error{" +
-                "descrition='" + descrition + '\'' +
+                "description='" + description + '\'' +
                 ", code=" + code +
                 ", date=" + date +
                 '}';
