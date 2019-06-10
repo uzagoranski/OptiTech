@@ -487,3 +487,84 @@ WHERE vehicleId != 0
   AND dtcDescription != 'null'
   AND vehicleId = 217
 ORDER BY dateMsg
+
+
+/*
+ 19)
+ Podatki za AI, za avte ki jih imamo v bazi
+ */
+SELECT *
+FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc
+      FROM Optitech.tlm.DtcInfo
+               RIGHT JOIN (select max(VehicleId)     as vehicleId,
+                                  MAX(DrvAbsDistOdo) as DrvAbsDistOdo,
+                                  SUM(DrvTime)       as DrvTime,
+                                  SUM(DrvDist)       as DrvDist,
+                                  AVG(RpmAvg)        as RpmAvg,
+                                  AVG(VssAvg)        as VssAvg,
+                                  sessionId
+                           from OptiTech.tlm.DriveData
+                           WHERE DrvAbsDistOdo != 0
+                           GROUP BY sessionId)
+          AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId
+      where Optitech.tlm.DtcInfo.vehicleId IN (SELECT vehicleId
+                                               FROM (
+                                                        SELECT prvi.carModelId,
+                                                               carMakerId,
+                                                               carModel,
+                                                               vehicleSubtypeId,
+                                                               status,
+                                                               countryID,
+                                                               carMaker
+                                                        FROM (
+                                                                 SELECT *
+                                                                 FROM optitech.reg.carModels
+                                                                 WHERE carModelId
+                                                                           IN (
+                                                                           SELECT carModelId
+                                                                           FROM OptiTech.biz.Vehicles
+                                                                           WHERE vehicleId
+                                                                                     IN (
+                                                                                     SELECT DISTINCT vehicleId
+                                                                                     FROM optitech.tlm.DriveData))) as prvi
+                                                                 LEFT JOIN (
+                                                            SELECT carModelId, countryId, carMaker
+                                                            FROM optitech.reg.carModels
+                                                                     LEFT JOIN optitech.reg.CarMakers
+                                                                               ON optitech.reg.CarMakers.carMakerId =
+                                                                                  optitech.reg.CarModels.carMakerId
+                                                        ) AS drugi
+                                                                           ON prvi.carModelId = drugi.carModelId
+                                                    ) AS tabela
+                                                        LEFT JOIN OptiTech.biz.Vehicles
+                                                                  ON tabela.carModelId = optitech.biz.vehicles.carModelId
+                                               WHERE engineSize != 0
+                                                 AND countryID != 'XY'
+                                                 AND vehicleId != '1357')) AS p
+         LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc
+WHERE Optitech.reg.DtcCodes.dtc != 'null';
+
+/*
+ 20)
+ Podatki za AI, za vse avte, ki obstajajo v bazi
+ */
+SELECT DrvTime, DrvDist,VssAvg, RpmAvg,DrvAbsDistOdo, dtcDescription
+FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc
+      FROM Optitech.tlm.DtcInfo
+               RIGHT JOIN (select max(VehicleId)     as vehicleId,
+                                  MAX(DrvAbsDistOdo) as DrvAbsDistOdo,
+                                  SUM(DrvTime)       as DrvTime,
+                                  SUM(DrvDist)       as DrvDist,
+                                  AVG(RpmAvg)        as RpmAvg,
+                                  AVG(VssAvg)        as VssAvg,
+                                  sessionId
+                           from OptiTech.tlm.DriveData
+                           WHERE DrvAbsDistOdo != 0
+                           GROUP BY sessionId)
+          AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId)
+         AS p
+         LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc
+WHERE Optitech.reg.DtcCodes.dtc != 'null';
+
+--Single line
+SELECT DrvTime, DrvDist,VssAvg, RpmAvg,DrvAbsDistOdo, dtcDescription FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc FROM Optitech.tlm.DtcInfo RIGHT JOIN (select max(VehicleId) as vehicleId, MAX(DrvAbsDistOdo) as DrvAbsDistOdo, SUM(DrvTime) as DrvTime, SUM(DrvDist) as DrvDist, AVG(RpmAvg) as RpmAvg, AVG(VssAvg) as VssAvg, sessionId from OptiTech.tlm.DriveData WHERE DrvAbsDistOdo != 0 GROUP BY sessionId) AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId) AS p LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc WHERE Optitech.reg.DtcCodes.dtc != 'null';
