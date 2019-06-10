@@ -470,4 +470,20 @@ WHERE VssMax != 0
 17)
  Pridobitev Maksimalne hitrosti s katero je avto vozil.
  */
-select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=217;
+select MAX(VssMax)
+from Optitech.tlm.DriveData
+where vehicleId = 217;
+
+
+/*
+ 18)
+ Napake na določenem avtomobilu
+ */
+SELECT dateMsg, userID, DtcInfo.dtc, dtcCode, timeLog, dtcDescription
+FROM optitech.tlm.dtcinfo
+         LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi
+                   ON optitech.tlm.dtcinfo.dtc = prvi.dtc
+WHERE vehicleId != 0
+  AND dtcDescription != 'null'
+  AND vehicleId = 217
+ORDER BY dateMsg

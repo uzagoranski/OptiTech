@@ -112,4 +112,23 @@ public class SQLCarsDatabase {
         }
         return rpmSpeed;
     }
+
+    public static ArrayList<String> getErrorsOnSelectedCar(int carId) {
+        ResultSet resultSet;
+
+        ArrayList<String> napake = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "    SELECT dateMsg, userID,DtcInfo.dtc,dtcCode, timeLog,dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription,dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId!=0 AND dtcDescription != 'null' AND vehicleId ="+ carId + " ORDER BY dateMsg";
+            resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                napake.add(resultSet.getString(6));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return napake;
+    }
+
 }
