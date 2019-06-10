@@ -31,6 +31,20 @@
     <script src="js/rSlider.min.js"></script>
 
     <style type="text/css">
+        table {
+            width:  100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+        }
+        .scrollingTable {
+            width: 30em;
+            overflow-y: auto;
+        }
+    </style>
+
+    <style type="text/css">
         .outer {
             width: 600px;
             height: 200px;
@@ -70,7 +84,7 @@
     </style>
 </head>
 
-<body class="animsition">
+<body class="animsition" onload="makeTableScroll()">
 <div class="page-wrapper">
     <div class="page-container">
         <%@include file="template/navigation.jsp" %>
@@ -110,6 +124,30 @@
                         </div>
                         <div class="col-lg-6">
                             <canvas id="rpmChart" width="800" height="450"></canvas>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-lg-12">
+                            <div class="table-responsive table--no-card m-b-40">
+                                <table id="myTable" class="table table-borderless table-striped table-earning">
+                                    <thead>
+                                        <tr>
+                                            <th>Error</th>
+                                            <th>Dtc code</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${errors}" var="e">
+                                            <tr>
+                                                <td>${e.getDescription()}</td>
+                                                <td>${e.getCode()}</td>
+                                                <td>${e.getDate()}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,6 +331,8 @@
 
                     // $('#target').html(JSON.stringify(result));
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
+
+
                 }
             });
             window.history.pushState({href: href}, '', "carDetails?id=${idCar}&sliderValue=" + href);
@@ -312,6 +352,24 @@
         }
     });
 
+</script>
+
+<script type="text/javascript">
+    function makeTableScroll() {
+        // Constant retrieved from server-side via JSP
+        var maxRows = 6;
+
+        var table = document.getElementById('myTable');
+        var wrapper = table.parentNode;
+        var rowsInTable = table.rows.length;
+        var height = 0;
+        if (rowsInTable > maxRows) {
+            for (var i = 0; i < maxRows; i++) {
+                height += table.rows[i].clientHeight;
+            }
+            wrapper.style.height = height + "px";
+        }
+    }
 </script>
 </body>
 
