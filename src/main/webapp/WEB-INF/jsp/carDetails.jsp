@@ -138,13 +138,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${errors}" var="e">
-                                            <tr>
-                                                <td>${e.getDescription()}</td>
-                                                <td>${e.getCode()}</td>
-                                                <td>${e.getDate()}</td>
-                                            </tr>
-                                        </c:forEach>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -332,8 +326,19 @@
                     // $('#target').html(JSON.stringify(result));
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
 
+                    var errors = result[2];
+                    console.log(errors);
+
+                    var count = Object.keys(errors['descriptions']).length;
+                    console.log(count);
+
+                    $("#myTable tbody").html("");
+                    for(var i = 0; i < count; i++){
+                        $("#myTable tbody").append("<tr><td>" + errors['descriptions'][i] + "</td><td>" + errors['codes'][i] +"</td><td>"+errors['dates'][i]+"</td></tr>");
+                    }
 
                 }
+
             });
             window.history.pushState({href: href}, '', "carDetails?id=${idCar}&sliderValue=" + href);
 
@@ -352,6 +357,7 @@
         }
     });
 
+    
 </script>
 
 <script type="text/javascript">

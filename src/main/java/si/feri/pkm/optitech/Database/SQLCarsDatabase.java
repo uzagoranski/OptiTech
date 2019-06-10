@@ -1,5 +1,6 @@
 package si.feri.pkm.optitech.Database;
 
+import org.json.JSONObject;
 import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.sql.*;
@@ -102,7 +103,7 @@ public class SQLCarsDatabase {
         int rpmSpeed = -1;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + ";";
+            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "where RpmMax < 8000;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
@@ -114,24 +115,32 @@ public class SQLCarsDatabase {
         return rpmSpeed;
     }
 
-    public static ArrayList<Error> getErrorsOnSelectedCar(int carId, String from, String to) {
+    public static JSONObject getErrorsOnSelectedCar(int carId, String from, String to) {
         ResultSet resultSet;
+        ArrayList<String> descriptions = new ArrayList<String>();
+        ArrayList<Integer> codes = new ArrayList<Integer>();
+        ArrayList<Date> dates = new ArrayList<Date>();
 
-        ArrayList<Error> errors = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
             String selectSql = "    SELECT dateMsg, userID,DtcInfo.dtc,dtcCode, timeLog,dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription,dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId!=0 AND dtcDescription != 'null' AND vehicleId ="+ carId + " AND dateMsg > Convert(datetime, \'"+ from +"\') AND dateMsg < Convert(datetime, \'"+ to +"\')  ORDER BY dateMsg";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
-                Error e = new Error(
-                resultSet.getString(6),resultSet.getInt(4),resultSet.getDate(1));
-                errors.add(e);
+                dates.add(resultSet.getDate(1));
+                codes.add(resultSet.getInt(4));
+                descriptions.add(resultSet.getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return errors;
+
+        JSONObject json = new JSONObject();
+        json.put("descriptions", descriptions);
+        json.put("codes", codes);
+        json.put("dates", dates);
+
+        return json;
     }
 
 }
