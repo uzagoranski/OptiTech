@@ -548,7 +548,7 @@ WHERE Optitech.reg.DtcCodes.dtc != 'null';
  20)
  Podatki za AI, za vse avte, ki obstajajo v bazi
  */
-SELECT *
+SELECT DrvTime, DrvDist,VssAvg, RpmAvg,DrvAbsDistOdo, dtcDescription
 FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc
       FROM Optitech.tlm.DtcInfo
                RIGHT JOIN (select max(VehicleId)     as vehicleId,
@@ -567,4 +567,4 @@ FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, D
 WHERE Optitech.reg.DtcCodes.dtc != 'null';
 
 --Single line
-SELECT *FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc FROM Optitech.tlm.DtcInfo RIGHT JOIN (select max(VehicleId) as vehicleId, MAX(DrvAbsDistOdo) as DrvAbsDistOdo, SUM(DrvTime) as DrvTime, SUM(DrvDist) as DrvDist, AVG(RpmAvg) as RpmAvg, AVG(VssAvg) as VssAvg, sessionId from OptiTech.tlm.DriveData WHERE DrvAbsDistOdo != 0 GROUP BY sessionId) AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId) AS p LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc WHERE Optitech.reg.DtcCodes.dtc != 'null';
+SELECT DrvTime, DrvDist,VssAvg, RpmAvg,DrvAbsDistOdo, dtcDescription FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc FROM Optitech.tlm.DtcInfo RIGHT JOIN (select max(VehicleId) as vehicleId, MAX(DrvAbsDistOdo) as DrvAbsDistOdo, SUM(DrvTime) as DrvTime, SUM(DrvDist) as DrvDist, AVG(RpmAvg) as RpmAvg, AVG(VssAvg) as VssAvg, sessionId from OptiTech.tlm.DriveData WHERE DrvAbsDistOdo != 0 GROUP BY sessionId) AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId) AS p LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc WHERE Optitech.reg.DtcCodes.dtc != 'null';
