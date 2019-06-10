@@ -45,15 +45,27 @@ public class SQLDriveData {
 
     public static JSONObject vssAvgSpeedForSelectedCar(int carID, String first, String last) {
         ResultSet resultSet;
+        ResultSet resultSetZaStevilo;
         ArrayList<Integer> vssAvgSpeedForSelectedCar = new ArrayList<>();
         ArrayList<Date> dateForSelectedCar = new ArrayList<>();
+        String selectSql;
+        int numberOfElements = 0;
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
+            String countSQL = "SELECT count(VssAvg)FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\');";
+            resultSetZaStevilo = statement.executeQuery(countSQL);
+            while(resultSetZaStevilo.next()) {
+                numberOfElements = resultSetZaStevilo.getInt(1);
+            }
+            if (numberOfElements > 500) {
+                selectSql = "SELECT AVG(VssAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
-            String selectSql = "SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') ORDER BY dateMsg;";
+            } else {
+                selectSql = "SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') ORDER BY dateMsg;";
+
+            }
             resultSet = statement.executeQuery(selectSql);
-
             while (resultSet.next()) {
                 int vssAvg = resultSet.getInt(1);
                 Date dateMsg = resultSet.getDate(2);
@@ -70,15 +82,28 @@ public class SQLDriveData {
         return json;
     }
 
-    public static JSONObject rpmAvgSpeedForSelectedCar(int carID, String first, String last ) {
+    public static JSONObject rpmAvgSpeedForSelectedCar(int carID, String first, String last) {
         ResultSet resultSet;
         ArrayList<Integer> rpmAvg = new ArrayList<>();
         ArrayList<Date> date = new ArrayList<>();
+        ResultSet resultSetZaStevilo;
+        String selectSql;
+        int numberOfElements = 0;
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
+            String countSQL = "SELECT count(VssAvg)FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\');";
+            resultSetZaStevilo = statement.executeQuery(countSQL);
+            while(resultSetZaStevilo.next()) {
+                numberOfElements = resultSetZaStevilo.getInt(1);
+            }
+            if (numberOfElements > 500) {
+                selectSql = "SELECT AVG(rpmAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(varchar(11),  \'" + first + "\',23) AND dateMsg < Convert(varchar(11),  \'" + last + "\',23) GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
-            String selectSql = "select rpmAvg, dateMsg from OptiTech.tlm.DriveData WHERE vehicleId=" + carID + " AND (DrvTime != 0 OR DrvDist > 400) AND dateMsg > Convert(datetime, \'"+ first +"\') AND dateMsg < CONVERT(datetime, \'" + last + "\') ORDER BY dateMsg;";
+            } else {
+
+                selectSql = "select rpmAvg, CONVERT(varchar(11),dateMsg,23) AS date from OptiTech.tlm.DriveData WHERE vehicleId=" + carID + " AND (DrvTime != 0 OR DrvDist > 400) AND dateMsg > Convert(varchar(11), \'" + first + "\',23) AND dateMsg < CONVERT(varchar(11), \'" + last + "\',23) ORDER BY date;";
+            }
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
