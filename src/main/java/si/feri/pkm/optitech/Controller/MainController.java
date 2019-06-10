@@ -1,5 +1,7 @@
 package si.feri.pkm.optitech.Controller;
 
+import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.*;
 import si.feri.pkm.optitech.Entity.*;
-import si.feri.pkm.optitech.Entity.Error;
 
 import java.io.*;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-
-import static si.feri.pkm.optitech.Database.SQLCarsDatabase.getErrorsOnSelectedCar;
+import java.util.*;
 
 @Controller
 public class MainController {
@@ -309,6 +307,28 @@ public class MainController {
         return "comparison";
     }
 
+    @RequestMapping(value = {"/trip"}, method = RequestMethod.GET)
+    public String trip(Model model, OAuth2Authentication authentication) throws Exception {
+
+        if (authentication != null) {
+            LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
+
+            email = (String) properties.get("email");
+            name = (String) properties.get("name");
+            image = (String) properties.get("picture");
+            user = name;
+
+        } else {
+            user = "anonymousUser";
+        }
+        model.addAttribute("user", user);
+        model.addAttribute("email", email);
+        model.addAttribute("name", name);
+        model.addAttribute("image", image);
+
+        return "trip";
+    }
+
     @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.GET)
     public String errorPrediction(Model model, OAuth2Authentication authentication) throws IOException {
 
@@ -332,6 +352,7 @@ public class MainController {
         ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
 
         model.addAttribute("vehicles", vehicles);
+        model.addAttribute("error", "");
 
         return "errorPrediction";
     }
@@ -363,7 +384,7 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/statsAI"}, method = RequestMethod.POST)
-    public ResponseEntity<?> statsAIPost(Model model, @RequestParam(value = "id") int id , OAuth2Authentication authentication) throws ParseException, IOException {
+    public ResponseEntity<?> statsAIPost(Model model, @RequestParam(value = "id") int id, OAuth2Authentication authentication) throws ParseException, IOException {
         JSONObject json = new JSONObject();
         Vehicle v = SQLCarsDatabase.getSelectedVehicle(id);
         json.put("year", v.getCarModelYear());
@@ -373,5 +394,269 @@ public class MainController {
         json.put("drive", v.getDrivenWheels());
         json.put("id", v.getVehicleId());
         return ResponseEntity.ok(json.toString());
+    }
+
+    // Naive Bayes AI section
+    //             _____     _____ ______ _____ _______ _____ ____  _   _
+    //       /\   |_   _|   / ____|  ____/ ____|__   __|_   _/ __ \| \ | |
+    //      /  \    | |    | (___ | |__ | |       | |    | || |  | |  \| |
+    //     / /\ \   | |     \___ \|  __|| |       | |    | || |  | | . ` |
+    //    / ____ \ _| |_    ____) | |___| |____   | |   _| || |__| | |\  |
+    //   /_/    \_\_____|  |_____/|______\_____|  |_|  |_____\____/|_| \_|
+    //
+    //
+    private static void overrideCSV(String imeDatoteke, String[] vnos) throws IOException{
+
+        //Branje s pomocjo knjiznice CSVReader
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+
+        List<String[]> csvBody = reader.readAll();
+
+        csvBody.get(1)[0] = vnos[0];
+        csvBody.get(1)[1] = vnos[1];
+        csvBody.get(1)[2] = vnos[2];
+        csvBody.get(1)[3] = vnos[3];
+        csvBody.get(1)[4] = vnos[4];
+        csvBody.get(1)[5] = vnos[5];
+
+        reader.close();
+
+        //Pisanje s pomocjo knjiznice CSVWriter
+        CSVWriter writer = new CSVWriter(new FileWriter(imeDatoteke), ',');
+
+        writer.writeAll(csvBody);
+        writer.flush();
+        writer.close();
+    }
+
+    //Instanciramo Lista za shranjevanje vrednosti iz testne csv datoteke ter polje za hranjenje atributov
+    private static List<String[]> glavniUcna = new ArrayList<>();
+    private static List<String[]> pomozniUcna = new ArrayList<>();
+    private static String[] atributi;
+
+    //Metoda za branje učne množice podatkov iz CSV datoteke
+    private static void branjeUcneDatoteke(String imeDatoteke) throws IOException{
+
+        //Branje s pomocjo knjiznice CSVReader
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+
+        //Dodajanje vseh vrednosti na glavni seznam
+        glavniUcna = reader.readAll();
+        atributi = glavniUcna.get(0);
+        reader.close();
+
+        //Dodajanje vseh vrednosti na pomozni seznam
+        for (int i = 1; i < glavniUcna.size(); i++) {
+            String[] row = glavniUcna.get(i);
+            pomozniUcna.add(row);
+        }
+    }
+
+    //Instanciramo Lista za shranjevanje vrednosti iz testne csv datoteke
+    private static List<String[]> glavniTestna = new ArrayList<>();
+    private static List<String[]> pomozniTestna = new ArrayList<>();
+
+    private static void branjeTestneDatoteke(String imeDatoteke) throws Exception{
+
+        //Branje s pomocjo knjiznice CSVReader
+        CSVReader reader = new CSVReader(new FileReader(imeDatoteke), ',' , '"' , 0);
+
+        //Dodajanje vseh vrednosti na glavni seznam
+        glavniTestna = reader.readAll();
+        reader.close();
+
+        //Dodajanje vseh vrednosti na pomozni seznam
+        for (int i = 1; i < glavniTestna.size(); i++) {
+            String[] row = glavniTestna.get(i);
+            pomozniTestna.add(row);
+        }
+    }
+
+    //Instanciramo ArrayListe za shranjevanje koncnih razredov, stevila razredov in verjetnosti ter spremenljivko kot stevec
+    private static ArrayList<String> razredi = new ArrayList<>();
+    private static	ArrayList<Integer> st_razredov = new ArrayList<>();
+    private static	ArrayList<Double> verjetnost = new ArrayList<>();
+    private static int steviloRazredov;
+
+    //Implementirana metoda klasifikacije
+    private static void klasifikator(){
+
+        //Prebiranje stevila vrstic in stolpcev
+        final int steviloVrstic = glavniUcna.size();
+        final int steviloStolpcev = pomozniUcna.get(0).length;
+
+        //Sortiranje & primerjanje elementov s pomocjo Collections.sort
+        Collections.sort(pomozniUcna,new Comparator<String[]>() {
+            public int compare(String[] strings, String[] otherStrings) {
+                return strings[steviloStolpcev-1].compareTo(otherStrings[steviloStolpcev-1]);
+            }
+        });
+
+        //Inicializacija spremenljivk, potrebnih za izracune
+        String razred = pomozniUcna.get(0)[steviloStolpcev-1];
+        int stevilo_razredov = 0;
+        int st =1;
+
+        for (int i = 0; i < steviloVrstic - 1; i++) {
+
+            //Stetje stevila razredov
+            if	(razred.equals(pomozniUcna.get(i)[steviloStolpcev-1])) {
+                stevilo_razredov++;
+            } else {
+                razredi.add(razred);
+                st_razredov.add(stevilo_razredov);
+                razred = pomozniUcna.get(i)[steviloStolpcev-1];
+                stevilo_razredov = 1;
+                st++;
+            }
+        }
+
+        //Dodajanje izracunanih vrednosti
+        razredi.add(razred);
+        st_razredov.add(stevilo_razredov);
+        steviloRazredov = st;
+
+        //Racunanje verjetnosti za napoved
+        for (int i = 0; i < razredi.size(); i++) {
+            verjetnost.add(st_razredov.get(i)/((double) steviloVrstic-1)) ;
+        }
+    }
+
+    //Instanciramo ArrayLista za shranjevanje vrednosti atributov in stevila atributov
+    private static ArrayList<String> atribut = new ArrayList<>();
+    private static ArrayList<Integer> steviloAtributov = new ArrayList<>();
+
+    //Metoda za branje vseh atributov csv datoteke
+    private static void atributi () {
+
+        //Inicializacija spremenljivk za stevilo stolpcev, vrstic, atributov in vrednost atributov
+        int steviloStolpcev = glavniUcna.get(0).length;
+        final int steviloVrstic = glavniUcna.size();
+        int st_atr;
+        String atr;
+
+        for (int p = 0; p < steviloStolpcev-1; p++)	{
+
+            final int o = p;
+            Collections.sort(pomozniUcna,new Comparator<String[]>() {
+                public int compare(String[] strings, String[] otherStrings) {
+                    return strings[o].compareTo(otherStrings[o]);
+                }
+            });
+
+            atr = pomozniUcna.get(0)[p];
+            st_atr=0;
+            int st = 1;
+
+            for (int k = 0; k < steviloVrstic - 1; k++) {
+
+                if	(atr.equals(pomozniUcna.get(k)[p])) {
+                    st_atr++;
+                } else {
+                    atribut.add(atr);
+                    steviloAtributov.add(st_atr);
+
+                    atr = pomozniUcna.get(k)[p];
+                    st_atr=1;
+                    st++;
+                }
+            }
+            atribut.add(atr);
+            steviloAtributov.add(st_atr);
+        }
+    }
+
+    //Inicializiramo tridimenzionalno polje za shranjevanje vrednosti verjetnost atributov
+    private static Double[][][] verjetnostAtributa;
+
+    //Metoda za racunanje verjetnosti posameznega atributa
+    private static void verjetnostiAtributa(){
+
+        //Inicializacija spremenljivk za stevilo stolpcev in vrstic
+        final int steviloStolpcev = glavniUcna.get(0).length;
+        final int steviloVrstic = glavniUcna.size();
+
+        //Deklaracija tridimenzionalnega polja
+        verjetnostAtributa = new Double[steviloStolpcev][atribut.size()][razredi.size()];
+
+        //Trojna vgnezdena for zanka za zapolnjevanje tridimenzionalnega polja z vrednostmi atributov
+        for(int i = 0; i < razredi.size(); i++){
+            for(int j = 0; j < steviloStolpcev - 1; j++) {
+                for(int k = 0; k < atribut.size(); k++){
+                    int steviloAtributov = 0;
+                    for(int l = 0; l < steviloVrstic - 1; l++){
+                        if((atribut.get(k).equals(pomozniUcna.get(l)[j])) && (razredi.get(i).equals(pomozniUcna.get(l)[steviloStolpcev-1])) ){
+                            steviloAtributov++;
+                        }
+                    }
+                    //Dodajanje verjetnosti v tridimenzionalno polje
+                    verjetnostAtributa[j][k][i] = ((double) steviloAtributov)/(double) st_razredov.get(i);
+                }
+            }
+        }
+    }
+
+    //Instanciramo ArrayList za shranjevanje vrednosti ocen
+    private static ArrayList<String> ocene = new ArrayList<>();
+
+    //Metoda za izracun vrednosti
+    private static void izracun(){
+
+        double[] vredn = new double[steviloRazredov];
+        int vrstice_testna = glavniTestna.size();
+        int stolpci_testna = pomozniTestna.get(0).length;
+        double a;
+
+        for(int i = 0; i < vrstice_testna-1; i++)	{
+            for (int o = 0; o< steviloRazredov; o++) {
+                vredn[o]=1.0;
+            }
+            for(int j = 0; j < stolpci_testna-1; j++)	{
+                for (int k = 0; k < atribut.size()-1; k++){
+                    if(atribut.get(k).equals(pomozniTestna.get(i)[j])) {
+                        for (int l = 0; l < steviloRazredov; l++) {
+                            a = verjetnostAtributa[j][k][l];
+                            vredn[l] *= a;
+                        }
+                    }
+                }
+            }
+            double max = 0;
+            int maxx=  0;
+            for(int m = 0; m < steviloRazredov; m++)	{
+                vredn[m]=vredn[m]*verjetnost.get(m);
+                if(vredn[m] > max){
+                    max = vredn[m];
+                    maxx = m;
+                }
+            }
+            ocene.add(razredi.get(maxx));
+        }
+    }
+
+    @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.POST)
+    public static void errorPrediction(Model model, @RequestParam(value = "idInput") int id, @RequestParam(value= "timeInput") String time, @RequestParam(value= "distanceInput") String distance, @RequestParam(value= "speedInput") String speed, @RequestParam(value= "RPMInput") String RPM, @RequestParam(value= "ODODistanceInput") String mileage, OAuth2Authentication authentication) throws Exception {
+
+        String[] seznam = new String[6];
+        seznam[0] = time;
+        seznam[1] = distance;
+        seznam[2] = speed;
+        seznam[3] = RPM;
+        seznam[4] = mileage;
+        seznam[5] = "Fuel Volume Regulator Control Circuit Low";
+
+        overrideCSV("testna_mnozica.csv", seznam);
+
+        branjeUcneDatoteke("ucna_mnozica.csv");
+
+        branjeTestneDatoteke("testna_mnozica.csv");
+
+        //Klic vseh metod za izracune in prikaz matrike zmede
+        klasifikator();
+        atributi();
+        verjetnostiAtributa();
+        izracun();
+
+        model.addAttribute("error", ocene.get(0));
     }
 }

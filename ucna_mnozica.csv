@@ -1,0 +1,638 @@
+﻿time,distance,speed,RPM,mileage,error
+881,15382,61,1502,19682,Fuel Volume Regulator Control Circuit Low
+16583,46773,48,4150,54722,Fuel Shutoff Valve Control Circuit/Open
+43,235,19,936,235,A Camshaft Position - Timing Over-Advanced or System Performance (Bank 1)
+289,2815,34,1308,160008818,A Camshaft Position - Timing Over-Advanced or System Performance (Bank 1)
+132,1645,44,1475,160047218,A Camshaft Position - Timing Over-Advanced or System Performance (Bank 1)
+1754,37191,75,2348,160154351,A Camshaft Position - Timing Over-Advanced or System Performance (Bank 1)
+328,10632,32,2448,154411,Manifold Absolute Pressure Barometric Pressure Correlation
+608,7602,44,1409,113265,Manifold Absolute Pressure Barometric Pressure Correlation
+793,7294,32,1292,105964397,Manifold Absolute Pressure Barometric Pressure Correlation
+328,10632,32,2448,154411,Manifold Absolute Pressure Barometric Pressure Correlation
+328,10632,32,2448,154411,Manifold Absolute Pressure Barometric Pressure Correlation
+1121,17926,32,1870,105964397,Manifold Absolute Pressure Barometric Pressure Correlation
+16084,49819,98,4149,11679,Fuel System Leak Detected Small Leak
+1164,16843,79,1333,99028173,Intake Air Temperature Sensor 2 Circuit High
+11,22,6,1105,216613876,Mass or Volume Air flow Circuit Range/Performance Problem
+1775,26794,54,1401,216455997,Mass or Volume Air flow Circuit Range/Performance Problem
+3840,76718,68,1526,215997105,Mass or Volume Air flow Circuit Range/Performance Problem
+380,5551,52,1312,220284774,Mass or Volume Air flow Circuit Range/Performance Problem
+144,1057,25,1137,218197354,Mass or Volume Air flow Circuit Range/Performance Problem
+2917,62573,68,1470,219868919,Mass or Volume Air flow Circuit Range/Performance Problem
+3840,76718,68,1526,215997105,Mass or Volume Air flow Circuit Range/Performance Problem
+4424,76525,62,1532,219429012,Mass or Volume Air flow Circuit Range/Performance Problem
+709,10571,53,1447,199715253,Mass or Volume Air flow Circuit Range/Performance Problem
+8,5,2,934,219606682,Mass or Volume Air flow Circuit Range/Performance Problem
+965,14557,54,1306,216082192,Mass or Volume Air flow Circuit Range/Performance Problem
+649,9716,53,1352,199693132,Mass or Volume Air flow Circuit Range/Performance Problem
+61,367,21,1087,199610641,Mass or Volume Air flow Circuit Range/Performance Problem
+431,6858,36,1162,216003965,Mass or Volume Air flow Circuit Range/Performance Problem
+382,5484,51,1373,199659865,Mass or Volume Air flow Circuit Range/Performance Problem
+505,8165,58,1373,220105945,Mass or Volume Air flow Circuit Range/Performance Problem
+3840,76718,68,1526,215997105,Mass or Volume Air flow Circuit Range/Performance Problem
+2917,62573,68,1470,219868919,Mass or Volume Air flow Circuit Range/Performance Problem
+655,10553,57,1368,199621445,Mass or Volume Air flow Circuit Range/Performance Problem
+617,10257,59,1292,216136361,Mass or Volume Air flow Circuit Range/Performance Problem
+649,9716,53,1352,199693132,Mass or Volume Air flow Circuit Range/Performance Problem
+3840,76718,68,1526,215997105,Mass or Volume Air flow Circuit Range/Performance Problem
+10,4,1,937,215204649,Mass or Volume Air flow Circuit Range/Performance Problem
+835,11976,51,1360,217883629,Mass or Volume Air flow Circuit Range/Performance Problem
+11,8,2,1049,199570859,Mass or Volume Air flow Circuit Range/Performance Problem
+3929,109105,99,1821,218105088,Mass or Volume Air flow Circuit Range/Performance Problem
+167,806,20,1093,2463958,Intake Air Temperature Circuit Malfunction
+167,806,20,1093,2463958,Intake Air Temperature Circuit Malfunction
+167,806,20,1093,2463958,Intake Air Temperature Circuit Malfunction
+382,5484,51,1373,199659865,Intake Air Temperature Circuit High Input
+11,8,2,1049,199570859,Intake Air Temperature Circuit High Input
+61,367,21,1087,199610641,Intake Air Temperature Circuit High Input
+709,10571,53,1447,199715253,Intake Air Temperature Circuit High Input
+649,9716,53,1352,199693132,Intake Air Temperature Circuit High Input
+655,10553,57,1368,199621445,Intake Air Temperature Circuit High Input
+649,9716,53,1352,199693132,Intake Air Temperature Circuit High Input
+2,25,58,2807,134759942,Engine Coolant Temperature Circuit Malfunction
+29,576,64,2991,2405402,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+8,17,8,963,134759781,Engine Coolant Temperature Circuit Malfunction
+39,87,8,2448,134759763,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+11,449,145,6288,862678,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+14,217,54,1445,2904218,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+2422,52486,77,979,122677,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+38,874,46,3069,12919,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+95,555,54,1851,134759079,Engine Coolant Temperature Circuit Malfunction
+71,625,31,707,233787,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+39,87,8,2448,134759763,Engine Coolant Temperature Circuit Malfunction
+95,555,54,1851,134759079,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+120,601,17,860,862064,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+2,25,58,2807,134759942,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+2,37,39,2199,2410791,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+240,532,8,2183,134759611,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+4,65,49,1363,2904000,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+26,57,8,1842,134759675,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+3,41,39,1553,3154,Engine Coolant Temperature Circuit Malfunction
+25,264,38,2547,511634746,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+21,122,20,371,862802,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+8,17,8,963,134759781,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+16,159,33,733,39372,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+21,765,54,858,13712,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+10,404,79,1439,1229534,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+123,2763,57,3984,2404823,Engine Coolant Temperature Circuit Malfunction
+173,3390,65,2630,2409940,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+1121,17926,32,1870,105964397,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+2,19,25,3344,144425,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+1,8,38,2155,2405411,Engine Coolant Temperature Circuit Malfunction
+6,163,81,4086,862229,Engine Coolant Temperature Circuit Malfunction
+26,57,8,1842,134759675,Engine Coolant Temperature Circuit Malfunction
+25,264,38,2547,511634746,Engine Coolant Temperature Circuit Malfunction
+1861,24352,41,1211,379154,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+39,87,8,2448,134759763,Engine Coolant Temperature Circuit Malfunction
+3,81,53,1267,134759915,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+11,449,145,6288,862678,Engine Coolant Temperature Circuit Malfunction
+21,122,20,371,862802,Engine Coolant Temperature Circuit Malfunction
+793,7294,32,1292,105964397,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+39,87,8,2448,134759763,Engine Coolant Temperature Circuit Malfunction
+6,86,38,1861,134761734,Engine Coolant Temperature Circuit Malfunction
+559,2962,18,1614,884074,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+14,217,54,1445,2904218,Engine Coolant Temperature Circuit Malfunction
+2,25,58,2807,134759942,Engine Coolant Temperature Circuit Malfunction
+442,6414,31,1478,2399185,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+67,757,39,879,2464,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+10,404,79,1439,1229534,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+95,555,54,1851,134759079,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+328,10632,32,2448,154411,Engine Coolant Temperature Circuit Malfunction
+608,7602,44,1409,113265,Engine Coolant Temperature Circuit Malfunction
+16,461,81,2895,134758479,Engine Coolant Temperature Circuit Malfunction
+2,41,51,2304,134759831,Engine Coolant Temperature Circuit Malfunction
+2,25,58,2807,134759942,Engine Coolant Temperature Circuit Malfunction
+2325,60628,103,2983,22107,O2 Sensor Circuit Slow Response (Bank 1 Sensor 2)
+167,806,20,1093,2463958,O2 Sensor Circuit Low Voltage (Bank 1 Sensor 3)
+167,806,20,1093,2463958,Fuel Delivery Error
+167,806,20,1093,2463958,Fuel Delivery Error
+167,806,20,1093,2463958,Fuel Delivery Error
+167,806,20,1093,2463958,Engine Oil Temperature Sensor Range/Performance
+30413,19726,73,3022,49807,Injector Circuit Malfunction - Cylinder 12
+26,57,8,1842,134759675,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+25,264,38,2547,511634746,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+67,757,39,879,2464,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+10,404,79,1439,1229534,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+559,2962,18,1614,884074,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+442,6414,31,1478,2399185,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+21,122,20,371,862802,Fuel Pump Primary Circuit Malfunction
+8,17,8,963,134759781,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+2,25,58,2807,134759942,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+11,449,145,6288,862678,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+29,576,64,2991,2405402,Fuel Pump Primary Circuit Malfunction
+123,2763,57,3984,2404823,Fuel Pump Primary Circuit Malfunction
+25,264,38,2547,511634746,Fuel Pump Primary Circuit Malfunction
+39,87,8,2448,134759763,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+6,163,81,4086,862229,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+2,25,58,2807,134759942,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+2,19,25,3344,144425,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+95,555,54,1851,134759079,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+16,159,33,733,39372,Fuel Pump Primary Circuit Malfunction
+21,765,54,858,13712,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+2,37,39,2199,2410791,Fuel Pump Primary Circuit Malfunction
+2422,52486,77,979,122677,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+38,874,46,3069,12919,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+14,217,54,1445,2904218,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+240,532,8,2183,134759611,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+4,65,49,1363,2904000,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+3,41,39,1553,3154,Fuel Pump Primary Circuit Malfunction
+39,87,8,2448,134759763,Fuel Pump Primary Circuit Malfunction
+1,8,38,2155,2405411,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+1861,24352,41,1211,379154,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+26,57,8,1842,134759675,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+21,122,20,371,862802,Fuel Pump Primary Circuit Malfunction
+39,87,8,2448,134759763,Fuel Pump Primary Circuit Malfunction
+2,25,58,2807,134759942,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+2,25,58,2807,134759942,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+120,601,17,860,862064,Fuel Pump Primary Circuit Malfunction
+95,555,54,1851,134759079,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+608,7602,44,1409,113265,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+14,217,54,1445,2904218,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+8,17,8,963,134759781,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+173,3390,65,2630,2409940,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+39,87,8,2448,134759763,Fuel Pump Primary Circuit Malfunction
+11,449,145,6288,862678,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+3,81,53,1267,134759915,Fuel Pump Primary Circuit Malfunction
+6,86,38,1861,134761734,Fuel Pump Primary Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Pump Primary Circuit Malfunction
+95,555,54,1851,134759079,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+328,10632,32,2448,154411,Fuel Pump Primary Circuit Malfunction
+10,404,79,1439,1229534,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+71,625,31,707,233787,Fuel Pump Primary Circuit Malfunction
+2,41,51,2304,134759831,Fuel Pump Primary Circuit Malfunction
+16,461,81,2895,134758479,Fuel Pump Primary Circuit Malfunction
+167,806,20,1093,2463958,Engine Overboost Condition
+1164,16843,79,1333,99028173,Turbocharger Boost Sensor A Circuit Range/Performance
+1164,16843,79,1333,99028173,Turbocharger Boost Sensor A Circuit High
+1164,16843,79,1333,99028173,Turbocharger Boost Sensor A Circuit High
+1164,16843,79,1333,99028173,Turbocharger Boost Sensor A Circuit High
+881,15382,61,1502,19682,Turbocharger Wastegate Solenoid A low
+39259,75772,72,3590,48448,Cylinder 2 Injector Circuit Low
+11048,45845,52,4619,51182,Crankshaft Position System Variation Not Learned
+7823,60312,63,4564,47791,Knock Control System Error
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+95,555,54,1851,134759079,Ignition Coil Primary/Secondary Circuit Malfunction
+10,404,79,1439,1229534,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+14,217,54,1445,2904218,Ignition Coil Primary/Secondary Circuit Malfunction
+2422,52486,77,979,122677,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+38,874,46,3069,12919,Ignition Coil Primary/Secondary Circuit Malfunction
+39,87,8,2448,134759763,Ignition Coil Primary/Secondary Circuit Malfunction
+11,449,145,6288,862678,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+10,404,79,1439,1229534,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+71,625,31,707,233787,Ignition Coil Primary/Secondary Circuit Malfunction
+120,601,17,860,862064,Ignition Coil Primary/Secondary Circuit Malfunction
+2,25,58,2807,134759942,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+6,163,81,4086,862229,Ignition Coil Primary/Secondary Circuit Malfunction
+26,57,8,1842,134759675,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+21,122,20,371,862802,Ignition Coil Primary/Secondary Circuit Malfunction
+8,17,8,963,134759781,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+1,8,38,2155,2405411,Ignition Coil Primary/Secondary Circuit Malfunction
+95,555,54,1851,134759079,Ignition Coil Primary/Secondary Circuit Malfunction
+21,765,54,858,13712,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+16,159,33,733,39372,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+2,19,25,3344,144425,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+26,57,8,1842,134759675,Ignition Coil Primary/Secondary Circuit Malfunction
+559,2962,18,1614,884074,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+8,17,8,963,134759781,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+442,6414,31,1478,2399185,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+39,87,8,2448,134759763,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+205,4011,61,2584,2410791,Ignition Coil Primary/Secondary Circuit Malfunction
+2,37,39,2199,2410791,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+21,122,20,371,862802,Ignition Coil Primary/Secondary Circuit Malfunction
+2,25,58,2807,134759942,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+14,217,54,1445,2904218,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+95,555,54,1851,134759079,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+67,757,39,879,2464,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+173,3390,65,2630,2409940,Ignition Coil Primary/Secondary Circuit Malfunction
+123,2763,57,3984,2404823,Ignition Coil Primary/Secondary Circuit Malfunction
+2,25,58,2807,134759942,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+205,4011,61,2584,2410791,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+25,264,38,2547,511634746,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+1861,24352,41,1211,379154,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+39,87,8,2448,134759763,Ignition Coil Primary/Secondary Circuit Malfunction
+2,41,51,2304,134759831,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+3,41,39,1553,3154,Ignition Coil Primary/Secondary Circuit Malfunction
+240,532,8,2183,134759611,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+1121,17926,32,1870,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+4,65,49,1363,2904000,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+6,86,38,1861,134761734,Ignition Coil Primary/Secondary Circuit Malfunction
+608,7602,44,1409,113265,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+25,264,38,2547,511634746,Ignition Coil Primary/Secondary Circuit Malfunction
+3,81,53,1267,134759915,Ignition Coil Primary/Secondary Circuit Malfunction
+793,7294,32,1292,105964397,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+39,87,8,2448,134759763,Ignition Coil Primary/Secondary Circuit Malfunction
+11,449,145,6288,862678,Ignition Coil Primary/Secondary Circuit Malfunction
+2,25,58,2807,134759942,Ignition Coil Primary/Secondary Circuit Malfunction
+173,3390,65,2630,2409940,Ignition Coil Primary/Secondary Circuit Malfunction
+16,461,81,2895,134758479,Ignition Coil Primary/Secondary Circuit Malfunction
+328,10632,32,2448,154411,Ignition Coil Primary/Secondary Circuit Malfunction
+29,576,64,2991,2405402,Ignition Coil Primary/Secondary Circuit Malfunction
+167,806,20,1093,2463958,Ignition Coil F Primary/Secondary Circuit Malfunction
+15096,5834,91,2846,16291,Misfire Detected – Fueling Disabled
+101,752,26,1341,90164590,"Glow Plug/Heater Circuit ""A"" Malfunction"
+594,9724,58,1433,90314259,"Glow Plug/Heater Circuit ""A"" Malfunction"
+2852,59463,74,1609,90492715,"Glow Plug/Heater Circuit ""A"" Malfunction"
+2925,59039,72,1559,90085817,"Glow Plug/Heater Circuit ""A"" Malfunction"
+16,10,2,831,89627010,"Glow Plug/Heater Circuit ""A"" Malfunction"
+2317,54737,84,1657,89818279,"Glow Plug/Heater Circuit ""A"" Malfunction"
+322,2379,26,1158,89877770,"Glow Plug/Heater Circuit ""A"" Malfunction"
+2325,60628,103,2983,22107,Secondary Air Injection System Incorrect Flow Detected
+4165,46555,44,4840,14843,Secondary Air Injection System Relay B Circuit Malfunction
+7823,60312,63,4564,47791,Catalyst Temperature Sensor (Bank 1)
+15096,5834,91,2846,16291,Catalyst Temperature Sensor Low  (Bank 1)
+8942,44888,103,4519,36321,Main Catalyst Efficiency Below Threshold (Bank 2)
+39,87,8,2448,134759763,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+173,3390,65,2630,2409940,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+1,8,38,2155,2405411,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+1861,24352,41,1211,379154,Fuel Level Sensor Circuit Malfunction
+11,449,145,6288,862678,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+26,57,8,1842,134759675,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+240,532,8,2183,134759611,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+2422,52486,77,979,122677,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+38,874,46,3069,12919,Fuel Level Sensor Circuit Malfunction
+10,404,79,1439,1229534,Fuel Level Sensor Circuit Malfunction
+3,41,39,1553,3154,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+95,555,54,1851,134759079,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+25,264,38,2547,511634746,Fuel Level Sensor Circuit Malfunction
+442,6414,31,1478,2399185,Fuel Level Sensor Circuit Malfunction
+559,2962,18,1614,884074,Fuel Level Sensor Circuit Malfunction
+6,163,81,4086,862229,Fuel Level Sensor Circuit Malfunction
+39,87,8,2448,134759763,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+71,625,31,707,233787,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+10,404,79,1439,1229534,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+39,87,8,2448,134759763,Fuel Level Sensor Circuit Malfunction
+120,601,17,860,862064,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+2,25,58,2807,134759942,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+714,5138,30,1846,137596,Fuel Level Sensor Circuit Malfunction
+4,65,49,1363,2904000,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+39,87,8,2448,134759763,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+173,3390,65,2630,2409940,Fuel Level Sensor Circuit Malfunction
+21,122,20,371,862802,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+14,217,54,1445,2904218,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+8,17,8,963,134759781,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+205,4011,61,2584,2410791,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+8,17,8,963,134759781,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+2,25,58,2807,134759942,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+2,37,39,2199,2410791,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+2,25,58,2807,134759942,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+25,264,38,2547,511634746,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+29,576,64,2991,2405402,Fuel Level Sensor Circuit Malfunction
+95,555,54,1851,134759079,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+26,57,8,1842,134759675,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+205,4011,61,2584,2410791,Fuel Level Sensor Circuit Malfunction
+11,449,145,6288,862678,Fuel Level Sensor Circuit Malfunction
+67,757,39,879,2464,Fuel Level Sensor Circuit Malfunction
+608,7602,44,1409,113265,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+16,159,33,733,39372,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+14,217,54,1445,2904218,Fuel Level Sensor Circuit Malfunction
+2,19,25,3344,144425,Fuel Level Sensor Circuit Malfunction
+95,555,54,1851,134759079,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+2,41,51,2304,134759831,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+123,2763,57,3984,2404823,Fuel Level Sensor Circuit Malfunction
+21,122,20,371,862802,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+2,25,58,2807,134759942,Fuel Level Sensor Circuit Malfunction
+21,765,54,858,13712,Fuel Level Sensor Circuit Malfunction
+793,7294,32,1292,105964397,Fuel Level Sensor Circuit Malfunction
+6,86,38,1861,134761734,Fuel Level Sensor Circuit Malfunction
+3,81,53,1267,134759915,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+328,10632,32,2448,154411,Fuel Level Sensor Circuit Malfunction
+1121,17926,32,1870,105964397,Fuel Level Sensor Circuit Malfunction
+16,461,81,2895,134758479,Fuel Level Sensor Circuit Malfunction
+3563,36685,48,3172,13008,Exhaust Pressure Sensor Malfunction
+167,806,20,1093,2463958,Exhaust Pressure Control Valve High
+7646,57464,73,4962,6067,Brake Booster Pressure Sensor Circuit Intermittent
+17114,12896,44,4655,22516,Cruise Control Resume Signal Malfunction
+15656,62547,101,2752,3646,Cruise Control Multi-Function Input “B” Circuit Stuck
+4755,27765,71,2081,28901,Internal Control Module Memory Check Sum Error
+23681,36028,77,3378,41359,Internal Control Module ROM Error (Module Identification Defined by SAE J1979)
+2325,60628,103,2983,22107,"Control Module VSS Output ""B"" Malfunction"
+16583,46773,48,4150,54722,Starter Relay Circuit High
+8109,95450,53,3133,56588,Engine Hot Lamp Output Control Circuit Malfunction
+16084,49819,98,4149,11679,Intake Manifold Tuning Valve Control Circuit High (Bank 1)
+24151,12752,63,3479,49641,Fan 2 Control Circuit High
+16084,49819,98,4149,11679,Shift Solenoid C Intermittent
+2107,30875,51,3151,33118,Shift Solenoid E Stuck On
+30413,19726,73,3022,49807,Transmission Range Display Circuit
+23681,36028,77,3378,41359,Four Wheel Drive (4WD) Switch Circuit Range/Performance
+4165,46555,44,4840,14843,Transmission Fluid Pressure Sensor/Switch A Circuit Low
+4165,46555,44,4840,14843,Gate Select Position Circuit High
+7564,20404,31,2674,51113,Gate Select Actuator Circuit Low
+11048,45845,52,4619,51182,Gear Shift Position Circuit High
+7646,57464,73,4962,6067,Gear Shift Lock Solenoid Circuit High
+9208,12874,40,4798,38210,Motor Electronics Coolant Temperature Sensor Circuit Low
+17722,51978,38,2194,11276,Motor Torque Sensor Circuit High
+289,2225,27,1351,2228,Intake Air System Leak  

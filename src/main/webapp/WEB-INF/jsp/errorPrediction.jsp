@@ -27,44 +27,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-    <style type="text/css">
-        .outer {
-            width: 600px;
-            height: 200px;
-            margin: 0 auto;
-        }
-
-        .outer .chart-container {
-            width: 300px;
-            float: left;
-            height: 200px;
-        }
-
-        .highcharts-yaxis-grid .highcharts-grid-line {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
-            .outer {
-                width: 100%;
-                height: 400px;
-            }
-
-            .outer .chart-container {
-                width: 300px;
-                float: none;
-                margin: 0 auto;
-            }
-
-        }
-
-        .chart {
-            min-width: 320px;
-            max-width: 800px;
-            height: 220px;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 
 <body class="animsition">
@@ -76,6 +38,13 @@
                 <div class="container-fluid">
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
                         <div class="col-lg-12">
+                            <c:choose>
+                                <c:when test="${error != ''}">
+                                    <div class="alert alert-danger" role="alert">
+                                        Calculated most possible error: ${error}
+                                    </div>
+                                </c:when>
+                            </c:choose>
                             <div class="card">
                                 <div class="card-header">Enter your data</div>
                                 <div class="card-body">
@@ -83,7 +52,7 @@
                                         <h3 class="text-center title-2">Vehicle error prediction</h3>
                                     </div>
                                     <hr>
-                                    <input action="" method="post" novalidate="novalidate">
+                                    <form action="/errorPrediction" method="post">
                                         <div class="row form-group">
                                             <div class="col col-md-3">
                                                 <label for="vehicleSelect" class="form-control-label">Vehicle</label>
@@ -136,6 +105,26 @@
                                             </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
+                                                <label for="timeInput" class=" form-control-label">Trip time (sec)</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="timeInput" name="timeInput"
+                                                       placeholder="Enter your trip time..."
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="distanceInput" class=" form-control-label">Trip distance (m)</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="distanceInput" name="distanceInput"
+                                                       placeholder="Enter your trip distance..."
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
                                                 <label for="speedInput" class="form-control-label">Average speed (km/h)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
@@ -154,22 +143,11 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="timeInput" class=" form-control-label">Trip time (sec)</label>
+                                                <label for="ODODistanceInput" class=" form-control-label">Total mileage (km)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="timeInput" name="timeInput"
-                                                       placeholder="Enter your trip time..."
-                                                       class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="col col-md-3">
-                                                <label for="distanceInput" class=" form-control-label">Trip distance (m)</label>
-                                            </div>
-                                            <div class="col-12 col-md-9">
-                                                <input type="text" id="distanceInput" name="distanceInput"
-                                                       placeholder="Enter your trip distance..."
-                                                       class="form-control">
+                                                <input type="text" id="ODODistanceInput" name="ODODistanceInput"
+                                                       placeholder="Enter your total distance..." class="form-control">
                                             </div>
                                         </div>
                                         <div>
