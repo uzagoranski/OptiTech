@@ -273,58 +273,6 @@ public class MainController {
         jsonArray.put(rpmAvg);
         return ResponseEntity.ok(jsonArray.toString());
     }
-    //
-//    @RequestMapping(value = {"/carDetails"}, method = RequestMethod.POST)
-//    public String carDetailsPost(Model model, @RequestParam(value = "id") int id, @RequestParam(value = "sliderValue", required = false) String sliderValue, OAuth2Authentication authentication) throws ParseException, IOException {
-//
-//        if (authentication != null) {
-//            LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
-//
-//            email = (String) properties.get("email");
-//            name = (String) properties.get("name");
-//            image = (String) properties.get("picture");
-//            user = name;
-//
-//        } else {
-//            user = "anonymousUser";
-//        }
-//        model.addAttribute("user", user);
-//        model.addAttribute("email", email);
-//        model.addAttribute("name", name);
-//        model.addAttribute("image", image);
-//
-//
-//        String[] dates = sliderValue.split(",");
-//        String from = dates[0];
-//        String to = dates[1];
-//
-//        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
-//        String linkImage = "";
-//        String fuel = "";
-//        String drive = "";
-//
-//        JSONObject jsonSpeed = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
-//        JSONObject sliderRange = SQLDriveData.sliderRange(id);
-//
-//        if (vehicle != null) {
-//            linkImage = SQLCarImage.getCarImage(id);
-//            fuel = loadFuel(vehicle);
-//            drive = loadDrive(vehicle);
-//        }
-//
-//        System.out.println("Kliče se POST");
-//
-//
-//        model.addAttribute("idCar", id);
-//        model.addAttribute("sliderValue", sliderValue);
-//        model.addAttribute("linkImage", linkImage);
-//        model.addAttribute("vehicle", vehicle);
-//        model.addAttribute("fuel", fuel);
-//        model.addAttribute("drive", drive);
-//        model.addAttribute("jsonSpeed", jsonSpeed);
-//        model.addAttribute("sliderRange", sliderRange);
-//        return "carDetails";
-//    }
 
     @RequestMapping(value = {"/comparison"}, method = RequestMethod.GET)
     public String comparison(Model model, OAuth2Authentication authentication) throws IOException {
@@ -353,8 +301,8 @@ public class MainController {
         return "comparison";
     }
 
-    @RequestMapping(value = {"/statsAI"}, method = RequestMethod.GET)
-    public String statsAI(Model model, OAuth2Authentication authentication) throws IOException {
+    @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.GET)
+    public String errorPrediction(Model model, OAuth2Authentication authentication) throws IOException {
 
         if (authentication != null) {
             LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
@@ -377,7 +325,7 @@ public class MainController {
 
         model.addAttribute("vehicles", vehicles);
 
-        return "statsAI";
+        return "errorPrediction";
     }
 
     public static String loadFuel(Vehicle vehicle) {
