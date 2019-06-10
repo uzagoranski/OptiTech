@@ -4,6 +4,7 @@ import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.sql.*;
 import java.util.ArrayList;
+import si.feri.pkm.optitech.Entity.Error;
 
 import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
@@ -113,22 +114,24 @@ public class SQLCarsDatabase {
         return rpmSpeed;
     }
 
-    public static ArrayList<String> getErrorsOnSelectedCar(int carId) {
+    public static ArrayList<Error> getErrorsOnSelectedCar(int carId, String from, String to) {
         ResultSet resultSet;
 
-        ArrayList<String> napake = new ArrayList<>();
+        ArrayList<Error> errors = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "    SELECT dateMsg, userID,DtcInfo.dtc,dtcCode, timeLog,dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription,dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId!=0 AND dtcDescription != 'null' AND vehicleId ="+ carId + " ORDER BY dateMsg";
+            String selectSql = "    SELECT dateMsg, userID,DtcInfo.dtc,dtcCode, timeLog,dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription,dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId!=0 AND dtcDescription != 'null' AND vehicleId ="+ carId + " AND dateMsg > Convert(datetime, \'"+ from +"\') AND dateMsg < Convert(datetime, \'"+ to +"\')  ORDER BY dateMsg";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
-                napake.add(resultSet.getString(6));
+                Error e = new Error(
+                resultSet.getString(6),resultSet.getInt(4),resultSet.getDate(1));
+                errors.add(e);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return napake;
+        return errors;
     }
 
 }

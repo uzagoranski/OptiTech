@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import si.feri.pkm.optitech.Database.*;
 import si.feri.pkm.optitech.Entity.*;
+import si.feri.pkm.optitech.Entity.Error;
 
 import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+
+import static si.feri.pkm.optitech.Database.SQLCarsDatabase.getErrorsOnSelectedCar;
 
 @Controller
 public class MainController {
@@ -31,6 +34,12 @@ public class MainController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model, OAuth2Authentication authentication) throws Exception {
+
+        ArrayList<Error> err=  SQLCarsDatabase.getErrorsOnSelectedCar(217, "2018-06-19","2019-03-27");
+        for (Error e :
+                err) {
+            System.out.println(e);
+        }
 
         if (authentication != null) {
             LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
