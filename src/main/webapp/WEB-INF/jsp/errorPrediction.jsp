@@ -77,10 +77,10 @@
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-header">Your drive data</div>
+                                <div class="card-header">Enter your data</div>
                                 <div class="card-body">
                                     <div class="card-title">
-                                        <h3 class="text-center title-2">Vehicle error calculator</h3>
+                                        <h3 class="text-center title-2">Vehicle error prediction</h3>
                                     </div>
                                     <hr>
                                     <input action="" method="post" novalidate="novalidate">
@@ -136,7 +136,7 @@
                                             </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="speedInput" class="form-control-label">Average speed</label>
+                                                <label for="speedInput" class="form-control-label">Average speed (km/h)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="speedInput" name="speedInput"
@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="RPMInput" class=" form-control-label">Average RPM</label>
+                                                <label for="RPMInput" class=" form-control-label">Average RPM (rpm)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="RPMInput" name="RPMInput"
@@ -154,12 +154,21 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="consumptionInput" class=" form-control-label">Average
-                                                    consumption</label>
+                                                <label for="timeInput" class=" form-control-label">Trip time (sec)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="consumptionInput" name="consumptionInput"
-                                                       placeholder="Enter your average consumption..."
+                                                <input type="text" id="timeInput" name="timeInput"
+                                                       placeholder="Enter your trip time..."
+                                                       class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="distanceInput" class=" form-control-label">Trip distance (m)</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="distanceInput" name="distanceInput"
+                                                       placeholder="Enter your trip distance..."
                                                        class="form-control">
                                             </div>
                                         </div>
