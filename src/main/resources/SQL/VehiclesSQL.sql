@@ -566,5 +566,49 @@ FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, D
          LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc
 WHERE Optitech.reg.DtcCodes.dtc != 'null';
 
+/*
+ 21)
+ Napake na vozilu, grupirane po datumu in različnimi napakami na ta datum.
+    Npr. če sta se zgodili dve različni napaki na enak datum, sta obe prikazani, če sta se pa zgodili dve enaki
+    napaki na enak datum, je prikazana zgolj ena.
+ */
+SELECT *
+FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription
+      FROM optitech.tlm.dtcinfo
+               LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi
+                         ON optitech.tlm.dtcinfo.dtc = prvi.dtc
+      WHERE vehicleId != 0
+        AND dtcDescription != 'null'
+        AND vehicleId = 217
+        AND dateMsg > Convert(datetime, '2017-01-01')
+        AND dateMsg < Convert(datetime, '2027-01-01')
+      GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p
+ORDER BY dateMsg DESC
+
+/*
+ 22)
+ Trip data
+ */
+
+
+    /*
+     23)
+     Izbor datuma kdaj se je začela prva napaka in kdaj se je končala.
+     */
+SELECT DtcCode, dtcDescription, dtc, min(dateMsg) as min, max(dateMsg) as max
+FROM (
+         SELECT *
+         FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription
+               FROM optitech.tlm.dtcinfo
+                        LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi
+                                  ON optitech.tlm.dtcinfo.dtc = prvi.dtc
+               WHERE vehicleId != 0
+                 AND dtcDescription != 'null'
+                 AND vehicleId = 217
+                 AND dateMsg > Convert(datetime, '2017-01-01')
+                 AND dateMsg < Convert(datetime, '2027-01-01')
+               GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p
+     ) AS tabela
+GROUP BY DtcCode, dtcDescription, dtc;
 --Single line
-SELECT DrvTime, DrvDist,VssAvg, RpmAvg,DrvAbsDistOdo, dtcDescription FROM (SELECT Optitech.tlm.DtcInfo.vehicleId, DrvTime, DrvDist, VssAvg, RpmAvg, DrvAbsDistOdo, dtc FROM Optitech.tlm.DtcInfo RIGHT JOIN (select max(VehicleId) as vehicleId, MAX(DrvAbsDistOdo) as DrvAbsDistOdo, SUM(DrvTime) as DrvTime, SUM(DrvDist) as DrvDist, AVG(RpmAvg) as RpmAvg, AVG(VssAvg) as VssAvg, sessionId from OptiTech.tlm.DriveData WHERE DrvAbsDistOdo != 0 GROUP BY sessionId) AS prva ON Optitech.tlm.DtcInfo.sessionId = prva.sessionId) AS p LEFT JOIN OptiTech.reg.DtcCodes ON p.dtc = optitech.reg.DtcCodes.dtc WHERE Optitech.reg.DtcCodes.dtc != 'null';
+SELECT dtcDescription, min(dateMsg) as firstOccurrence, max(dateMsg) as lastOccurrence FROM (SELECT * FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId = 217 AND dateMsg > Convert(datetime, '2017-01-01') AND dateMsg < Convert(datetime, '2027-01-01') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p) AS tabela GROUP BY DtcCode, dtcDescription, dtc;

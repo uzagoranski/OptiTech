@@ -1,5 +1,7 @@
 package si.feri.pkm.optitech.Database;
 
+import si.feri.pkm.optitech.Entity.ErrorOccurrence;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -32,5 +34,29 @@ public class SQLErrors {
         }
 
         return data;
+    }
+
+
+    public static ArrayList<ErrorOccurrence> getFirstAndLastOccurrence(int carId) {
+        ResultSet resultSet;
+        ArrayList<ErrorOccurrence> errorOccurrences = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+             Statement statement = connection.createStatement()) {
+            String selectSql = "SELECT dtcDescription, min(dateMsg) as firstOccurrence, max(dateMsg) as lastOccurrence FROM (SELECT * FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId = "+carId+" AND dateMsg > Convert(datetime, '2017-01-01') AND dateMsg < Convert(datetime, '2027-01-01') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p) AS tabela GROUP BY DtcCode, dtcDescription, dtc;";
+            resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                ErrorOccurrence eo = new ErrorOccurrence(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3)
+                );
+                errorOccurrences.add(eo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return errorOccurrences;
     }
 }

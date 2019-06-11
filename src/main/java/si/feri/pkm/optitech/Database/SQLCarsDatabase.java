@@ -84,7 +84,7 @@ public class SQLCarsDatabase {
         int maxSpeed = -1;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "AND VssMax < 200;";
+            String selectSql = "select MAX(VssMax) from Optitech.tlm.DriveData where vehicleId=" + carId + " AND VssMax < 200;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
@@ -102,7 +102,7 @@ public class SQLCarsDatabase {
         int rpmSpeed = -1;
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + "AND RpmMax < 8000;";
+            String selectSql = "select MAX(RpmMax) from Optitech.tlm.DriveData where vehicleId=" + carId + " AND RpmMax < 8000;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
@@ -122,13 +122,13 @@ public class SQLCarsDatabase {
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "    SELECT dateMsg, userID,DtcInfo.dtc,dtcCode, timeLog,dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription,dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId!=0 AND dtcDescription != 'null' AND vehicleId ="+ carId + " AND dateMsg > Convert(datetime, \'"+ from +"\') AND dateMsg < Convert(datetime, \'"+ to +"\')  ORDER BY dateMsg";
+            String selectSql = "SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId =" + carId + " AND dateMsg > Convert(datetime, \'" + from + "\') AND dateMsg < Convert(datetime, \'" + to + "\') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription ORDER BY dateMsg DESC";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
                 dates.add(resultSet.getDate(1));
-                codes.add(resultSet.getInt(4));
-                descriptions.add(resultSet.getString(6));
+                codes.add(resultSet.getInt(3));
+                descriptions.add(resultSet.getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
