@@ -41,7 +41,7 @@
                             <c:choose>
                                 <c:when test="${error != ''}">
                                     <div class="alert alert-danger" role="alert">
-                                        Calculated most possible error: ${error}
+                                        NAIVE BAYES ~ most possible error: ${error}
                                     </div>
                                 </c:when>
                             </c:choose>
@@ -58,7 +58,7 @@
                                                 <label for="vehicleSelect" class="form-control-label">Vehicle</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <select name="vehicleSelect" id="vehicleSelect" class="form-control" href="http://localhost:8080/statsAI?id=${idCar}">
+                                                <select required="required" name="vehicleSelect" id="vehicleSelect" class="form-control" href="http://localhost:8080/statsAI?id=${idCar}">
                                                     <option value="0">Please select your vehicle</option>
                                                     <c:forEach items="${vehicles}" var="v">
                                                         <option value="${v.getVehicleId()}">${v.getCarMaker()} ${v.getVehicleTitle()}</option>
@@ -110,7 +110,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="timeInput" name="timeInput"
                                                        placeholder="Enter your trip time..."
-                                                       class="form-control">
+                                                       class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -120,7 +120,7 @@
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="distanceInput" name="distanceInput"
                                                        placeholder="Enter your trip distance..."
-                                                       class="form-control">
+                                                       class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -129,7 +129,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="speedInput" name="speedInput"
-                                                       placeholder="Enter your average speed..." class="form-control">
+                                                       placeholder="Enter your average speed..." class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -138,7 +138,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="RPMInput" name="RPMInput"
-                                                       placeholder="Enter your average RPM..." class="form-control">
+                                                       placeholder="Enter your average RPM..." class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -147,7 +147,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="ODODistanceInput" name="ODODistanceInput"
-                                                       placeholder="Enter your total distance..." class="form-control">
+                                                       placeholder="Enter your total distance..." class="form-control" required="required">
                                             </div>
                                         </div>
                                         <div>
@@ -163,6 +163,7 @@
                             </div>
                         </div>
                     </div>
+                    <br/>
                 </div>
             </div>
         </div>

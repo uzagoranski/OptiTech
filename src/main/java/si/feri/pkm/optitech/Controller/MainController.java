@@ -634,6 +634,27 @@ public class MainController {
     @RequestMapping(value = {"/errorPrediction"}, method = RequestMethod.POST)
     public static void errorPrediction(Model model, @RequestParam(value = "idInput") int id, @RequestParam(value = "timeInput") String time, @RequestParam(value = "distanceInput") String distance, @RequestParam(value = "speedInput") String speed, @RequestParam(value = "RPMInput") String RPM, @RequestParam(value = "ODODistanceInput") String mileage, OAuth2Authentication authentication) throws Exception {
 
+        if (authentication != null) {
+            LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
+
+            email = (String) properties.get("email");
+            name = (String) properties.get("name");
+            image = (String) properties.get("picture");
+            user = name;
+
+        } else {
+            user = "anonymousUser";
+        }
+
+        model.addAttribute("user", user);
+        model.addAttribute("email", email);
+        model.addAttribute("name", name);
+        model.addAttribute("image", image);
+
+        ArrayList<Vehicle> vehicles = SQLCarsDatabase.getInsertedVehicles();
+
+        model.addAttribute("vehicles", vehicles);
+
         String[] seznam = new String[6];
         seznam[0] = time;
         seznam[1] = distance;
@@ -656,5 +677,6 @@ public class MainController {
 
         model.addAttribute("error", ocene.get(count));
         count++;
+
     }
 }
