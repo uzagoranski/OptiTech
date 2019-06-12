@@ -73,12 +73,27 @@
         <%@include file="template/navigation.jsp" %>
         <div class="main-content">
             <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="row" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
+                <div class="container-fluid" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1>Trip details</h1><br>
+                            <p style="padding-left: 10px"><b>Start:</b> ${tripData.startTime}</p>
+                            <p style="padding-left: 10px"><b>End:</b> ${tripData.finishTime}</p>
+                            <p style="padding-left: 10px"><b>Distance:</b> ${tripData.distance} km</p>
+                            <p style="padding-left: 10px"><b>Driver score:</b> ${tripData.totalScore}/100</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3 style="text-align: center">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h3>
+                            <img class="avto" src="${carImage}">
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-12">
-                            <h1>Trip details</h1>
-                                <canvas id="speedChart" width="800" height="450"></canvas>
-                                <canvas id="rpmChart" width="800" height="450" style="padding-top: 15px"></canvas>
+                            <canvas id="speedChart" width="800" height="450"></canvas>
+                            <canvas id="rpmChart" width="800" height="450" style="padding-top: 15px"></canvas>
+                        </div>
+                    </div>
+
                         </div>
                     </div>
                 </div>

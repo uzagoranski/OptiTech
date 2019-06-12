@@ -84,7 +84,7 @@
     </style>
 </head>
 
-<body class="animsition" onload="makeTableScroll()">
+<body class="animsition">
 <div class="page-wrapper">
     <div class="page-container">
         <%@include file="template/navigation.jsp" %>
@@ -168,8 +168,7 @@
 <script src="js/main.js"></script>
 
 <script type="text/javascript">
-    var value =
-    ${score}
+    var value =${score};
     var max = 100;
 
     var bar_ctx = document.getElementById('bar-chart');
@@ -374,23 +373,6 @@
     
 </script>
 
-<script type="text/javascript">
-    function makeTableScroll() {
-        // Constant retrieved from server-side via JSP
-        var maxRows = 6;
-
-        var table = document.getElementById('myTable');
-        var wrapper = table.parentNode;
-        var rowsInTable = table.rows.length;
-        var height = 0;
-        if (rowsInTable > maxRows) {
-            for (var i = 0; i < maxRows; i++) {
-                height += table.rows[i].clientHeight;
-            }
-            wrapper.style.height = height + "px";
-        }
-    }
-</script>
 </body>
 
 </html>

@@ -58,7 +58,7 @@ public class SQLTripData {
 
     }
 
-    public static TripData neKliciTega(int carId, String date) {
+    public static TripData getTripData(int carId, String date) {
         ResultSet resultSet;
         TripData td = new TripData();
 

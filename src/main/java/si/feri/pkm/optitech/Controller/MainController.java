@@ -327,6 +327,14 @@ public class MainController {
         model.addAttribute("jsonVss", jsonVss);
         model.addAttribute("jsonRpm", jsonRpm);
 
+        TripData tripData = SQLTripData.getTripData(id,trip);
+        model.addAttribute("tripData", tripData);
+
+        String linkImage = SQLCarImage.getCarImage(id);
+        Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
+        model.addAttribute("carImage", linkImage);
+        model.addAttribute("vehicle", vehicle);
+
         return "trip";
     }
 
