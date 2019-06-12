@@ -95,9 +95,16 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 
 ## Navodila za zagon
 
-1.	Prenesite virtualni stroj in ga zaženite v programu Hyper-V Manager preko ukaza "Import Virtual Machine"
-2.  
+*Predpogoj: Operacijski sistem Windows
 
+1.	Omogočite Hyper-V po korakih vodiča na [povezavi](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
+2.  Prenesite sliko virtualnega stroja s predpripravljenimi komponentami za zagon aplikacije iz [povezave](https://github.com/uzagoranski/Praktikum_OptiTech/tree/master/vm) 
+3.  Odprite program Hyper-V Manager in preko ukaza "Import Virtual Machine" dodajte sliko prej omenjenega virtualnega stroja
+4.  Podatki za prijavo v OS:
+* Uporabniško ime: User
+* Geslo: 1234
+5.  Po uspešni prijavi odprite "Command Prompt" kot administrator, vpišite komando "cd C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin" ter takoj za tem komando "catalina.bat run". Počakajte, da se izpiše *"INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 29959 ms"
+6. Odprite brskalnik, prekopirajte naslov http://localhost:8080/OptiTech/ in brskajte ter raziskujte, kaj aplikacija nudi
 
 ## Izdelano s pomočjo
 
