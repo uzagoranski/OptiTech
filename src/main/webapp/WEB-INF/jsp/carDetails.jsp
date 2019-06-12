@@ -232,6 +232,15 @@
             }
         }
     });
+
+    document.getElementById("speedChart").onclick = function(evt){
+        var activePoints = speedChart.getElementAtEvent(evt);
+        var clickedElementindex = activePoints[0]._index;
+        var label = speedChart.data.labels[clickedElementindex];
+
+        window.open("http://localhost:8080/trip?idCar=" + ${idCar} + "&trip=" + label);
+    }
+
     <c:set var="jsonRpm2" value="${jsonRpm}"></c:set>
     var rpmDate =
     ${jsonRpm2.get("date2")}
@@ -255,6 +264,14 @@
             }
         }
     });
+
+    document.getElementById("rpmChart").onclick = function(evt){
+        var activePoints = rpmChart.getElementAtEvent(evt);
+        var clickedElementindex = activePoints[0]._index;
+        var label = rpmChart.data.labels[clickedElementindex];
+
+        window.open("http://localhost:8080/trip?idCar=" + ${idCar} + "&trip=" + label);
+    }
 
     var podatki = {};
     <c:set var="jsonSlider" value="${sliderRange}"></c:set>
@@ -327,10 +344,7 @@
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
 
                     var errors = result[2];
-                    console.log(errors);
-
                     var count = Object.keys(errors['descriptions']).length;
-                    console.log(count);
 
                     $("#myTable tbody").html("");
                     for(var i = 0; i < count; i++){

@@ -302,7 +302,7 @@ public class MainController {
     }
 
     @RequestMapping(value = {"/trip"}, method = RequestMethod.GET)
-    public String trip(Model model, OAuth2Authentication authentication) throws Exception {
+    public String trip(Model model, OAuth2Authentication authentication, @RequestParam(value="idCar", required = true) int id, @RequestParam(value="trip") String trip) throws Exception {
 
         if (authentication != null) {
             LinkedHashMap<String, Object> properties = (LinkedHashMap<String, Object>) authentication.getUserAuthentication().getDetails();
@@ -319,6 +319,8 @@ public class MainController {
         model.addAttribute("email", email);
         model.addAttribute("name", name);
         model.addAttribute("image", image);
+
+
 
         return "trip";
     }
