@@ -94,7 +94,7 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 7.  Stisnite na boot-form-handling -> Plugins -> Spring-boot -> in dvakrat kliknite na Spring-boot:run. Počakajte, da se naloži & v brskalniku odprite naslov http://localhost:8080/
 
 <p align="center">
-  <img src="https://imgur.com/RQM0Xhh">
+  <img src="https://i.imgur.com/RQM0Xhh.png">
 </p>
 
 ## Navodila za zagon
@@ -111,7 +111,7 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 6. Odprite brskalnik, prekopirajte naslov http://localhost:8080/OptiTech/ in brskajte ter raziskujte, kaj aplikacija nudi
 
 <p align="center">
-  <img src="https://imgur.com/Fl0BHne">
+  <img src="https://i.imgur.com/R81mGsx.png">
 </p>
 
 ## Izdelano s pomočjo
@@ -133,7 +133,7 @@ Različica: 7.5.2
 To je zadnja uradno objavljena različica.
 
 <p align="center">
-  <img src="https://imgur.com/R81mGsx">
+  <img src="https://i.imgur.com/Fl0BHne.png">
 </p>
 
 ## Avtorji
