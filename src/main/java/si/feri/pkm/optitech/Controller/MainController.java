@@ -322,8 +322,10 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-        JSONObject json = SQLTripData.getTripData(id,trip);
-        model.addAttribute("jsonTrip", json);
+        JSONObject jsonVss = SQLTripData.getVssAvg(id,trip);
+        JSONObject jsonRpm = SQLTripData.getRpmAvg(id,trip);
+        model.addAttribute("jsonVss", jsonVss);
+        model.addAttribute("jsonRpm", jsonRpm);
 
         return "trip";
     }

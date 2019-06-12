@@ -78,6 +78,7 @@
                         <div class="col-lg-12">
                             <h1>Trip details</h1>
                                 <canvas id="speedChart" width="800" height="450"></canvas>
+                                <canvas id="rpmChart" width="800" height="450" style="padding-top: 15px"></canvas>
                         </div>
                     </div>
                 </div>
@@ -102,7 +103,7 @@
 <script src="vendor/select2/select2.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    <c:set var="json" value="${jsonTrip}"></c:set>
+    <c:set var="json" value="${jsonVss}"></c:set>
     var date = ${json.get("date")};
     var vssAvg = ${json.get("vssAvg")};
 
@@ -121,7 +122,29 @@
         options: {
             title: {
                 display: true,
-                text: 'Vehicle speed per Log'
+                text: 'Average speed'
+            }
+        }
+    });
+
+    <c:set var="jsonRpm2" value="${jsonRpm}"></c:set>
+    var rpmDate =${jsonRpm2.get("date2")};
+    var rpmAvg =${jsonRpm2.get("rpmAvg")};
+    var rpmChart = new Chart(document.getElementById('rpmChart'), {
+        type: 'bar',
+        data: {
+            labels: rpmDate,
+            datasets: [{
+                data: rpmAvg,
+                label: "RPM",
+                borderColor: "#3e95cd",
+                fill: false
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Average Rpm'
             }
         }
     });

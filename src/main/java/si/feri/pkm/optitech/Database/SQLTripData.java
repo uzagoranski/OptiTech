@@ -9,7 +9,7 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLTripData {
 
-    public static JSONObject getTripData(int carId, String date) {
+    public static JSONObject getVssAvg(int carId, String date) {
         ResultSet resultSet;
         JSONObject json = new JSONObject();
         ArrayList<String> dates = new ArrayList<>();
@@ -33,7 +33,7 @@ public class SQLTripData {
 
     }
 
-    public static JSONObject getTripDataRPM(int carId, String date) {
+    public static JSONObject getRpmAvg(int carId, String date) {
         ResultSet resultSet;
         JSONObject json = new JSONObject();
         ArrayList<String> dates = new ArrayList<>();
