@@ -199,7 +199,9 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-        JSONObject err = SQLCarsDatabase.getErrorsOnSelectedCar(id, "2017-01-01", "2020-01-01");
+
+
+        JSONObject err = SQLErrors.getFirstAndLastOccurrence(id);
 
         Vehicle vehicle = SQLCarsDatabase.getSelectedVehicle(id);
         String linkImage = "";
@@ -267,7 +269,7 @@ public class MainController {
         JSONArray jsonArray = new JSONArray();
         JSONObject vssAvg = SQLDriveData.vssAvgSpeedForSelectedCar(id, from, to);
         JSONObject rpmAvg = SQLDriveData.rpmAvgSpeedForSelectedCar(id, from, to);
-        JSONObject error = SQLCarsDatabase.getErrorsOnSelectedCar(id, from, to);
+        JSONObject error = SQLErrors.getFirstAndLastOccurrence(id);
         jsonArray.put(vssAvg);
         jsonArray.put(rpmAvg);
         jsonArray.put(error);

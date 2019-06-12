@@ -344,11 +344,11 @@
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
 
                     var errors = result[2];
-                    var count = Object.keys(errors['descriptions']).length;
+                    var count = Object.keys(errors['description']).length;
 
                     $("#myTable tbody").html("");
                     for(var i = 0; i < count; i++){
-                        $("#myTable tbody").append("<tr><td>" + errors['descriptions'][i] + "</td><td>" + errors['codes'][i] +"</td><td>"+errors['dates'][i]+"</td></tr>");
+                        $("#myTable tbody").append("<tr><td>" + errors['description'][i] + "</td><td>"+errors['code'][i]+"</td><td>"+errors['from'][i]+"/"+errors['to'][i]+"</td></tr>");
                     }
 
                 }
