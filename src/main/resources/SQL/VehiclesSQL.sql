@@ -587,8 +587,14 @@ ORDER BY dateMsg DESC
 
 /*
  22)
- Trip data
+ Podatki o trip data speed chart za izbrano vozilo, na izbran datum
  */
+select Convert(varchar(8), dateMsg, 108), VssAvg
+from OptiTech.tlm.driveData
+where vehicleId = 217
+  AND Convert(varchar(11), dateMsg, 23) = '2017-06-21'
+  AND VssAvg != 0
+ORDER BY dateMsg;
 
 
     /*
@@ -612,3 +618,27 @@ FROM (
 GROUP BY DtcCode, dtcDescription, dtc;
 --Single line
 SELECT dtcDescription, min(dateMsg) as firstOccurrence, max(dateMsg) as lastOccurrence FROM (SELECT * FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId = 217 AND dateMsg > Convert(datetime, '2017-01-01') AND dateMsg < Convert(datetime, '2027-01-01') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p) AS tabela GROUP BY DtcCode, dtcDescription, dtc;
+
+/*
+ 24)
+ TripData podatki za eno vožnjo.
+ */
+select Convert(varchar(11), dateMsg, 23),
+       MIN(dateMsg) as firstTime,
+       MAX(dateMsg) as lastTime,
+       MAX(userID) as userID,
+       MAX(DrvAbsDistOdo) as lastDistance,
+       MIN(DrvAbsDistOdo) as firstDistance,
+       AVG(ScorePPAL) as scorePPAL,
+       AVG(ScoreRPOL) as scoreRPOL,
+       AVG(ScoreRVAR) as scoreRVAR,
+       AVG(ScoreTotal) as scoreTotal,
+       AVG(RpmAvg) as rpmAvg,
+       MAX(RpmMax) as rpmMax,
+       AVG(VssAvg) as vssAvg,
+       MAX(VssMax) as vssMax
+from OptiTech.tlm.driveData
+where vehicleId = 217
+    AND Convert(varchar(11), dateMsg, 23) = '2017-06-21'
+GROUP BY Convert(varchar(11), dateMsg, 23);
+
