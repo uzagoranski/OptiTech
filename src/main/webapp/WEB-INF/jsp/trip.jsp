@@ -76,6 +76,8 @@
                 <div class="container-fluid">
                     <div class="row" style="background-color: whitesmoke; border-radius: 10px; padding: 25px">
                         <div class="col-lg-12">
+                            <h1>Trip details</h1>
+                                <canvas id="speedChart" width="800" height="450"></canvas>
                         </div>
                     </div>
                 </div>
@@ -99,6 +101,31 @@
 <script src="vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="vendor/select2/select2.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    <c:set var="json" value="${jsonTrip}"></c:set>
+    var date = ${json.get("date")};
+    var vssAvg = ${json.get("vssAvg")};
+
+    var speedChart = new Chart(document.getElementById("speedChart"), {
+        type: 'line',
+        data: {
+            labels: date
+            ,
+            datasets: [{
+                data: vssAvg,
+                label: "Speed",
+                borderColor: "#3e95cd",
+                fill: false
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Vehicle speed per Log'
+            }
+        }
+    });
+</script>
 
 </body>
 

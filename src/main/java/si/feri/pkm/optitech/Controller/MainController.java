@@ -322,7 +322,8 @@ public class MainController {
         model.addAttribute("name", name);
         model.addAttribute("image", image);
 
-
+        JSONObject json = SQLTripData.getTripData(id,trip);
+        model.addAttribute("jsonTrip", json);
 
         return "trip";
     }
