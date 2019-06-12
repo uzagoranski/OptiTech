@@ -58,7 +58,7 @@ public class SQLDriveData {
             while(resultSetZaStevilo.next()) {
                 numberOfElements = resultSetZaStevilo.getInt(1);
             }
-            if (numberOfElements > 500) {
+            if (numberOfElements > 100) {
                 selectSql = "SELECT AVG(VssAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
             } else {
@@ -97,7 +97,7 @@ public class SQLDriveData {
             while(resultSetZaStevilo.next()) {
                 numberOfElements = resultSetZaStevilo.getInt(1);
             }
-            if (numberOfElements > 500) {
+            if (numberOfElements > 100) {
                 selectSql = "SELECT AVG(rpmAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(varchar(11),  \'" + first + "\',23) AND dateMsg < Convert(varchar(11),  \'" + last + "\',23) GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
             } else {
