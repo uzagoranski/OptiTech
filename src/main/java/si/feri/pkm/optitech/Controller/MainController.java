@@ -29,6 +29,7 @@ public class MainController {
     static String id;
     static String locale;
     static boolean verified_email;
+    static int count = 0;
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model, OAuth2Authentication authentication) throws Exception {
@@ -651,6 +652,7 @@ public class MainController {
         verjetnostiAtributa();
         izracun();
 
-        model.addAttribute("error", ocene.get(0));
+        model.addAttribute("error", ocene.get(count));
+        count++;
     }
 }
