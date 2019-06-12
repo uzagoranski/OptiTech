@@ -80,7 +80,8 @@
                                             <div class="top-info">
                                                 <div class="check"></div>
                                                 <div class="vehicle">
-                                                    <img style="max-height: 120px" src="${v.getImgLink()}" alt="vehicle">
+                                                    <img style="max-height: 120px" src="${v.getImgLink()}"
+                                                         alt="vehicle">
                                                     <h3>${v.getCarMaker()} ${v.getVehicleTitle()}</h3>
                                                 </div>
                                             </div>

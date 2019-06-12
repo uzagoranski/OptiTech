@@ -1,7 +1,6 @@
 package si.feri.pkm.optitech.Database;
 
 import si.feri.pkm.optitech.Entity.FuelType;
-import si.feri.pkm.optitech.Entity.Vehicle;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,6 +9,7 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLFuelType {
 
+    // Function that returns all the possible FuelTypes we have in our database.
     public static ArrayList<FuelType> getAllFuelTypes() {
         ResultSet resultSet;
         ArrayList<FuelType> fuelTypes = new ArrayList<>();

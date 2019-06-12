@@ -32,19 +32,19 @@
 
     <style type="text/css">
         table {
-            width:  100%;
+            width: 100%;
             border-collapse: collapse;
         }
+
         td {
             border: 1px solid black;
         }
+
         .scrollingTable {
             width: 30em;
             overflow-y: auto;
         }
-    </style>
 
-    <style type="text/css">
         .outer {
             width: 600px;
             height: 200px;
@@ -81,6 +81,31 @@
             height: 220px;
             margin: 0 auto;
         }
+
+
+        /* Tooltip container */
+        .tooltip2 {
+        }
+
+        /* Tooltip text */
+        .tooltiptext2 {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            border-radius: 6px;
+
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip2:hover .tooltiptext2 {
+            visibility: visible;
+        }
+
     </style>
 </head>
 
@@ -107,7 +132,10 @@
                         </div>
                         <div class="col-lg-6 mx-auto" id="image">
                             <img class="avto" src="${linkImage}">
-                            <canvas id="bar-chart" height="20"></canvas>
+                            <div class="tooltip2 col-lg-12 mx-auto">
+                                <canvas id="bar-chart" height="20"></canvas>
+                                <span class="tooltiptext2">Condition: <b>${score}/100</b></span>
+                            </div>
                         </div>
                     </div>
                     <hr/>
@@ -131,11 +159,11 @@
                             <div class="table-responsive table--no-card m-b-40">
                                 <table id="myTable" class="table table-borderless table-striped table-earning">
                                     <thead>
-                                        <tr>
-                                            <th>Error</th>
-                                            <th>Dtc code</th>
-                                            <th>Time</th>
-                                        </tr>
+                                    <tr>
+                                        <th>Error</th>
+                                        <th>Dtc code</th>
+                                        <th>Occurrence</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
 
@@ -146,8 +174,8 @@
                     </div>
                 </div>
             </div>
-            <br />
-            <br />
+            <br/>
+            <br/>
 
         </div>
     </div>
@@ -204,10 +232,7 @@
             } // scales
         } // options
     });
-</script>
 
-
-<script>
     <c:set var="json" value="${jsonSpeed}"></c:set>
     var date = ${json.get("date")};
     var vssAvg = ${json.get("vssAvg")};
@@ -232,12 +257,12 @@
         }
     });
 
-    document.getElementById("speedChart").onclick = function(evt){
+    document.getElementById("speedChart").onclick = function (evt) {
         var activePoints = speedChart.getElementAtEvent(evt);
         var clickedElementindex = activePoints[0]._index;
         var label = speedChart.data.labels[clickedElementindex];
 
-        window.open("http://localhost:8080/trip?idCar=" + ${idCar} + "&trip=" + label);
+        window.open("http://localhost:8080/trip?idCar=" + ${idCar} +"&trip=" + label);
     }
 
     <c:set var="jsonRpm2" value="${jsonRpm}"></c:set>
@@ -264,12 +289,12 @@
         }
     });
 
-    document.getElementById("rpmChart").onclick = function(evt){
+    document.getElementById("rpmChart").onclick = function (evt) {
         var activePoints = rpmChart.getElementAtEvent(evt);
         var clickedElementindex = activePoints[0]._index;
         var label = rpmChart.data.labels[clickedElementindex];
 
-        window.open("http://localhost:8080/trip?idCar=" + ${idCar} + "&trip=" + label);
+        window.open("http://localhost:8080/trip?idCar=" + ${idCar} +"&trip=" + label);
     }
 
     var podatki = {};
@@ -318,26 +343,26 @@
 
                     //RPM CHART
                     rpmDate = result[1]['date2'];
-                    rpmAvg =result[1]['rpmAvg'];
+                    rpmAvg = result[1]['rpmAvg'];
                     rpmChart.destroy();
-                        rpmChart = new Chart(document.getElementById('rpmChart'), {
-                            type: 'bar',
-                            data: {
-                                labels: rpmDate,
-                                datasets: [{
-                                    data: rpmAvg,
-                                    label: "RPM",
-                                    borderColor: "#3e95cd",
-                                    fill: false
-                                }]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Vehicle RPM per Log'
-                                }
+                    rpmChart = new Chart(document.getElementById('rpmChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: rpmDate,
+                            datasets: [{
+                                data: rpmAvg,
+                                label: "RPM",
+                                borderColor: "#3e95cd",
+                                fill: false
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Vehicle RPM per Log'
                             }
-                        });
+                        }
+                    });
 
                     // $('#target').html(JSON.stringify(result));
                     // $.validator.unobtrusive.parse($("form#ValidateForm"));
@@ -346,8 +371,8 @@
                     var count = Object.keys(errors['description']).length;
 
                     $("#myTable tbody").html("");
-                    for(var i = 0; i < count; i++){
-                        $("#myTable tbody").append("<tr><td>" + errors['description'][i] + "</td><td>"+errors['code'][i]+"</td><td>"+errors['from'][i]+"/"+errors['to'][i]+"</td></tr>");
+                    for (var i = 0; i < count; i++) {
+                        $("#myTable tbody").append("<tr><td>" + errors['description'][i] + "</td><td>" + errors['code'][i] + "</td><td>" + errors['from'][i] + " / " + errors['to'][i] + "</td></tr>");
                     }
 
                 }
@@ -370,7 +395,7 @@
         }
     });
 
-    
+
 </script>
 
 </body>

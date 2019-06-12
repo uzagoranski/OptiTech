@@ -58,7 +58,9 @@
                                                 <label for="vehicleSelect" class="form-control-label">Vehicle</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <select required="required" name="vehicleSelect" id="vehicleSelect" class="form-control" href="http://localhost:8080/statsAI?id=${idCar}">
+                                                <select required="required" name="vehicleSelect" id="vehicleSelect"
+                                                        class="form-control"
+                                                        href="http://localhost:8080/statsAI?id=${idCar}">
                                                     <option value="0">Please select your vehicle</option>
                                                     <c:forEach items="${vehicles}" var="v">
                                                         <option value="${v.getVehicleId()}">${v.getCarMaker()} ${v.getVehicleTitle()}</option>
@@ -67,45 +69,46 @@
                                             </div>
                                         </div>
                                         <input type="hidden" name="idInput" id="idInput"/>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="yearInput" class=" form-control-label">Year</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="yearInput" name="yearInput"
-                                                           disabled="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="fuelInput" class=" form-control-label">Fuel</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="fuelInput" name="fuelInput"
-                                                            disabled="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="engineInput" class=" form-control-label">Engine</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="engineInput" name="engineInput"
-                                                           disabled="" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="driveInput" class=" form-control-label">Drive</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="driveInput" name="driveInput"
-                                                            disabled="" class="form-control">
-                                                </div>
-                                            </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="timeInput" class=" form-control-label">Trip time (sec)</label>
+                                                <label for="yearInput" class=" form-control-label">Year</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="yearInput" name="yearInput"
+                                                       disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="fuelInput" class=" form-control-label">Fuel</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="fuelInput" name="fuelInput"
+                                                       disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="engineInput" class=" form-control-label">Engine</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="engineInput" name="engineInput"
+                                                       disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="driveInput" class=" form-control-label">Drive</label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <input type="text" id="driveInput" name="driveInput"
+                                                       disabled="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3">
+                                                <label for="timeInput" class=" form-control-label">Trip time
+                                                    (sec)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="timeInput" name="timeInput"
@@ -115,7 +118,8 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="distanceInput" class=" form-control-label">Trip distance (m)</label>
+                                                <label for="distanceInput" class=" form-control-label">Trip distance
+                                                    (m)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="distanceInput" name="distanceInput"
@@ -125,29 +129,35 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="speedInput" class="form-control-label">Average speed (km/h)</label>
+                                                <label for="speedInput" class="form-control-label">Average speed
+                                                    (km/h)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="speedInput" name="speedInput"
-                                                       placeholder="Enter your average speed..." class="form-control" required="required">
+                                                       placeholder="Enter your average speed..." class="form-control"
+                                                       required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="RPMInput" class=" form-control-label">Average RPM (rpm)</label>
+                                                <label for="RPMInput" class=" form-control-label">Average RPM
+                                                    (rpm)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="RPMInput" name="RPMInput"
-                                                       placeholder="Enter your average RPM..." class="form-control" required="required">
+                                                       placeholder="Enter your average RPM..." class="form-control"
+                                                       required="required">
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="ODODistanceInput" class=" form-control-label">Total mileage (m)</label>
+                                                <label for="ODODistanceInput" class=" form-control-label">Total mileage
+                                                    (m)</label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="ODODistanceInput" name="ODODistanceInput"
-                                                       placeholder="Enter your total distance..." class="form-control" required="required">
+                                                       placeholder="Enter your total distance..." class="form-control"
+                                                       required="required">
                                             </div>
                                         </div>
                                         <div>
@@ -176,30 +186,30 @@
 <script>
     var podatki = {};
     jQuery(document).ready(function () {
-       jQuery('#vehicleSelect').change(function () {
-           var id = $("#vehicleSelect").val();
-           var link ="/statsAI?id=" + id;
-           jQuery.ajax({
-              type: 'POST',
-              url: link,
-               datatype: 'json',
-               data: JSON.stringify(podatki),
-               success: function (result) {
-                  var json = JSON.parse(result);
-                  var year = json['year'];
-                  var fuel = json['fuel'];
-                  var enginePower = json['enginePower'];
-                  var engineSize = json['engineSize'];
-                  var drive = json['drive'];
-                  var vehicleId = json['id'];
-                  jQuery('input[name="yearInput"]').val(year);
-                   jQuery('input[name="engineInput"]').val(enginePower+" HP, " + engineSize + " ccm");
-                   jQuery('input[name="driveInput"]').val(drive);
-                   jQuery('input[name="fuelInput"]').val(fuel);
-                   jQuery('input[name="idInput"]').val(vehicleId);
-               }
-           });
-       });
+        jQuery('#vehicleSelect').change(function () {
+            var id = $("#vehicleSelect").val();
+            var link = "/statsAI?id=" + id;
+            jQuery.ajax({
+                type: 'POST',
+                url: link,
+                datatype: 'json',
+                data: JSON.stringify(podatki),
+                success: function (result) {
+                    var json = JSON.parse(result);
+                    var year = json['year'];
+                    var fuel = json['fuel'];
+                    var enginePower = json['enginePower'];
+                    var engineSize = json['engineSize'];
+                    var drive = json['drive'];
+                    var vehicleId = json['id'];
+                    jQuery('input[name="yearInput"]').val(year);
+                    jQuery('input[name="engineInput"]').val(enginePower + " HP, " + engineSize + " ccm");
+                    jQuery('input[name="driveInput"]').val(drive);
+                    jQuery('input[name="fuelInput"]').val(fuel);
+                    jQuery('input[name="idInput"]').val(vehicleId);
+                }
+            });
+        });
     });
 </script>
 

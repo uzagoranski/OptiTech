@@ -10,6 +10,7 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLErrors {
 
+    //Function that returns ArrayList of ArrayLists, containing all the information for our AI algorithm.
     public static ArrayList<ArrayList<String>> getDataForAI() {
         ResultSet resultSet;
         ArrayList<ArrayList<String>> data = new ArrayList<>();
@@ -38,6 +39,8 @@ public class SQLErrors {
     }
 
 
+    //Function for errors, which returns when all errors occurred for the first and last time with description and
+    // dtcCode in a JSON object.
     public static JSONObject getFirstAndLastOccurrence(int carId) {
         ResultSet resultSet;
         ArrayList<String> descriptions = new ArrayList<>();

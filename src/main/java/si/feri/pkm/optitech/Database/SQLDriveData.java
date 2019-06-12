@@ -12,6 +12,8 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLDriveData {
 
+    //Function prepared for API, returns Drive data that can be displayed, like Average distance driven,
+    // average drive time, average maximum speed and average RPM.
     public static ArrayList<Integer> getDriveData(int carID) {
         ResultSet resultSet;
         ArrayList<Integer> driveData = new ArrayList<>();
@@ -42,7 +44,7 @@ public class SQLDriveData {
         return driveData;
     }
 
-
+    // Function that returns JSON object, for graph. which contains average speed and date.
     public static JSONObject vssAvgSpeedForSelectedCar(int carID, String first, String last) {
         ResultSet resultSet;
         ResultSet resultSetZaStevilo;
@@ -55,11 +57,11 @@ public class SQLDriveData {
              Statement statement = connection.createStatement()) {
             String countSQL = "SELECT count(VssAvg)FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\');";
             resultSetZaStevilo = statement.executeQuery(countSQL);
-            while(resultSetZaStevilo.next()) {
+            while (resultSetZaStevilo.next()) {
                 numberOfElements = resultSetZaStevilo.getInt(1);
             }
             if (numberOfElements > 100) {
-                selectSql = "SELECT AVG(VssAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
+                selectSql = "SELECT AVG(VssAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
             } else {
                 selectSql = "SELECT VssAvg, dateMsg FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\') ORDER BY dateMsg;";
@@ -82,6 +84,7 @@ public class SQLDriveData {
         return json;
     }
 
+    // Function that returns JSON object, for graph. which contains average RPM and date.
     public static JSONObject rpmAvgSpeedForSelectedCar(int carID, String first, String last) {
         ResultSet resultSet;
         ArrayList<Integer> rpmAvg = new ArrayList<>();
@@ -94,11 +97,11 @@ public class SQLDriveData {
              Statement statement = connection.createStatement()) {
             String countSQL = "SELECT count(VssAvg)FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(datetime, \'" + first + "\') AND dateMsg < Convert(datetime, \'" + last + "\');";
             resultSetZaStevilo = statement.executeQuery(countSQL);
-            while(resultSetZaStevilo.next()) {
+            while (resultSetZaStevilo.next()) {
                 numberOfElements = resultSetZaStevilo.getInt(1);
             }
             if (numberOfElements > 100) {
-                selectSql = "SELECT AVG(rpmAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = "+carID+" AND dateMsg > Convert(varchar(11),  \'" + first + "\',23) AND dateMsg < Convert(varchar(11),  \'" + last + "\',23) GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
+                selectSql = "SELECT AVG(rpmAvg), CONVERT(varchar(11),dateMsg,23) AS date FROM OptiTech.tlm.DriveData WHERE VssAvg > 5 AND vehicleId = " + carID + " AND dateMsg > Convert(varchar(11),  \'" + first + "\',23) AND dateMsg < Convert(varchar(11),  \'" + last + "\',23) GROUP BY CONVERT(varchar(11),dateMsg,23) ORDER BY date ;";
 
             } else {
 
@@ -123,6 +126,7 @@ public class SQLDriveData {
     }
 
 
+    //Function that returns JSON object, so slideRange can be initialized.
     public static JSONObject sliderRange(int carID) {
         ArrayList<Date> rangeDates = new ArrayList<>();
         ResultSet resultSet;
@@ -149,6 +153,7 @@ public class SQLDriveData {
         return json;
     }
 
+    //Function that is necessary for Condition score calculation. Gets score fro all cars in the DB.
     public static DriveData getScoreDataForAllCars() {
         ResultSet resultSet;
         DriveData allCarsMaxAndMin = null;
@@ -184,6 +189,7 @@ public class SQLDriveData {
         return allCarsMaxAndMin;
     }
 
+    //Function that is necessary for Condition score calculation. Gets score for one car.
     public static VehicleForScore getScoreDataForSelectedCar(int carId) {
         ResultSet resultSet;
         VehicleForScore vehicle = null;
@@ -211,7 +217,7 @@ public class SQLDriveData {
         return vehicle;
     }
 
-
+    // Function that gets average total score from the DB, for selected car.
     public static int getTotalScoreForSelectedCar(int carId) {
         ResultSet resultSet;
         int stevilo = 0;
@@ -227,22 +233,6 @@ public class SQLDriveData {
             e.printStackTrace();
         }
         return stevilo;
-    }
-
-    //EMPTY FOR COPYING
-    public static void neKliciTega() {
-        ResultSet resultSet;
-
-        try (Connection connection = DriverManager.getConnection(connectionUrl);
-             Statement statement = connection.createStatement()) {
-            String selectSql = "";
-            resultSet = statement.executeQuery(selectSql);
-
-            while (resultSet.next()) {
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 }

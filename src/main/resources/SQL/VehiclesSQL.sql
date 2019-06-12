@@ -43,8 +43,9 @@ FROM (
          AS drugi
      ON prvi.carModelId = drugi.carModelId;
 
-/* UPORABNO
-3) Povpraševalni stavek, za avte, kjer dobimo tudi ime avta.
+/*
+3)
+Povpraševalni stavek, za avte, kjer dobimo tudi ime avta.
 */
 SELECT Vehicles.carModelId,
        carMakerId,
@@ -91,7 +92,8 @@ WHERE engineSize != 0
   AND vehicleId != '1357';
 
 /*
-4) Podatki kako je bil avto vožen.
+4)
+Podatki kako je bil avto vožen.
 */
 SELECT AVG(DrvDist) as povprecna_Prevozena_Razdalja,
        AVG(DrvTime) as povprecen_Cas_Voznje,
@@ -104,7 +106,8 @@ WHERE vehicleId = 217
   AND DrvDist > 400;
 
 /*
-5) Update, za imena avtov
+5)
+Update, za imena avtov
 */
 UPDATE optitech.biz.Vehicles
 SET vehicleTitle='318d'

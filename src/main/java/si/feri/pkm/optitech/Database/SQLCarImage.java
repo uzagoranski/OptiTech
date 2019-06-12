@@ -6,17 +6,16 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLCarImage {
 
+    // Function, which returns link to an image from our database.
     public static String getCarImage(int carId) {
         ResultSet resultSet;
         String imageLink = "";
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
-            // Create and execute a SELECT SQL statement.
             String selectSql = "SELECT ImageLink FROM OptiTech.tlm.CarImage WHERE VehicleID=" + carId + ";";
             resultSet = statement.executeQuery(selectSql);
 
-            // Print results from select statement
             while (resultSet.next()) {
                 imageLink = resultSet.getString(1);
             }

@@ -9,17 +9,16 @@ import java.util.ArrayList;
 import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLDrive {
+    //Fuction which returns all possible DriveTypes of a car. It creates Entities Drive which is visible in Entity.
     public static ArrayList<Drive> getAllDriveTypes() {
         ResultSet resultSet;
         ArrayList<Drive> drives = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
 
-            // Create and execute a SELECT SQL statement.
             String selectSql = "SELECT * FROM OptiTech.reg.DrivenWheels;";
             resultSet = statement.executeQuery(selectSql);
 
-            // Print results from select statement
             while (resultSet.next()) {
                 Drive d = new Drive(resultSet.getInt(1), resultSet.getString(2));
                 drives.add(d);

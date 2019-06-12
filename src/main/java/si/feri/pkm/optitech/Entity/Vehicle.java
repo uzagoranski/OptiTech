@@ -70,20 +70,25 @@ public class Vehicle {
         return maxRpm;
     }
 
+    public int calculateConditionScore(VehicleForScore vehicle, DriveData dd){
+        int cond= vehicle.calculateScore(
+                (int) Math.round(100 - dd.koefRpmMax() * (vehicle.getRpmMax() - dd.getRpmMaxMIN())),
+                (int) Math.round(100 - dd.koefRpmAvg() * (vehicle.getRpmAvg() - dd.getRpmAvgMIN())),
+                (int) Math.round(100 - dd.koefVssMax() * (vehicle.getVssMax() - dd.getVssMaxMIN())),
+                (int) Math.round(100 - dd.koefVssAvg() * (vehicle.getVssAvg() - dd.getVssAvgMIN())),
+                (int) Math.round(100 - dd.koefDrvDist() * (vehicle.getDrvDist() - dd.getDrvDistMIN())),
+                (int) Math.round(100 - dd.koefDrvTime() * (vehicle.getDrvTime() - dd.getDrvTimeMIN())),
+                (int) Math.round(100 - dd.koefDrvStartStopCnt() * (vehicle.getDrvStartStopCnt() - dd.getDrvStartStopMIN())),
+                (int) Math.round(100 - dd.koefFuelCons() * (vehicle.getFuelCons() - dd.getFuelConsMIN())),
+                SQLDriveData.getTotalScoreForSelectedCar(vehicleId));
+        return cond;
+    }
+
     public int getConditionScore() {
         if (conditionScore == -1) {
             DriveData dd = SQLDriveData.getScoreDataForAllCars();
             VehicleForScore vehicle = SQLDriveData.getScoreDataForSelectedCar(vehicleId);
-            conditionScore = vehicle.calculateScore(
-                    (int) Math.round(100 - dd.koefRpmMax() * (vehicle.getRpmMax() - dd.getRpmMaxMIN())),
-                    (int) Math.round(100 - dd.koefRpmAvg() * (vehicle.getRpmAvg() - dd.getRpmAvgMIN())),
-                    (int) Math.round(100 - dd.koefVssMax() * (vehicle.getVssMax() - dd.getVssMaxMIN())),
-                    (int) Math.round(100 - dd.koefVssAvg() * (vehicle.getVssAvg() - dd.getVssAvgMIN())),
-                    (int) Math.round(100 - dd.koefDrvDist() * (vehicle.getDrvDist() - dd.getDrvDistMIN())),
-                    (int) Math.round(100 - dd.koefDrvTime() * (vehicle.getDrvTime() - dd.getDrvTimeMIN())),
-                    (int) Math.round(100 - dd.koefDrvStartStopCnt() * (vehicle.getDrvStartStopCnt() - dd.getDrvStartStopMIN())),
-                    (int) Math.round(100 - dd.koefFuelCons() * (vehicle.getFuelCons() - dd.getFuelConsMIN())),
-                    SQLDriveData.getTotalScoreForSelectedCar(vehicleId));
+            conditionScore = calculateConditionScore(vehicle,dd);
         }
         return conditionScore;
     }

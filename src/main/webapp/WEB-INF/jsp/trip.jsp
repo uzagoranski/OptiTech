@@ -64,6 +64,29 @@
             height: 220px;
             margin: 0 auto;
         }
+
+        /* Tooltip container */
+        .tooltip2 {
+        }
+
+        /* Tooltip text */
+        .tooltiptext2 {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            border-radius: 6px;
+
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip2:hover .tooltiptext2 {
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -77,29 +100,34 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h1>Trip details</h1><br>
-                            <p style="padding-left: 10px"><b>Start:</b> ${tripData.startTime}</p>
-                            <p style="padding-left: 10px"><b>End:</b> ${tripData.finishTime}</p>
-                            <p style="padding-left: 10px"><b>Distance:</b> ${tripData.distance} km</p>
-                            <p style="padding-left: 10px"><b>Driver score:</b> ${tripData.totalScore}/100</p>
+                            <p style="padding-left: 10px">Start:<b> ${tripData.startTime}</b></p>
+                            <p style="padding-left: 10px">End:<b> ${tripData.finishTime}</b></p>
+                            <p style="padding-left: 10px">Distance:<b> ${tripData.distance} km</b></p>
+                            <p style="padding-left: 10px">Driver score:<b> ${tripData.totalScore}/100</b></p>
+
                         </div>
                         <div class="col-lg-6">
                             <h3 style="text-align: center">${vehicle.getCarMaker()} ${vehicle.getVehicleTitle()}</h3>
                             <img class="avto" src="${carImage}">
                         </div>
                     </div>
+                    <br/>
+                    <br/>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <canvas id="speedChart" width="800" height="450"></canvas>
-                            <canvas id="rpmChart" width="800" height="450" style="padding-top: 15px"></canvas>
+                        </div>
+                        <div class="col-lg-6">
+                            <canvas id="rpmChart" width="800" height="450"></canvas>
                         </div>
                     </div>
 
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -162,6 +190,44 @@
                 text: 'Average Rpm'
             }
         }
+    });
+
+    //    BAR CHART
+    var value =${tripData.totalScore};
+    var max = 100;
+
+    var bar_ctx = document.getElementById('bar-chart');
+    var bar_chart = new Chart(bar_ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: [],
+            datasets: [{
+
+                data: [value],
+                backgroundColor: "${color}"
+            }, {
+                data: [max - value],
+                backgroundColor: "lightgrey",
+            },]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                enabled: false
+            },
+            scales: {
+                xAxes: [{
+                    display: false,
+                    stacked: true
+                }],
+                yAxes: [{
+                    display: false,
+                    stacked: true
+                }],
+            } // scales
+        } // options
     });
 </script>
 

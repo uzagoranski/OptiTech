@@ -10,7 +10,8 @@ public class TripData {
     int rpmMax;
     int vssAvg;
     int vssMax;
-    public  TripData(){
+
+    public TripData() {
 
     }
 

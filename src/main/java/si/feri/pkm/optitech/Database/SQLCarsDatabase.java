@@ -10,8 +10,8 @@ import static si.feri.pkm.optitech.Database.SQLDatabaseConnection.connectionUrl;
 
 public class SQLCarsDatabase {
 
+    //Function that returns generates and returns every vehicle in database.
     public static ArrayList<Vehicle> getInsertedVehicles() {
-
         ResultSet resultSet;
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(connectionUrl);
@@ -31,6 +31,7 @@ public class SQLCarsDatabase {
         return vehicles;
     }
 
+    //Function which returns selected vehicle by ID.
     public static Vehicle getSelectedVehicle(int carID) {
         Vehicle vehicle = null;
         ResultSet resultSet;
@@ -49,7 +50,9 @@ public class SQLCarsDatabase {
         return vehicle;
     }
 
-    public static Vehicle createVehicleFromDb(ResultSet resultSet) {
+    // Function, which is called from getSelectedVehicle and getInsertedVehicles, which creates entity Vehicle,
+    // that contains 17 attributes. Which are visible in si.feri.pkm.optitech.Entity.Vehicle.
+    private static Vehicle createVehicleFromDb(ResultSet resultSet) {
 
         Vehicle vehicle = null;
 
@@ -78,6 +81,8 @@ public class SQLCarsDatabase {
         return vehicle;
     }
 
+    //Function which returns max speed, which has ever been driven with the selected car. Filtration VssMax < 200, is because
+    // data in the database is not fully correct.
     public static int getMaxSpeedForSelectedCar(int carId) {
         ResultSet resultSet;
 
@@ -96,6 +101,9 @@ public class SQLCarsDatabase {
         return maxSpeed;
     }
 
+
+    //Function which returns max Rounds Per Minute, which has ever been driven with the selected car. Filtration RpmMax < 8000, is because
+    // data in the database is not fully correct.
     public static int getMaxRpmForSelectedCar(int carId) {
         ResultSet resultSet;
 
