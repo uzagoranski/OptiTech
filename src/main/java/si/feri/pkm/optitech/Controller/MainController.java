@@ -33,7 +33,6 @@ public class MainController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model, OAuth2Authentication authentication) throws Exception {
-        System.out.println(SQLTripData.getTripData(217, "2017-06-27"));
 
         model = checkAccount(model, authentication);
 

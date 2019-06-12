@@ -41,7 +41,7 @@
                             <c:choose>
                                 <c:when test="${error != ''}">
                                     <div class="alert alert-danger" role="alert">
-                                        NAIVE BAYES ~ most possible error: ${error}
+                                        Error that will most likely occur according to input data: <b>${error}</b>
                                     </div>
                                 </c:when>
                             </c:choose>

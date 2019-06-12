@@ -13,7 +13,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="/">
+                        <a class="logo" href="index">
                             <img src="images/icon/logo.png" alt="OptiTech" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -28,7 +28,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub active">
-                            <a href="carsList">
+                            <a href="index">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
@@ -50,7 +50,7 @@
 
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/">
+                <a href="index">
                     <img src="images/icon/logo.png" alt="OptiTech" />
                 </a>
             </div>
@@ -58,7 +58,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a href="/"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a href="index"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
 
                         <li class="has-sub">
@@ -100,7 +100,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="/">
+                        <a class="logo" href="index">
                             <img src="images/icon/logo.png" alt="OptiTech" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -115,13 +115,8 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub active">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="index">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="carsList">
@@ -142,7 +137,7 @@
 
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="/">
+                <a href="index">
                     <img src="images/icon/logo.png" alt="OptiTech" />
                 </a>
             </div>
@@ -150,7 +145,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
-                            <a href="/"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a href="index"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
 
                         <li class="has-sub">
@@ -209,7 +204,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="/logout">
+                                                <a href="logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
