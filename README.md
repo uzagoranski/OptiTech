@@ -89,7 +89,15 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 2.  V environment variables v računalniku nastavite pot do bin direktorija JDK-ja (Tutorial: https://www.javatpoint.com/how-to-set-path-in-java)
 3.	Odprite razvojno okolje IntelliJ IDEA, kliknite opcijo "Check out from Version Control, v dropdown menuju izberite opcijo Git
 4.  V polje URL prekopirajte povezavo https://github.com/uzagoranski/Praktikum_OptiTech.git, izberite lokacijo kloniranja in pritisnite na gumb Clone
-5.  
+5.  Na mail nam pišite za .bak datoteko podatkovne baze OptiTech. Ko pridobite datoteko jo "restorajte" v programu SQL Server Management Studio
+6.  Povežite projekt s podatkovno bazo tako, da spremenite niz "connectionUrl" v razredu SQLDatabaseConnection v vaše podatke
+7.  Stisnite na boot-form-handling -> Plugins -> Spring-boot -> in dvakrat kliknite na Spring-boot:run. Počakajte, da se naloži & v brskalniku odprite naslov http://localhost:8080/
+
+## Navodila za zagon
+
+1.	Prenesite virtualni stroj in ga zaženite v programu Hyper-V Manager preko ukaza "Import Virtual Machine"
+2.  
+
 
 ## Izdelano s pomočjo
 
