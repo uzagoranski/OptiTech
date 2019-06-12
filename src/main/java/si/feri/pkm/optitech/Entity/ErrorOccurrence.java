@@ -4,11 +4,13 @@ public class ErrorOccurrence {
     String first;
     String last;
     String desciption;
+    int dtcCode;
 
-    public ErrorOccurrence(String desciption, String first, String last) {
+    public ErrorOccurrence(String description, String first, String last, int dtcCode) {
         this.first = first;
         this.last = last;
-        this.desciption = desciption;
+        this.desciption = description;
+        this.dtcCode = dtcCode;
     }
 
     public String getFirst() {
@@ -35,12 +37,21 @@ public class ErrorOccurrence {
         this.desciption = desciption;
     }
 
+    public int getDtcCode() {
+        return dtcCode;
+    }
+
+    public void setDtcCode(int dtcCode) {
+        this.dtcCode = dtcCode;
+    }
+
     @Override
     public String toString() {
         return "ErrorOccurrence{" +
                 "first='" + first + '\'' +
                 ", last='" + last + '\'' +
                 ", desciption='" + desciption + '\'' +
+                ", dtcCode=" + dtcCode +
                 '}';
     }
 }
