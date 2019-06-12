@@ -348,7 +348,7 @@
 
                     $("#myTable tbody").html("");
                     for(var i = 0; i < count; i++){
-                        $("#myTable tbody").append("<tr><td>" + errors['description'][i] + "</td><td>"+errors['first'][i]+errors['last'][i]+"</td></tr>");
+                        $("#myTable tbody").append("<tr><td>" + errors['description'][i] + "</td><td>"+errors['code'][i]+"</td><td>"+errors['from'][i]+"/"+errors['to'][i]+"</td></tr>");
                     }
 
                 }

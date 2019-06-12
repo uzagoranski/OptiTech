@@ -1,5 +1,6 @@
 package si.feri.pkm.optitech.Database;
 
+import org.json.JSONObject;
 import si.feri.pkm.optitech.Entity.ErrorOccurrence;
 
 import java.sql.*;
@@ -37,26 +38,34 @@ public class SQLErrors {
     }
 
 
-    public static ArrayList<ErrorOccurrence> getFirstAndLastOccurrence(int carId) {
+    public static JSONObject getFirstAndLastOccurrence(int carId) {
         ResultSet resultSet;
-        ArrayList<ErrorOccurrence> errorOccurrences = new ArrayList<>();
+        ArrayList<String> descriptions = new ArrayList<>();
+        ArrayList<String> from = new ArrayList<>();
+        ArrayList<String> to = new ArrayList<>();
+        ArrayList<String> codes = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
              Statement statement = connection.createStatement()) {
-            String selectSql = "SELECT dtcDescription, min(dateMsg) as firstOccurrence, max(dateMsg) as lastOccurrence FROM (SELECT * FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId = "+carId+" AND dateMsg > Convert(datetime, '2017-01-01') AND dateMsg < Convert(datetime, '2027-01-01') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p) AS tabela GROUP BY DtcCode, dtcDescription, dtc;";
+            String selectSql = "SELECT dtcDescription, min(dateMsg) as firstOccurrence, max(dateMsg) as lastOccurrence, DtcCode FROM (SELECT * FROM (SELECT Convert(varchar(11), dateMsg, 23) AS dateMsg, optitech.tlm.DtcInfo.dtc, DtcCode, dtcDescription FROM optitech.tlm.dtcinfo LEFT JOIN (SELECT dtcDescription, dtc FROM optitech.reg.DtcCodes) AS prvi ON optitech.tlm.dtcinfo.dtc = prvi.dtc WHERE vehicleId != 0 AND dtcDescription != 'null' AND vehicleId = "+carId+" AND dateMsg > Convert(datetime, '2017-01-01') AND dateMsg < Convert(datetime, '2027-01-01') GROUP BY DtcInfo.dtc, Convert(varchar(11), dateMsg, 23), DtcCode, DtcInfo.dtc, dtcDescription) AS p) AS tabela GROUP BY DtcCode, dtcDescription, dtc;";
             resultSet = statement.executeQuery(selectSql);
 
             while (resultSet.next()) {
-                ErrorOccurrence eo = new ErrorOccurrence(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3)
-                );
-                errorOccurrences.add(eo);
+                descriptions.add(resultSet.getString(1));
+                from.add(resultSet.getString(2));
+                to.add(resultSet.getString(3));
+                codes.add(resultSet.getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return errorOccurrences;
+
+        JSONObject json = new JSONObject();
+        json.put("description", descriptions);
+        json.put("from", from);
+        json.put("to", to);
+        json.put("code", codes);
+
+        return json;
     }
 }
