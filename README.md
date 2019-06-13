@@ -1,7 +1,12 @@
 <p align="center">
   <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
 </p>
-          Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
+
+<h2 align="center">
+          Spletna platforma za upravljanje podatkov testne flote vozil podjetja Kivi
+</h2>
+
+  [POVEZAVA DO PREDSTAVITVENEGA VIDEA](https://vimeo.com/341977414)
 
 ### Predpogoji
 
@@ -93,6 +98,10 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 6.  Povežite projekt s podatkovno bazo tako, da spremenite niz "connectionUrl" v razredu SQLDatabaseConnection v vaše podatke
 7.  Stisnite na boot-form-handling -> Plugins -> Spring-boot -> in dvakrat kliknite na Spring-boot:run. Počakajte, da se naloži & v brskalniku odprite naslov http://localhost:8080/
 
+<p align="center">
+  <img src="https://i.imgur.com/RQM0Xhh.png">
+</p>
+
 ## Navodila za zagon
 
 *Predpogoj: Operacijski sistem Windows
@@ -105,6 +114,10 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 * Geslo: 1234
 5.  Po uspešni prijavi odprite "Command Prompt" kot administrator, vpišite komando "cd C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin" ter takoj za tem komando "catalina.bat run". Počakajte, da se izpiše *"INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 29959 ms"
 6. Odprite brskalnik, prekopirajte naslov http://localhost:8080/OptiTech/ in brskajte ter raziskujte, kaj aplikacija nudi
+
+<p align="center">
+  <img src="https://i.imgur.com/R81mGsx.png">
+</p>
 
 ## Izdelano s pomočjo
 
@@ -123,6 +136,10 @@ V primeru želje po sodelovanju pri projektu nas lahko kontaktirate in nam pošl
 Različica: 7.5.2
 
 To je zadnja uradno objavljena različica.
+
+<p align="center">
+  <img src="https://i.imgur.com/Fl0BHne.png">
+</p>
 
 ## Avtorji
 
