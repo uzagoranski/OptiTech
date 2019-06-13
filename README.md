@@ -2,9 +2,9 @@
   <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
 </p>
 
-<p align="center">
+<h3 align="center">
           Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
-</p>
+</h3>
 
   [POVEZAVA DO PREDSTAVITVENEGA VIDEA](https://vimeo.com/341977414)
 
