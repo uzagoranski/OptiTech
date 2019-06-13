@@ -3,7 +3,7 @@
 </p>
 
 <h2 align="center">
-          Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi
+          Spletna platforma za upravljanje podatkov testne flote vozil podjetja Kivi
 </h2>
 
   [POVEZAVA DO PREDSTAVITVENEGA VIDEA](https://vimeo.com/341977414)
