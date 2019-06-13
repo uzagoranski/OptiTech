@@ -3,6 +3,8 @@
 </p>
           Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
 
+[POVEZAVA DO VIDEO PREDSTAVITVE](https://vimeo.com/341977414)
+
 ### Predpogoji
 
 IntelliJ IDEA,
