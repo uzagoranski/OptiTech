@@ -1,9 +1,12 @@
 <p align="center">
   <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
 </p>
+<p align="center">
+  [POVEZAVA DO VIDEO PREDSTAVITVE](https://vimeo.com/341977414)
+</p>
+<p align="center">
           Spletna platforma za pregled in upravljanje podatkov testne flote vozil podjetja Kivi.
-
-[POVEZAVA DO VIDEO PREDSTAVITVE](https://vimeo.com/341977414)
+</p>
 
 ### Predpogoji
 
