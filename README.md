@@ -2,9 +2,9 @@
   <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
 </p>
 
-<h2 align="center">
-          Spletna platforma za upravljanje podatkov testne flote vozil podjetja Kivi
-</h2>
+<h1 align="center">
+Spletna platforma za pregled in upravljanje podatkov vozil testne flote podjetja Kivi
+</h1>
 
   [POVEZAVA DO PREDSTAVITVENEGA VIDEA](https://vimeo.com/341977414)
 
@@ -45,6 +45,10 @@ Platformo sestavlajo:
 ### Uporabniški vmesnik
 
 Rok za izdelavo projekta je izjemno kratek (5 tednov), zaradi česar si ne moremo privoščiti izgube časa z vidika samostojnega programiranja uporabniškega vmesnika. Iz tega razloga smo prebrskali med najboljšimi brezplačnimi predlogami, ki so ustrezale našemu konceptu in tipu projekta in izbrali temo [CoolAdmin](https://colorlib.com/polygon/cooladmin/index.html). Ta je seveda prilagojena in prirejena našim potrebam, zatorej je popolna uporabniška izkušnja zagotovljena.
+
+<p align="center">
+  <img src="https://i.imgur.com/RQM0Xhh.png">
+</p>
 
 ### Prijava in registracija
 
@@ -87,6 +91,9 @@ Za implementacijo posameznih komponent platforme se poslužujemo iterativnega pr
 
 Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti dodeljene naloge. Zaradi tega je v igri tudi inkrementalen pristop dela, v katerem izvedemo gradnjo na prvotni funkcionalnosti z dopolnjevanjem in dodajanjem vrednosti obstoječi platformi.
 
+<p align="center">
+  <img src="https://i.imgur.com/R81mGsx.png">
+</p>
 
 ## Navodila za implementacijo
 
@@ -98,25 +105,22 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 6.  Povežite projekt s podatkovno bazo tako, da spremenite niz "connectionUrl" v razredu SQLDatabaseConnection v vaše podatke
 7.  Stisnite na boot-form-handling -> Plugins -> Spring-boot -> in dvakrat kliknite na Spring-boot:run. Počakajte, da se naloži & v brskalniku odprite naslov http://localhost:8080/
 
-<p align="center">
-  <img src="https://i.imgur.com/RQM0Xhh.png">
-</p>
-
 ## Navodila za zagon
 
-*Predpogoj: Operacijski sistem Windows
+<i>*Predpogoj: Operacijski sistem Windows</i>
 
-1.	Omogočite Hyper-V po korakih vodiča na [povezavi](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
-2.  Prenesite sliko virtualnega stroja s predpripravljenimi komponentami za zagon aplikacije iz [povezave](https://github.com/uzagoranski/Praktikum_OptiTech/tree/master/vm) 
-3.  Odprite program Hyper-V Manager in preko ukaza "Import Virtual Machine" dodajte sliko prej omenjenega virtualnega stroja
+1.	Omogočite program Hyper-V v operacijskem sistemu Windows po korakih iz [vodiča](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
+2.  Prenesite .zip datoteko slike virtualnega stroja s predpripravljenimi komponentami za zagon aplikacije iz [povezave](https://github.com/uzagoranski/Praktikum_OptiTech/tree/master/vm) 
+3.  Razširite .zip datoteko na željeno mesto na napravi
+3.  Odprite program Hyper-V Manager in preko ukaza "Import Virtual Machine" dodajte sliko virtualnega stroja, ki se nahaja v direktoriju "OptiTech/Virtual Machines" in ima naziv "C67704EC-1E34-4020-AC29-7E914DED161B.vmcx" ter sledite [vodiču](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/deploy/export-and-import-virtual-machines)
 4.  Podatki za prijavo v OS:
-* Uporabniško ime: User
-* Geslo: 1234
-5.  Po uspešni prijavi odprite "Command Prompt" kot administrator, vpišite komando "cd C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin" ter takoj za tem komando "catalina.bat run". Počakajte, da se izpiše *"INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 29959 ms"
+  *   <i>Uporabniško ime:</i> <b>User</b>
+  *   <i>Geslo:</i> <b>1234</b>
+5.  Po uspešni prijavi odprite "Command Prompt" (cmd) kot administrator, vpišite komando <b>"cd C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin"</b> ter takoj za tem komando <b>"catalina.bat run"</b>. Počakajte, da se izpiše <i>"INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 29959 ms"</i>
 6. Odprite brskalnik, prekopirajte naslov http://localhost:8080/OptiTech/ in brskajte ter raziskujte, kaj aplikacija nudi
 
 <p align="center">
-  <img src="https://i.imgur.com/R81mGsx.png">
+  <img src="https://i.imgur.com/Fl0BHne.png">
 </p>
 
 ## Izdelano s pomočjo
@@ -136,10 +140,6 @@ V primeru želje po sodelovanju pri projektu nas lahko kontaktirate in nam pošl
 Različica: 7.5.2
 
 To je zadnja uradno objavljena različica.
-
-<p align="center">
-  <img src="https://i.imgur.com/Fl0BHne.png">
-</p>
 
 ## Avtorji
 
