@@ -110,7 +110,7 @@ Na žalost v posamezni iteraciji vsem ne uspe vedno zaključiti in izpopolniti d
 <i>*Predpogoj: Operacijski sistem Windows</i>
 
 1.	Omogočite program Hyper-V v operacijskem sistemu Windows po korakih iz [vodiča](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
-2.  Prenesite .zip datoteko slike virtualnega stroja s predpripravljenimi komponentami za zagon aplikacije iz [povezave](https://github.com/uzagoranski/Praktikum_OptiTech/tree/master/vm) 
+2.  Prenesite .zip datoteko slike virtualnega stroja s predpripravljenimi komponentami za zagon aplikacije iz [povezave](https://drive.google.com/open?id=1fGRkT9z-re7TiKLI1Ztd-cAPIz_dXKCn) 
 3.  Razširite .zip datoteko na željeno mesto na napravi
 3.  Odprite program Hyper-V Manager in preko ukaza "Import Virtual Machine" dodajte sliko virtualnega stroja, ki se nahaja v direktoriju "OptiTech/Virtual Machines" in ima naziv "C67704EC-1E34-4020-AC29-7E914DED161B.vmcx" ter sledite [vodiču](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/deploy/export-and-import-virtual-machines)
 4.  Podatki za prijavo v OS:
