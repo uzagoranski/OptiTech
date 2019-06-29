@@ -143,6 +143,6 @@ To je zadnja uradno objavljena različica.
 
 ## Avtorji
 
-[<img alt="PrimozStopar" src="https://avatars1.githubusercontent.com/u/22565865?s=460&v=4" width="117">](https://github.com/Evixiss) |[<img alt="AljosaSikosek" src="https://avatars2.githubusercontent.com/u/33753351?s=460&v=4" width="117">](https://github.com/aljosasikosek) |[<img alt="UrosZagoranski" src="https://avatars1.githubusercontent.com/u/33725933?s=460&v=4" width="117">](https://github.com/uzagoranski) |
+[<img alt="PrimozStopar" src="https://avatars1.githubusercontent.com/u/22565865?s=460&v=4" width="117">](https://github.com/StoparPrimoz) |[<img alt="AljosaSikosek" src="https://avatars2.githubusercontent.com/u/33753351?s=460&v=4" width="117">](https://github.com/aljosasikosek) |[<img alt="UrosZagoranski" src="https://avatars1.githubusercontent.com/u/33725933?s=460&v=4" width="117">](https://github.com/uzagoranski) |
 :---: |:---: |:---: |
 [Primož Stopar](https://github.com/Evixiss) |[Aljoša Sikošek](https://github.com/aljosasikosek) |[Uroš Zagoranski](https://github.com/uzagoranski) |
