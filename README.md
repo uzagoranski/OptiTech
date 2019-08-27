@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://optitech.sydneyitsolutions.com/wp-content/uploads/2019/03/logo640.png">
+  <img src="https://raw.githubusercontent.com/uzagoranski/OptiTech/master/src/main/resources/static/images/icon/logo.png">
 </p>
 
 <h1 align="center">
